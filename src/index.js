@@ -25,6 +25,7 @@ export function myVis() {
 
     const lookup = {};
     const result = ['Select Start Year'];
+    const resultend = ['Select End Year'];
 
     for (let datum, i = 0; (datum = data[i++]); ) {
       const year = datum.Year;
@@ -32,10 +33,11 @@ export function myVis() {
       if (!(year in lookup)) {
         lookup[year] = 1;
         result.push(year);
+        resultend.push(year);
       }
     }
 
-    console.log('here are years', result);
+    console.log('here are years', result, resultend);
 
     // making tooltip div
 
@@ -67,10 +69,10 @@ export function myVis() {
 
     // make dropdown
 
-    const selector = d3
+    const startselector = d3
       .select('#middle')
       .append('select')
-      .attr('id', 'selector')
+      .attr('id', 'startselector')
       .selectAll('option')
       .data(result)
       .enter()
@@ -83,21 +85,43 @@ export function myVis() {
         return d;
       });
 
+        const endselector = d3
+          .select('#middle')
+          .append('select')
+          .attr('id', 'endselector')
+          .selectAll('option')
+          .data(resultend)
+          .enter()
+          .append('option')
+          .text(function(d) {
+            return d;
+          })
+          .attr('value', function(d) {
+            console.log(d);
+            return d;
+          });
+
     // default view is from 2016-2019
 
-    update(data, 2016);
+    update(data, 2016, 2019);
 
     // when an option is selected from the dropdown, use it to perform filtering by calling the update function
 
-    d3.select('#selector').on('change', function(d) {
+    d3.select('#endselector').on('change', function(d) {
+      const startindex = d3.select('#startselector').property('value');
       const index = this.value;
-      console.log("here's the chosen year", index);
-      update(data, index);
+      console.log(
+        "here's the chosen start year",
+        d3.select('#startselector').property('value'),
+        typeof d3.select('#startselector').property('value'),
+      );
+      console.log("here's the chosen end year", index);
+      update(data, startindex, index);
     });
 
     // the update function that is called upon dropdown filtering
 
-    function update(data, startyear) {
+    function update(data, startyear, endyear) {
 
     g.selectAll('*').remove();
 
@@ -107,21 +131,22 @@ export function myVis() {
         data,
         "here's input year to start",
         startyear, "typeof", 
-        typeof startyear
+        typeof startyear,
+        "here's input year to end", endyear, "typeof", typeof endyear
       );
 
       // show a five-year window at max
 
       console.log("startyear plus 4", startyear + 4)
 
-      const endyear = Number(startyear) + 4;
+      //const endyear = Number(startyear) + 4;
 
       console.log('here is the endyear', endyear);
 
       // filter the data
 
       const filt = data.filter(function(d) {
-        return d.Year >= startyear && d.Year <= endyear;
+        return d.Year >= Number(startyear) && d.Year <= Number(endyear);
       });
 
       console.log("HERE'S THE FILTERED DATA", filt);
