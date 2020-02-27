@@ -332,7 +332,7 @@ export function myVis() {
         .attr('text-anchor', 'middle')
         .style('font', '18px sans-serif')
         .style('font-weight', 'bold')
-        .text('Title goes here');
+        .text('HELP WHAT IS TITLE');
 
       var tooltip = g
         .append('g')

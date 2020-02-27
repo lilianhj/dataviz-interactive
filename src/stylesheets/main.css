@@ -23,3 +23,71 @@ div.tooltip {
   border-radius: 6px;
   pointer-events: none;
 }
+
+#page-container {
+  position: relative;
+  min-height: 100vh;
+  min-width: 100%;
+}
+
+nav {
+  padding-top: 10px;
+  padding-right: 15px;
+  padding-left: 20px;
+  display: flex;
+  justify-content: space-between;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+nav ul {
+  display: flex;
+  /* flex-direction: row-reverse; */
+  align-items: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+nav a {
+  color:white;
+  font-family: Tahoma;
+  font-size: 13px;
+  padding: 0px 0px 0px 15px;
+  text-decoration: none;
+}
+
+.nav-top {
+  background-color:steelblue;
+  top: 0;
+  padding-bottom: 10px;
+  color: white;
+}
+
+.nav-left li {
+    float: left;
+    justify-content: space-evenly;
+    align-items: baseline;
+}
+
+.nav-right li {
+    float: right;
+    align-items: baseline;
+}
+
+.bigtext {
+  padding-top: 10px;
+  padding-left: 20px;
+  font-family: Tahoma;
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: steelblue;
+  font-family: Tahoma;
+  color: white;
+  border-top: 1px solid #e4e4e4;
+  height: 40px;
+}
