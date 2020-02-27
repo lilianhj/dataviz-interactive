@@ -2,35 +2,44 @@
 <html>
 
 <head>
-  <title>Scaffold</title>
+  <title>Refugee Flow Across Time and Space</title>
   <link rel="stylesheet" type="text/css" href="src/stylesheets/main.css">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 </head>
 
 <body>
-  <div id="page-container">
-    <div id="content-wrap">
       <nav class="nav-top">
         <div class="nav-left">
           <ul>
-            <li><a href="#">TITLE</a></li>
-            <li><a href="second.html">link to another thing that doesn't exist yet</a></li>
+            <li><a href="index.html">Admissions Over Time</a></li>
+            <li><a href="second.html">Distribution Across Space</a></li>
           </ul>
         </div>
+              <div class="nav-right">
+                <ul>
+                  <li><a href="https://www.wrapsnet.org/documents/Refugee%20Admissions%20Report%20FY2020_01_31_.xlsx">Data Source</a></li>
+                  <li><a href="https://github.com/lilianhj/dataviz-interactive">Github</a></li>
+                </ul>
+              </div>
       </nav>
   <div id="app"></div>
   <script src="bundle.js"></script>
-  <div class="bigtext">why do I do this to myself</div>
+  <div class="bigtext"><h2>Refugee Flow into the United States: Variation Across Time and Space</h2>
+  <p>The visualizations on this website display how the flow of refugees into the United States varies across time and space. Use the navigation bar above to switch between different visualizations.</p>
+  <h3>Variation across time</h3>
+<p>Every year, the President sets the overall "ceiling" - a maximum number of refugees that can be admitted to the United States - and allocates that number among different regions. The bar chart below shows how many refugees are actually admitted from each region in a year, and how this differs from the refugee ceiling - whether it exceeds or falls short of it.</p>
+<p>You can view up to five years of data at a time. You can select the start of the five-year range using the dropdown menu below.</p></div>
+<div class="bigtext" id="middle"></div>
+<div class="svgcontainer">
   <svg width="960" height="500"></svg>
-  <div class="bigtext" id="middle"></div>
   </div>
   <!-- <div>
   <a href="second.html">link to another thing that doesn't exist yet</a>
   </div> -->
   <!-- <script src="https://d3js.org/d3.v4.min.js"></script> -->
   <!-- <script src="src/index.js"></script> -->
-  <footer id="footer">
+  <!-- <footer id="footer">
     <nav class="nav-bottom">
       <div class="nav-left">
         <ul>
@@ -40,8 +49,8 @@
         </ul>
       </div>
     </nav>
-  </footer>
-  </div>
+  </footer> -->
+</body>
 
 </html>
 

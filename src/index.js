@@ -359,7 +359,7 @@ export function myVis() {
         .attr('text-anchor', 'middle')
         .style('font', '18px sans-serif')
         .style('font-weight', 'bold')
-        .text('HELP WHAT IS TITLE');
+        .text('Annual Refugee Ceilings and Actual Admissions');
 
     }
   });
