@@ -1,0 +1,295 @@
+Year,Region,Type,Value
+2001,Africa,Within Capacity,19020
+2001,Africa,Excess,0
+2001,Africa,Unused,980
+2001,East Asia,Within Capacity,4163
+2001,East Asia,Excess,0
+2001,East Asia,Unused,1837
+2001,Europe,Within Capacity,15794
+2001,Europe,Excess,0
+2001,Europe,Unused,4206
+2001,Former Soviet Union,Within Capacity,15978
+2001,Former Soviet Union,Excess,0
+2001,Former Soviet Union,Unused,1022
+2001,Latin America/Caribbean,Within Capacity,2975
+2001,Latin America/Caribbean,Excess,0
+2001,Latin America/Caribbean,Unused,25
+2001,Near East/South Asia,Within Capacity,10000
+2001,Near East/South Asia,Excess,1956
+2001,Near East/South Asia,Unused,0
+2002,Africa,Within Capacity,2551
+2002,Africa,Excess,0
+2002,Africa,Unused,19449
+2002,East Asia,Within Capacity,3512
+2002,East Asia,Excess,0
+2002,East Asia,Unused,488
+2002,Europe,Within Capacity,5459
+2002,Europe,Excess,0
+2002,Europe,Unused,3541
+2002,Former Soviet Union,Within Capacity,9969
+2002,Former Soviet Union,Excess,0
+2002,Former Soviet Union,Unused,7031
+2002,Latin America/Caribbean,Within Capacity,1934
+2002,Latin America/Caribbean,Excess,0
+2002,Latin America/Caribbean,Unused,1066
+2002,Near East/South Asia,Within Capacity,3706
+2002,Near East/South Asia,Excess,0
+2002,Near East/South Asia,Unused,11294
+2003,Africa,Within Capacity,10714
+2003,Africa,Excess,0
+2003,Africa,Unused,9286
+2003,East Asia,Within Capacity,1724
+2003,East Asia,Excess,0
+2003,East Asia,Unused,2276
+2003,Europe,Within Capacity,2500
+2003,Europe,Excess,6
+2003,Europe,Unused,0
+2003,Former Soviet Union,Within Capacity,8744
+2003,Former Soviet Union,Excess,0
+2003,Former Soviet Union,Unused,5256
+2003,Latin America/Caribbean,Within Capacity,455
+2003,Latin America/Caribbean,Excess,0
+2003,Latin America/Caribbean,Unused,2045
+2003,Near East/South Asia,Within Capacity,4260
+2003,Near East/South Asia,Excess,0
+2003,Near East/South Asia,Unused,2740
+2004,Africa,Within Capacity,29104
+2004,Africa,Excess,0
+2004,Africa,Unused,896
+2004,East Asia,Within Capacity,8084
+2004,East Asia,Excess,0
+2004,East Asia,Unused,416
+2004,Europe,Within Capacity,9254
+2004,Europe,Excess,0
+2004,Europe,Unused,3746
+2004,Latin America/Caribbean,Within Capacity,3500
+2004,Latin America/Caribbean,Excess,77
+2004,Latin America/Caribbean,Unused,0
+2004,Near East/South Asia,Within Capacity,2854
+2004,Near East/South Asia,Excess,0
+2004,Near East/South Asia,Unused,146
+2005,Africa,Within Capacity,20000
+2005,Africa,Excess,745
+2005,Africa,Unused,0
+2005,East Asia,Within Capacity,12076
+2005,East Asia,Excess,0
+2005,East Asia,Unused,924
+2005,Europe,Within Capacity,11316
+2005,Europe,Excess,0
+2005,Europe,Unused,4184
+2005,Latin America/Caribbean,Within Capacity,6699
+2005,Latin America/Caribbean,Excess,0
+2005,Latin America/Caribbean,Unused,301
+2005,Near East/South Asia,Within Capacity,2977
+2005,Near East/South Asia,Excess,0
+2005,Near East/South Asia,Unused,523
+2006,Africa,Within Capacity,18126
+2006,Africa,Excess,0
+2006,Africa,Unused,1874
+2006,East Asia,Within Capacity,5659
+2006,East Asia,Excess,0
+2006,East Asia,Unused,9341
+2006,Europe,Within Capacity,10456
+2006,Europe,Excess,0
+2006,Europe,Unused,4544
+2006,Latin America/Caribbean,Within Capacity,3264
+2006,Latin America/Caribbean,Excess,0
+2006,Latin America/Caribbean,Unused,1736
+2006,Near East/South Asia,Within Capacity,3718
+2006,Near East/South Asia,Excess,0
+2006,Near East/South Asia,Unused,1282
+2007,Africa,Within Capacity,17483
+2007,Africa,Excess,0
+2007,Africa,Unused,4517
+2007,East Asia,Within Capacity,15643
+2007,East Asia,Excess,0
+2007,East Asia,Unused,357
+2007,Europe,Within Capacity,4560
+2007,Europe,Excess,0
+2007,Europe,Unused,1940
+2007,Latin America/Caribbean,Within Capacity,2976
+2007,Latin America/Caribbean,Excess,0
+2007,Latin America/Caribbean,Unused,2024
+2007,Near East/South Asia,Within Capacity,7620
+2007,Near East/South Asia,Excess,0
+2007,Near East/South Asia,Unused,1380
+2008,Africa,Within Capacity,8935
+2008,Africa,Excess,0
+2008,Africa,Unused,7065
+2008,East Asia,Within Capacity,19489
+2008,East Asia,Excess,0
+2008,East Asia,Unused,511
+2008,Europe,Within Capacity,2343
+2008,Europe,Excess,0
+2008,Europe,Unused,657
+2008,Latin America/Caribbean,Within Capacity,4277
+2008,Latin America/Caribbean,Excess,0
+2008,Latin America/Caribbean,Unused,723
+2008,Near East/South Asia,Within Capacity,25147
+2008,Near East/South Asia,Excess,0
+2008,Near East/South Asia,Unused,2853
+2009,Africa,Within Capacity,9670
+2009,Africa,Excess,0
+2009,Africa,Unused,2330
+2009,East Asia,Within Capacity,19850
+2009,East Asia,Excess,0
+2009,East Asia,Unused,650
+2009,Europe,Within Capacity,1997
+2009,Europe,Excess,0
+2009,Europe,Unused,503
+2009,Latin America/Caribbean,Within Capacity,4857
+2009,Latin America/Caribbean,Excess,0
+2009,Latin America/Caribbean,Unused,643
+2009,Near East/South Asia,Within Capacity,38280
+2009,Near East/South Asia,Excess,0
+2009,Near East/South Asia,Unused,1220
+2010,Africa,Within Capacity,13305
+2010,Africa,Excess,0
+2010,Africa,Unused,2195
+2010,East Asia,Within Capacity,17716
+2010,East Asia,Excess,0
+2010,East Asia,Unused,284
+2010,Europe,Within Capacity,1526
+2010,Europe,Excess,0
+2010,Europe,Unused,974
+2010,Latin America/Caribbean,Within Capacity,4982
+2010,Latin America/Caribbean,Excess,0
+2010,Latin America/Caribbean,Unused,518
+2010,Near East/South Asia,Within Capacity,35782
+2010,Near East/South Asia,Excess,0
+2010,Near East/South Asia,Unused,2218
+2011,Africa,Within Capacity,7685
+2011,Africa,Excess,0
+2011,Africa,Unused,7315
+2011,East Asia,Within Capacity,17367
+2011,East Asia,Excess,0
+2011,East Asia,Unused,1633
+2011,Europe,Within Capacity,1228
+2011,Europe,Excess,0
+2011,Europe,Unused,772
+2011,Latin America/Caribbean,Within Capacity,2976
+2011,Latin America/Caribbean,Excess,0
+2011,Latin America/Caribbean,Unused,2524
+2011,Near East/South Asia,Within Capacity,27168
+2011,Near East/South Asia,Excess,0
+2011,Near East/South Asia,Unused,8332
+2012,Africa,Within Capacity,10608
+2012,Africa,Excess,0
+2012,Africa,Unused,1392
+2012,East Asia,Within Capacity,14366
+2012,East Asia,Excess,0
+2012,East Asia,Unused,3634
+2012,Europe,Within Capacity,1129
+2012,Europe,Excess,0
+2012,Europe,Unused,871
+2012,Latin America/Caribbean,Within Capacity,2078
+2012,Latin America/Caribbean,Excess,0
+2012,Latin America/Caribbean,Unused,3422
+2012,Near East/South Asia,Within Capacity,30057
+2012,Near East/South Asia,Excess,0
+2012,Near East/South Asia,Unused,5443
+2013,Africa,Within Capacity,15950
+2013,Africa,Excess,30
+2013,Africa,Unused,0
+2013,East Asia,Within Capacity,16537
+2013,East Asia,Excess,0
+2013,East Asia,Unused,63
+2013,Europe,Within Capacity,580
+2013,Europe,Excess,0
+2013,Europe,Unused,70
+2013,Latin America/Caribbean,Within Capacity,4400
+2013,Latin America/Caribbean,Excess,39
+2013,Latin America/Caribbean,Unused,0
+2013,Near East/South Asia,Within Capacity,32390
+2013,Near East/South Asia,Excess,0
+2013,Near East/South Asia,Unused,10
+2014,Africa,Within Capacity,17476
+2014,Africa,Excess,0
+2014,Africa,Unused,24
+2014,East Asia,Within Capacity,14700
+2014,East Asia,Excess,84
+2014,East Asia,Unused,0
+2014,Europe,Within Capacity,959
+2014,Europe,Excess,0
+2014,Europe,Unused,41
+2014,Latin America/Caribbean,Within Capacity,4300
+2014,Latin America/Caribbean,Excess,18
+2014,Latin America/Caribbean,Unused,0
+2014,Near East/South Asia,Within Capacity,32450
+2014,Near East/South Asia,Excess,0
+2014,Near East/South Asia,Unused,50
+2015,Africa,Within Capacity,20400
+2015,Africa,Excess,2072
+2015,Africa,Unused,0
+2015,East Asia,Within Capacity,17300
+2015,East Asia,Excess,1169
+2015,East Asia,Unused,0
+2015,Europe,Within Capacity,2300
+2015,Europe,Excess,63
+2015,Europe,Unused,0
+2015,Latin America/Caribbean,Within Capacity,2050
+2015,Latin America/Caribbean,Excess,0
+2015,Latin America/Caribbean,Unused,250
+2015,Near East/South Asia,Within Capacity,24579
+2015,Near East/South Asia,Excess,0
+2015,Near East/South Asia,Unused,3121
+2016,Africa,Within Capacity,27500
+2016,Africa,Excess,4124
+2016,Africa,Unused,0
+2016,East Asia,Within Capacity,12518
+2016,East Asia,Excess,0
+2016,East Asia,Unused,1482
+2016,Europe,Within Capacity,3957
+2016,Europe,Excess,0
+2016,Europe,Unused,43
+2016,Latin America/Caribbean,Within Capacity,1340
+2016,Latin America/Caribbean,Excess,0
+2016,Latin America/Caribbean,Unused,160
+2016,Near East/South Asia,Within Capacity,35555
+2016,Near East/South Asia,Excess,0
+2016,Near East/South Asia,Unused,2445
+2017,Africa,Within Capacity,20232
+2017,Africa,Excess,0
+2017,Africa,Unused,14768
+2017,East Asia,Within Capacity,5173
+2017,East Asia,Excess,0
+2017,East Asia,Unused,6827
+2017,Europe,Within Capacity,4000
+2017,Europe,Excess,1205
+2017,Europe,Unused,0
+2017,Latin America/Caribbean,Within Capacity,1688
+2017,Latin America/Caribbean,Excess,0
+2017,Latin America/Caribbean,Unused,3312
+2017,Near East/South Asia,Within Capacity,21418
+2017,Near East/South Asia,Excess,0
+2017,Near East/South Asia,Unused,18582
+2018,Africa,Within Capacity,10459
+2018,Africa,Excess,0
+2018,Africa,Unused,8541
+2018,East Asia,Within Capacity,3668
+2018,East Asia,Excess,0
+2018,East Asia,Unused,1332
+2018,Europe,Within Capacity,2000
+2018,Europe,Excess,1612
+2018,Europe,Unused,0
+2018,Latin America/Caribbean,Within Capacity,955
+2018,Latin America/Caribbean,Excess,0
+2018,Latin America/Caribbean,Unused,545
+2018,Near East/South Asia,Within Capacity,3797
+2018,Near East/South Asia,Excess,0
+2018,Near East/South Asia,Unused,13703
+2019,Africa,Within Capacity,11000
+2019,Africa,Excess,5366
+2019,Africa,Unused,0
+2019,East Asia,Within Capacity,4000
+2019,East Asia,Excess,1030
+2019,East Asia,Unused,0
+2019,Europe,Within Capacity,3000
+2019,Europe,Excess,1994
+2019,Europe,Unused,0
+2019,Latin America/Caribbean,Within Capacity,809
+2019,Latin America/Caribbean,Excess,0
+2019,Latin America/Caribbean,Unused,2191
+2019,Near East/South Asia,Within Capacity,2801
+2019,Near East/South Asia,Excess,0
+2019,Near East/South Asia,Unused,6199

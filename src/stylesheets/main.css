@@ -5,10 +5,21 @@ a {
 
 html,
 body {
-  background: #D6D6CE;
-  font-family: Verdana, Geneva, sans-serif;
   height: 100%;
   margin: 0;
   padding: 0;
   width: 100%;
+}
+
+div.tooltip {
+  position: absolute;
+  text-align: center;
+  width: 150px;
+  height: 40px;
+  padding: 10px;
+  font: 12px sans-serif;
+  background: lightgrey;
+  border: 0px;
+  border-radius: 6px;
+  pointer-events: none;
 }
