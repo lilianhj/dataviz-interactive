@@ -7,19 +7,9 @@ const domReady = require('domready');
 
 domReady(() => {
   // this is just one example of how to import data. there are lots of ways to do it!
-  fetch('./data/example.json')
-    .then(response => response.json())
+  fetch('./data/ceilings_v3.csv')
     .then(data => myVis(data))
     .catch(e => {
       console.log(e);
     });
 });
-
-// function myVis(data) {
-//   // portrait
-//   const width = 5000;
-//   const height = (36 / 24) * width;
-//   console.log(data, height);
-//   console.log('Hi!');
-//   // EXAMPLE FIRST FUNCTION
-// }

@@ -2,32 +2,32 @@ import * as d3 from 'd3';
 export function myVis() {
   // create SVG
 
-  var svg = d3.select('svg'),
-    margin = {top: 40, right: 200, bottom: 60, left: 60},
-    width = +svg.attr('width') - margin.left - margin.right,
-    height = +svg.attr('height') - margin.top - margin.bottom,
-    g = svg
+  const svg = d3.select('svg');
+  const margin = {top: 40, right: 200, bottom: 60, left: 60};
+  const width = Number(svg.attr('width')) - margin.left - margin.right;
+  const height = Number(svg.attr('height')) - margin.top - margin.bottom;
+  const g = svg
       .append('g')
-      .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
+      .attr('transform', `translate(${margin.left},${margin.top})`);
 
   // read in data and make viz
 
   d3.csv('data/ceilings_v3.csv').then(function(data) {
     // get data from csv
     data.forEach(function(d) {
-      d.Value = +d.Value;
-      d.Year = +d.Year;
+      d.Value = Number(d.Value);
+      d.Year = Number(d.Year);
     });
 
     console.log('data', data);
 
     // get unique years to make dropdown options
 
-    var lookup = {};
-    var result = ['Select Start Year'];
+    const lookup = {};
+    const result = ['Select Start Year'];
 
-    for (var datum, i = 0; (datum = data[i++]); ) {
-      var year = datum.Year;
+    for (let datum, i = 0; (datum = data[i++]); ) {
+      const year = datum.Year;
 
       if (!(year in lookup)) {
         lookup[year] = 1;
@@ -37,15 +37,15 @@ export function myVis() {
 
     console.log('here are years', result);
 
-          //making tooltip div
+    // making tooltip div
 
-      var div = d3
+      const div = d3
         .select('body')
         .append('div')
         .attr('class', 'tooltip')
         .style('opacity', 0);
 
-      var tooltip = g
+      const tooltip = g
         .append('g')
         .attr('class', 'tooltip')
         .style('display', 'none');
@@ -67,7 +67,7 @@ export function myVis() {
 
     // make dropdown
 
-    var selector = d3
+    const selector = d3
       .select('#middle')
       .append('select')
       .attr('id', 'selector')
@@ -90,7 +90,7 @@ export function myVis() {
     // when an option is selected from the dropdown, use it to perform filtering by calling the update function
 
     d3.select('#selector').on('change', function(d) {
-      let index = this.value;
+      const index = this.value;
       console.log("here's the chosen year", index);
       update(data, index);
     });
@@ -126,19 +126,20 @@ export function myVis() {
 
       console.log("HERE'S THE FILTERED DATA", filt);
 
-      var filtgroupData = d3
+      const filtgroupData = d3
         .nest()
         .key(function(d) {
           return d.Year + d.Region;
         })
         .rollup(function(d, i) {
-          //console.log(d[0]) //this is every year/region/type combi. use this to get the first two levels of the nesting, i.e. year/region
-          var d2 = {Year: d[0].Year, Region: d[0].Region};
+          // console.log(d[0]) //this is every year/region/type combi. use this to get the first two levels of the nesting, i.e. year/region
+          let d2 = {Year: d[0].Year, Region: d[0].Region};
           d.forEach(function(d) {
-            d2[d.Type] = d.Value; //the third level of the nesting, i.e. type of admissions
+            d2[d.Type] = d.Value; 
+            // the third level of the nesting, i.e. type of admissions
           });
-          //console.log("rollup d", d, d2);
-          //console.log("here's d2", d2)
+          // console.log("rollup d", d, d2);
+          // console.log("here's d2", d2)
           return d2;
         })
         .entries(filt)
@@ -146,20 +147,20 @@ export function myVis() {
           return d.value;
         });
 
-      //filtered grouped data, not yet stacked
+      // filtered grouped data, not yet stacked
       console.log('filtgroupData', filtgroupData);
 
-      //z is the scale that maps admission types onto opacity
-      var z = d3.scaleOrdinal().range([0.7, 1.0, 0.25]);
+      // z is the scale that maps admission types onto opacity
+      const z = d3.scaleOrdinal().range([0.7, 1.0, 0.25]);
       z.domain(
         data.map(function(d) {
           return d.Type;
         }),
       );
-      var keys = z.domain();
+      const keys = z.domain();
 
-      //x1color is the scale that maps regions onto colors
-      var x1color = d3.scaleOrdinal([
+      // x1color is the scale that maps regions onto colors
+      const x1color = d3.scaleOrdinal([
         '#1696d2',
         '#ec008b',
         '#b589da',
@@ -169,25 +170,28 @@ export function myVis() {
       ]);
       x1color.domain(
         data.map(function(d) {
-          //console.log(d.Region);
+          // console.log(d.Region);
           return d.Region;
         }),
       );
 
-      //stack the grouped data
-      var filtstackData = d3
+      // stack the grouped data
+      const filtstackData = d3
         .stack()
         .offset(d3.stackOffsetNone)
-        .keys(keys)(filtgroupData); // the groupData thing just feeds in the dataset
+        .keys(keys)(filtgroupData); 
+        // the groupData thing just feeds in the dataset
 
       console.log('filtstackData', filtstackData);
 
-      var x0 = d3
+      const x0 = d3
         .scaleBand()
         .rangeRound([0, width])
-        .paddingInner(0.2); //space between groups - i.e. between years
+        .paddingInner(0.2); 
+        // space between groups - i.e. between years
 
-      var x1 = d3.scaleBand(); // space within groups - i.e. between regions
+      const x1 = d3.scaleBand(); 
+      // space within groups - i.e. between regions
 
       x0.domain(
         filt.map(function(d) {
@@ -202,7 +206,7 @@ export function myVis() {
         .rangeRound([0, x0.bandwidth()])
         .padding(0.05);
 
-      var y = d3
+      const y = d3
         .scaleLinear()
         .range([height, 0])
         .domain([
@@ -217,7 +221,7 @@ export function myVis() {
       console.log('y domain', y.domain());
 
       // this operates at the level of admission type. sets opacity
-      var serie = g
+      const serie = g
         .selectAll('.serie')
         .data(filtstackData)
         .enter()
@@ -239,7 +243,7 @@ export function myVis() {
         .attr('class', 'serie-rect')
         .attr('transform', function(d) {
           console.log('here is serie-rect', d);
-          return 'translate(' + x0(d.data.Year) + ',0)';
+          return `translate(${x0(d.data.Year)},0)`;
         })
         .attr('x', function(d) {
           return x1(d.data.Region);
@@ -260,19 +264,19 @@ export function myVis() {
             .duration(200)
             .style('opacity', 0.8);
           const smallkeys = z.domain();
-          let txt = '<b>' + d.data.Region + '</b><br/>';
-          //let tot = 0
+          let txt = `<b>${d.data.Region}</b><br/>`;
+          // let tot = 0
           smallkeys.forEach(function(k) {
             console.log(k, d.data[k]);
             if (d.data[k] > 0) {
-              txt += '<b>' + k + ': </b>' + d.data[k] + '<br/>';
+              txt += `<b>${k}:</b> ${d.data[k]}<br/>`;
             }
           });
           console.log('txt', txt);
           div
             .html(txt)
-            .style('left', d3.event.pageX + 'px')
-            .style('top', d3.event.pageY - 28 + 'px');
+            .style('left', `${d3.event.pageX}px`)
+            .style('top', `${d3.event.pageY - 28}px`);
           d3.select(this)
             .attr('stroke', x1color(d.data.Region))
             .attr('stroke-width', 3);
@@ -306,7 +310,7 @@ export function myVis() {
         .attr('text-anchor', 'start')
         .text('Admissions');
 
-      var countrylegend = g
+      const countrylegend = g
         .selectAll('countrylegend')
         .data(x1color.domain())
         .enter()
@@ -340,7 +344,7 @@ export function myVis() {
         .on('mouseover', function(reg) {
           d3.selectAll('.serie-rect')
             .filter(function(d) {
-              return d.data.Region == reg;
+              return d.data.Region === reg;
             })
             .attr('stroke', 'black')
             .attr('stroke-width', 4);
@@ -348,7 +352,7 @@ export function myVis() {
         .on('mouseout', function(reg) {
           d3.selectAll('.serie-rect')
             .filter(function(d) {
-              return d.data.Region == reg;
+              return d.data.Region === reg;
             })
             .attr('stroke', 'none');
         });
@@ -360,6 +364,15 @@ export function myVis() {
         .style('font', '18px sans-serif')
         .style('font-weight', 'bold')
         .text('Annual Refugee Ceilings and Actual Admissions');
+
+        g
+          .append('text')
+          .attr('x', width + 50)
+          .attr('y', height + 30)
+          .attr('text-anchor', 'left')
+          .style('font', '10px sans-serif')
+          .style('font-style', 'italic')
+          .text('Data available for 2001 to 2019');
 
     }
   });
