@@ -40,7 +40,7 @@ export function myVis() {
     // make dropdown
 
     var selector = d3
-      .select('body')
+      .select('#middle')
       .append('select')
       .attr('id', 'selector')
       .selectAll('option')
