@@ -37,6 +37,34 @@ export function myVis() {
 
     console.log('here are years', result);
 
+          //making tooltip div
+
+      var div = d3
+        .select('body')
+        .append('div')
+        .attr('class', 'tooltip')
+        .style('opacity', 0);
+
+      var tooltip = g
+        .append('g')
+        .attr('class', 'tooltip')
+        .style('display', 'none');
+
+      tooltip
+        .append('rect')
+        .attr('width', 60)
+        .attr('height', 20)
+        .attr('fill', 'white')
+        .style('opacity', 0.5);
+
+      tooltip
+        .append('text')
+        .attr('x', 30)
+        .attr('dy', '1.2em')
+        .style('text-anchor', 'middle')
+        .attr('font-size', '12px')
+        .attr('font-weight', 'bold');
+
     // make dropdown
 
     var selector = d3
@@ -131,7 +159,14 @@ export function myVis() {
       var keys = z.domain();
 
       //x1color is the scale that maps regions onto colors
-      var x1color = d3.scaleOrdinal(d3.schemeCategory10);
+      var x1color = d3.scaleOrdinal([
+        '#1696d2',
+        '#ec008b',
+        '#b589da',
+        '#8c564b',
+        '#55b748',
+        '#fd7f23',
+      ]);
       x1color.domain(
         data.map(function(d) {
           //console.log(d.Region);
@@ -180,14 +215,6 @@ export function myVis() {
       console.log('x0 domain', x0.domain());
       console.log('x1 domain', x1.domain());
       console.log('y domain', y.domain());
-
-      //making tooltip div
-
-      var div = d3
-        .select('body')
-        .append('div')
-        .attr('class', 'tooltip')
-        .style('opacity', 0);
 
       // this operates at the level of admission type. sets opacity
       var serie = g
@@ -334,25 +361,6 @@ export function myVis() {
         .style('font-weight', 'bold')
         .text('HELP WHAT IS TITLE');
 
-      var tooltip = g
-        .append('g')
-        .attr('class', 'tooltip')
-        .style('display', 'none');
-
-      tooltip
-        .append('rect')
-        .attr('width', 60)
-        .attr('height', 20)
-        .attr('fill', 'white')
-        .style('opacity', 0.5);
-
-      tooltip
-        .append('text')
-        .attr('x', 30)
-        .attr('dy', '1.2em')
-        .style('text-anchor', 'middle')
-        .attr('font-size', '12px')
-        .attr('font-weight', 'bold');
     }
   });
 }
