@@ -299,12 +299,12 @@ export function myVis() {
 
       countrylegend
         .append('text')
-        .attr('x', width + 60)
+        .attr('x', width + 65)
         .attr('y', (d, i) => {
           return i * 20 + 5;
         })
         .attr('dy', '.35em')
-        .style('font-size', '10px')
+        .style('font', '10px sans-serif')
         .text(function(d) {
           return d;
         });
@@ -325,6 +325,14 @@ export function myVis() {
             })
             .attr('stroke', 'none');
         });
+
+      g.append('text')
+        .attr('x', width / 2)
+        .attr('y', 0 - margin.top / 2)
+        .attr('text-anchor', 'middle')
+        .style('font', '18px sans-serif')
+        .style('font-weight', 'bold')
+        .text('Title goes here');
 
       var tooltip = g
         .append('g')
