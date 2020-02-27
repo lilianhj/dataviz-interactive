@@ -13,7 +13,8 @@
     "max-params": ["error", 6],
     "object-curly-spacing": 0,
     "babel/object-curly-spacing": 2,
-    "max-statements": 0
+    "max-statements": 0,
+    "no-console": 0
   },
   "parser": "babel-eslint",
   "plugins": [
