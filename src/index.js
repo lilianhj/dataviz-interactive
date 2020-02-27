@@ -397,7 +397,8 @@ export function myVis() {
               return d.data.Region === reg;
             })
             .attr('stroke', 'black')
-            .attr('stroke-width', 4);
+            // .attr('stroke', function(d) {return x1color(d.data.Region)})
+            .attr('stroke-width', 5);
         })
         .on('mouseout', function(reg) {
           d3.selectAll('.serie-rect')
