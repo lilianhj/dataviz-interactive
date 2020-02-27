@@ -121,7 +121,8 @@ export function myVis() {
       // filter the data
 
       const filt = data.filter(function(d) {
-        return d.Year >= startyear && d.Year <= endyear;
+        console.log("here are final startyears and endyears for filtering", startyear, typeof startyear, endyear, typeof endyear)
+        return d.Year >= Number(startyear) && d.Year <= endyear;
       });
 
       console.log("HERE'S THE FILTERED DATA", filt);
