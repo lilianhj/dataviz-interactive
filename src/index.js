@@ -150,7 +150,7 @@ export function myVis() {
       var x0 = d3
         .scaleBand()
         .rangeRound([0, width])
-        .paddingInner(0.1); //space between groups - i.e. between years
+        .paddingInner(0.2); //space between groups - i.e. between years
 
       var x1 = d3.scaleBand(); // space within groups - i.e. between regions
 
