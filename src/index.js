@@ -107,9 +107,20 @@ export function myVis() {
 
     // when an option is selected from the dropdown, use it to perform filtering by calling the update function
 
+    let startindex = 0;
+    let index = 0;
+
     d3.select('#endselector').on('change', function(d) {
-      const startindex = d3.select('#startselector').property('value');
       const index = this.value;
+      if (
+        d3.select('#startselector').property('value') === 'Select Start Year'
+      ) {
+        console.log('reassigning start year to 2016');
+        startindex = 2016;
+        console.log('startindex is now', startindex);
+      } else {
+        startindex = d3.select('#startselector').property('value');
+      }
       console.log(
         "here's the chosen start year",
         d3.select('#startselector').property('value'),
@@ -118,6 +129,26 @@ export function myVis() {
       console.log("here's the chosen end year", index);
       update(data, startindex, index);
     });
+
+       d3.select('#startselector').on('change', function(d) {
+         const startindex = this.value;
+         if (
+           d3.select('#endselector').property('value') === 'Select End Year'
+         ) {
+           console.log('reassigning end year to 2019');
+           index = 2019;
+           console.log('index is now', index);
+         } else {
+           index = d3.select('#endselector').property('value');
+         }
+         console.log(
+           "here's the chosen start year",
+           this.value,
+           typeof this.value,
+         );
+         console.log("here's the chosen end year", d3.select('#endselector').property('value'));
+         update(data, startindex, index);
+       });
 
     // the update function that is called upon dropdown filtering
 
