@@ -2,7 +2,9 @@ import * as d3 from 'd3';
 export function myVis() {
   // create SVG
 
-  const svg = d3.select('svg');
+  // const svg = d3.select('svg');
+  const svg = d3.select('.svgcontainer').append('svg').attr('width', 960).attr('height', 500)
+
   const margin = {top: 40, right: 200, bottom: 60, left: 60};
   const width = Number(svg.attr('width')) - margin.left - margin.right;
   const height = Number(svg.attr('height')) - margin.top - margin.bottom;
