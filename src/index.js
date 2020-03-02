@@ -430,3 +430,26 @@ export function myVis() {
     }
   });
 }
+
+export function myGeoVis() {
+  console.log("help me");
+  const geosvg = d3
+    .select('.mapcontainer')
+    .append('svg')
+    .attr('id', 'map')
+    .attr('width', 960)
+    .attr('height', 500)
+    .style('background-color', 'steelblue')
+    .on('click', function(d) {addchart()});
+
+    function addchart(text) {
+      d3.selectAll('#chart').remove()
+      const newsvg = d3
+        .select('.mapcontainer')
+        .append('svg')
+        .attr('id', 'chart')
+        .attr('width', 450)
+        .attr('height', 500)
+        .style('background-color', 'rebeccapurple');
+    }
+}
