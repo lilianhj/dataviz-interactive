@@ -439,8 +439,34 @@ export function myGeoVis() {
     .append('svg')
     .attr('id', 'map')
     .attr('width', 960)
-    .attr('height', 800);
+    .attr('height', 700);
     // .style('background-color', 'steelblue')
+
+          const div2 = d3
+            .select('body')
+            .append('div')
+            .attr('class', 'tooltip2')
+            .style('opacity', 0);
+
+          const tooltip = geosvg
+            .append('g')
+            .attr('class', 'tooltip2')
+            .style('display', 'none');
+
+          tooltip
+            .append('rect')
+            .attr('width', 60)
+            .attr('height', 20)
+            .attr('fill', 'white')
+            .style('opacity', 0.5);
+
+          tooltip
+            .append('text')
+            .attr('x', 30)
+            .attr('dy', '1.2em')
+            .style('text-anchor', 'middle')
+            .attr('font-size', '12px')
+            .attr('font-weight', 'bold');
 
     Promise.all([
       d3.json('data/tiles-topo-us.json'),
@@ -517,7 +543,7 @@ export function myGeoVis() {
         // .attr('height', 500)
         // //.style('background-color', 'lightgrey')
 
-        var borders = g2
+        let borders = g2
           .selectAll('.tiles')
           .data(tiles.features)
           .enter()
@@ -529,7 +555,35 @@ export function myGeoVis() {
           })
           .attr('stroke', '#130C0E')
           .attr('stroke-width', 4)
-          .on('click', function(d, i) {
+          .on('mouseover', function(d, i) {
+          div2
+            .transition()
+            .duration(200)
+            .style('opacity', 0.8);
+          let txt = `<b>${stateNames[i]}<br/>${colorValues[i]}</b>`;
+          // console.log('txt', txt);
+          div2
+            .html(txt)
+            .style('left', `${d3.event.pageX}px`)
+            .style('top', `${d3.event.pageY - 28}px`);
+          d3.select(this).attr('stroke-width', 6);
+        })
+        .on('mouseout', function(d) {
+          div2
+            .transition()
+            .duration(200)
+            .style('opacity', 0);
+           d3.select(this).attr('stroke-width', 4);
+        })
+        .on('click', function(d, i) {
+                    			// d3.selectAll('.tiles')
+                          //   .style('opacity', 0.15)
+                          //   .filter(function(d, i) {
+                          //     //console.log("hmm")
+                          //     return d.id == thisone.id;
+                          //     // return d.Species == type;
+                          //   })
+                          //   .style('opacity', 1);
             let thisstate = stateNames[i];
             let statefilt = origins.filter(function(d) {
                     return (d.target === thisstate);

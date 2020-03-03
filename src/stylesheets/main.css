@@ -24,6 +24,19 @@ div.tooltip {
   pointer-events: none;
 }
 
+div.tooltip2 {
+  position: absolute;
+  text-align: center;
+  width: 120px;
+  height: 30px;
+  padding: 10px;
+  font: 12px sans-serif;
+  background: lightgrey;
+  border: 0px;
+  border-radius: 6px;
+  pointer-events: none;
+}
+
 /* #page-container {
   position: relative;
   min-height: 100vh;
