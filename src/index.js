@@ -444,12 +444,17 @@ export function myGeoVis() {
 
     Promise.all([
       d3.json('data/tiles-topo-us.json'),
-      d3.csv('data/for_choro_postal.csv')
+      d3.csv('data/for_choro_postal.csv'),
+      d3.csv('data/origins.csv')
     ]).then(function (files) {
       let tilegram = files[0];
       let choro = files[1];
+      let origins = files[2];
       let tiles = topojson.feature(tilegram, tilegram.objects.tiles);
-      console.log('tiles', tiles, 'choro', choro);
+          origins.forEach(function(d) {
+            d.value = Number(d.value);
+          });
+      console.log('tiles', tiles, 'choro', choro, 'origins', origins);
                   let csvdata = [];
                   choro.forEach(function(d) {
                     csvdata.push({
@@ -525,7 +530,12 @@ export function myGeoVis() {
           .attr('stroke', '#130C0E')
           .attr('stroke-width', 4)
           .on('click', function(d, i) {
-            addchart(d, colorValues[i], stateNames[i]);
+            let thisstate = stateNames[i];
+            let statefilt = origins.filter(function(d) {
+                    return (d.target === thisstate);
+                  });
+            console.log("statefilt", statefilt)
+            addchart(d, colorValues[i], thisstate, statefilt);
           });
     
             g2.selectAll('.state-label')
@@ -548,10 +558,14 @@ export function myGeoVis() {
 
     });
 
-    function addchart(geodata, labelnum, labeltext) {
-      console.log("for label", geodata.properties.state, labeltext, labelnum)
-      d3.selectAll('#charttext').remove()
-
+    function addchart(geodata, labelnum, labeltext, actualdata) {
+      console.log("for label", geodata.properties.state, labeltext, labelnum);
+      console.log('actual data in function', actualdata);
+              actualdata = actualdata.sort(function(a, b) {
+                return d3.descending(a.value, b.value);
+              });
+      console.log("we sorting now", actualdata);
+      d3.selectAll('#charttext').remove();
       // d3.selectAll('#mapchart').remove()
 
       // const chartsvg = d3.select("#g3")
