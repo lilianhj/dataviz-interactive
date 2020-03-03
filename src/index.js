@@ -616,7 +616,7 @@ export function myGeoVis() {
       console.log("for label", geodata.properties.state, labeltext, labelnum);
       console.log('actual data in function', actualdata);
               actualdata = actualdata.sort(function(a, b) {
-                return d3.descending(a.value, b.value);
+                return d3.ascending(a.value, b.value);
               });
       console.log("we sorting now", actualdata);
       d3.selectAll('#charttext').remove();
@@ -632,6 +632,135 @@ export function myGeoVis() {
         .text(d => {
           console.log("argh", geodata.properties.state)
           return `State: ${labeltext}, Total: ${labelnum}`;
-        })
+        });
+
+    var margin = {top: 20, right: 120, bottom: 30, left: 120},
+      width = 960 - margin.left - margin.right,
+      height = 500 - margin.top - margin.bottom;
+
+    // set the ranges
+    var y = d3
+      .scaleBand()
+      .range([height, 0])
+      .padding(0.1);
+
+    var x = d3.scaleLinear().range([0, width]);
+
+    // append the svg object to the body of the page
+    // append a 'group' element to 'svg'
+    // moves the 'group' element to the top left margin
+    var svg = d3
+      .select('.mapcontainer')
+      .append('svg')
+      .attr('width', width + margin.left + margin.right)
+      .attr('height', height + margin.top + margin.bottom)
+      .append('g')
+      .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
+
+    // Scale the range of the data in the domains
+    x.domain([
+      0,
+      d3.max(actualdata, function(d) {
+        return d.value;
+      }),
+    ]);
+    y.domain(
+      actualdata.map(function(d) {
+        return d.Country;
+      }),
+    );
+    const x1color = d3.scaleOrdinal([
+            '#1696d2',
+            '#ec008b',
+            '#b589da',
+            '#8c564b',
+            '#55b748',
+            '#fd7f23',
+          ]);
+          x1color.domain(
+            actualdata.map(function(d) {
+              // console.log(d.Region);
+              return d['World Region'];
+            }),
+          );
+
+    // append the rectangles for the bar chart
+    svg
+      .selectAll('.bar')
+      .data(actualdata)
+      .enter()
+      .append('g')
+      .attr('class', 'bars')
+      .append('rect')
+      .attr('class', 'bar')
+      .attr('width', function(d) {
+        return x(d.value);
+      })
+      .attr('y', function(d) {
+        return y(d.Country);
+      })
+      .attr('fill', function(d) {
+        return x1color(d['World Region']);
+      })
+      .attr('height', y.bandwidth());
+
+      var bars = svg.selectAll(".bars");
+      bars.append('text')
+      .attr('class', 'label')
+      //y position of the label is halfway down the bar
+      .attr('y', function(d) {
+        console;
+        return y(d.Country) + y.bandwidth() / 2 + 4;
+      })
+      //x position is 3 pixels to the right of the bar
+      .attr('x', function(d) {
+        return x(d.value) + 3;
+      })
+      .text(function(d) {
+        return d.value;
+      });
+
+    // add the x Axis
+    svg
+      .append('g')
+      .attr('transform', 'translate(0,' + height + ')')
+      .call(d3.axisBottom(x));
+
+    // add the y Axis
+    svg.append('g').call(d3.axisLeft(y));
+
+      svg.selectAll('countrylegend')
+      .data(x1color.domain())
+      .enter()
+      .append('g')
+      .attr('class', 'chartlegend');
+
+    var countrylegend = svg.selectAll(".chartlegend");
+
+          countrylegend
+            .append('rect')
+            .attr('x', width + 50)
+            .attr('y', (d, i) => {
+              console.log("get country", d, i)
+              return i * 20;
+            })
+            .attr('dy', '.35em')
+            .attr('width', 10)
+            .attr('height', 10)
+            .attr('fill', x1color);
+
+          countrylegend
+            .append('text')
+            .attr('x', width + 65)
+            .attr('y', (d, i) => {
+              return i * 20 + 5;
+            })
+            .attr('dy', '.35em')
+            .style('font', '10px sans-serif')
+            .text(function(d) {
+              return d;
+            });
+ 
+
     }
   }
