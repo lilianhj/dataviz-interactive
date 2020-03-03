@@ -439,9 +439,8 @@ export function myGeoVis() {
     .append('svg')
     .attr('id', 'map')
     .attr('width', 960)
-    .attr('height', 800)
+    .attr('height', 800);
     // .style('background-color', 'steelblue')
-    .on('click', function(d) {addchart()});
 
     Promise.all([
       d3.json('data/tiles-topo-us.json'),
@@ -451,6 +450,46 @@ export function myGeoVis() {
       let choro = files[1];
       let tiles = topojson.feature(tilegram, tilegram.objects.tiles);
       console.log('tiles', tiles, 'choro', choro);
+                  let csvdata = [];
+                  choro.forEach(function(d) {
+                    csvdata.push({
+                      statecode: d.Code,
+                      statename: d.State,
+                      value: Number(d.value),
+                    });
+                  });
+          console.log("csvdata", csvdata);
+
+        // build list of state codes
+        var stateCodes = [];
+        // build list of state names
+        var stateNames = [];
+        // build a list of colour values
+        var colorValues = [];
+
+        tilegram.objects.tiles.geometries.forEach(function (geometry) {
+          console.log(geometry.properties.state);
+          console.log(csvdata.find(({statecode}) => statecode === geometry.properties.state));
+            if (stateCodes.indexOf(geometry.properties.state) === -1) {
+                stateCodes.push(geometry.properties.state);
+                // pass in state names
+                stateNames.push(csvdata.find(({statecode}) => statecode === geometry.properties.state).statename);
+                // pass in colour values
+                colorValues.push(csvdata.find(({statecode}) => statecode === geometry.properties.state).value);
+            }
+        });
+
+        console.log('stateCodes', stateCodes);
+        console.log('stateNames', stateNames);
+        console.log('colorValues', colorValues);
+
+        let linear = d3
+          .scaleSequential(d3.interpolateBlues)
+          .domain(d3.extent(colorValues));
+
+        console.log("domain", linear.domain());
+        console.log("color", linear(500));
+
           var transform = d3.geoTransform({
             point: function(x, y) {
               this.stream.point(x, -y);
@@ -460,85 +499,71 @@ export function myGeoVis() {
           var path = d3.geoPath().projection(transform);
 
           var g2 = geosvg.append('g').attr('transform', 'translate(-350,600)');
-            let csvdata = [];
-            choro.forEach(function(d) {
-              csvdata.push({
-                statecode: d.Code,
-                statename: d.State,
-                value: Number(d.value),
-              });
-            });
-        g2.selectAll('.tiles')
-      .data(tiles.features)
-      .enter()
-      .append('path')
-      .attr('d', path)
-      .attr('fill', 'steelblue');});
-    }
 
-  // d3.json('data/tiles-topo-us.json').then(function (tilegram) {
-  //   var tiles = topojson.feature(tilegram, tilegram.objects.tiles);
+        // const newsvg = d3
+        //   .select('.mapcontainer')
+        //   .append('g')
+        //   .attr('id', 'g3')
+        //   .attr('opacity', 0);
+        
+        // newsvg.append('svg')
+        // .attr('id', 'mapchart')
+        // .attr('width', 450)
+        // .attr('height', 500)
+        // //.style('background-color', 'lightgrey')
 
-  //   console.log("new tiles", tiles);
-
-  //                   // build list of state codes
-  //       var stateCodes = [];
-  //       // build list of state names
-  //       var stateNames = [];
-  //       // build a list of colour values
-  //       var colorValues = [];
-
-  //   d3.csv('data/for_choro_postal.csv').then(function (chorodata) {
-  //     let csvdata = [];
-  //     chorodata.forEach(function(d) {
-  //     csvdata.push({statecode: d.Code, statename: d.State, value: Number(d.value)});
-  //     });
-  //   })
-
-  //   var transform = d3.geoTransform({
-  //     point: function(x, y) {
-  //       this.stream.point(x, -y);
-  //     },
-  //   });
-
-  //   var path = d3.geoPath().projection(transform);
-
-  //   var g2 = geosvg
-  //     .append('g')
-  //     .attr('transform', 'translate(-350,600)');
+        var borders = g2
+          .selectAll('.tiles')
+          .data(tiles.features)
+          .enter()
+          .append('path')
+          .attr('d', path)
+          .attr('class', 'border')
+          .attr('fill', function(d, i) {
+            return linear(colorValues[i]);
+          })
+          .attr('stroke', '#130C0E')
+          .attr('stroke-width', 4)
+          .on('click', function(d, i) {
+            addchart(d, colorValues[i], stateNames[i]);
+          });
     
+            g2.selectAll('.state-label')
+              .data(tiles.features)
+              .enter()
+              .append('text')
+              .style('color', 'green')
+              .attr('class', function(d) {
+                return 'state-label state-label-' + d.id;
+              })
+              .attr('transform', function(d) {
+                return 'translate(' + path.centroid(d) + ')';
+              })
+              .attr('dy', '.35em')
+              .attr('dx', '-10px')
+              .text(function(d) {
+                return d.properties.state;
+              });
+        // how do i legend...
 
-  //       tilegram.objects.tiles.geometries.forEach(function (geometry) {
-  //         console.log(geometry.properties.state);
-  //         console.log(csvdata.find(({statecode}) => statecode == geometry.properties.state));
-  //           // if (stateCodes.indexOf(geometry.properties.state) === -1) {
-  //           //     stateCodes.push(geometry.properties.state);
-  //           //     // pass in state names
-  //           //     stateNames.push(find(csvdata, {'statecode': geometry.properties.state}).statename);
-  //           //     // pass in colour values
-  //           //     colorValues.push(.find(csvdata, {'statecode': geometry.properties.state}).value);
-  //           // }
-  //       });
+    });
 
-  //       console.log('stateCodes', stateCodes);
-  //       console.log('stateNames', stateNames);
-  //       console.log('colorValues', colorValues);
+    function addchart(geodata, labelnum, labeltext) {
+      console.log("for label", geodata.properties.state, labeltext, labelnum)
+      d3.selectAll('#charttext').remove()
 
-  //   g2.selectAll('.tiles')
-  //     .data(tiles.features)
-  //     .enter()
-  //     .append('path')
-  //     .attr('d', path)
-  //     .attr('fill', 'steelblue');
-  // });
+      // d3.selectAll('#mapchart').remove()
 
-    function addchart(text) {
-      d3.selectAll('#chart').remove()
-      const newsvg = d3
-        .select('.mapcontainer')
-        .append('svg')
-        .attr('id', 'chart')
-        .attr('width', 450)
-        .attr('height', 500)
-        .style('background-color', 'rebeccapurple');
+      // const chartsvg = d3.select("#g3")
+      // const chartsvg = d3.select("#mapchart")
+
+    d3.select('.mapcontainer').append('text')
+    .attr('id', 'charttext')
+    .attr('x', 0)
+    .attr('y', 0)
+        .text(d => {
+          console.log("argh", geodata.properties.state)
+          return `State: ${labeltext}, Total: ${labelnum}`;
+        })
     }
+  }

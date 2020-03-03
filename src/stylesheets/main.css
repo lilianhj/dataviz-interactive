@@ -105,3 +105,8 @@ nav a {
 #chart {
   float: right;
 }
+
+.state-label {
+  color: green;
+  font-family: Tahoma;
+}
