@@ -634,7 +634,7 @@ export function myGeoVis() {
           return `State: ${labeltext}, Total: ${labelnum}`;
         });
 
-    var margin = {top: 20, right: 120, bottom: 30, left: 120},
+    var margin = {top: 40, right: 200, bottom: 30, left: 120},
       width = 960 - margin.left - margin.right,
       height = 500 - margin.top - margin.bottom;
 
@@ -705,20 +705,22 @@ export function myGeoVis() {
       .attr('height', y.bandwidth());
 
       var bars = svg.selectAll(".bars");
-      bars.append('text')
-      .attr('class', 'label')
-      //y position of the label is halfway down the bar
-      .attr('y', function(d) {
-        console;
-        return y(d.Country) + y.bandwidth() / 2 + 4;
-      })
-      //x position is 3 pixels to the right of the bar
-      .attr('x', function(d) {
-        return x(d.value) + 3;
-      })
-      .text(function(d) {
-        return d.value;
-      });
+      bars
+        .append('text')
+        .attr('class', 'label')
+        //y position of the label is halfway down the bar
+        .attr('y', function(d) {
+          console;
+          return y(d.Country) + y.bandwidth() / 2 + 4;
+        })
+        //x position is 3 pixels to the right of the bar
+        .attr('x', function(d) {
+          return x(d.value) + 3;
+        })
+        .style('font', '10px sans-serif')
+        .text(function(d) {
+          return d.value;
+        });
 
     // add the x Axis
     svg
@@ -760,6 +762,15 @@ export function myGeoVis() {
             .text(function(d) {
               return d;
             });
+      
+         svg
+           .append('text')
+           .attr('x', width / 2)
+           .attr('y', 0 - margin.top / 2)
+           .attr('text-anchor', 'middle')
+           .style('font', '14px sans-serif')
+           .style('font-weight', 'bold')
+           .text(`State: ${labeltext}, Total: ${labelnum}`);
  
 
     }
