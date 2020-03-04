@@ -619,20 +619,21 @@ export function myGeoVis() {
                 return d3.ascending(a.value, b.value);
               });
       console.log("we sorting now", actualdata);
-      d3.selectAll('#charttext').remove();
+      // d3.selectAll('#charttext').remove();
+      d3.selectAll('#statechart').remove();
       // d3.selectAll('#mapchart').remove()
 
       // const chartsvg = d3.select("#g3")
       // const chartsvg = d3.select("#mapchart")
 
-    d3.select('.mapcontainer').append('text')
-    .attr('id', 'charttext')
-    .attr('x', 0)
-    .attr('y', 0)
-        .text(d => {
-          console.log("argh", geodata.properties.state)
-          return `State: ${labeltext}, Total: ${labelnum}`;
-        });
+    // d3.select('.mapcontainer').append('text')
+    // .attr('id', 'charttext')
+    // .attr('x', 0)
+    // .attr('y', 0)
+    //     .text(d => {
+    //       console.log("argh", geodata.properties.state)
+    //       return `State: ${labeltext}, Total: ${labelnum}`;
+    //     });
 
     var margin = {top: 40, right: 200, bottom: 30, left: 120},
       width = 960 - margin.left - margin.right,
@@ -652,6 +653,7 @@ export function myGeoVis() {
     var svg = d3
       .select('.mapcontainer')
       .append('svg')
+      .attr('id', 'statechart')
       .attr('width', width + margin.left + margin.right)
       .attr('height', height + margin.top + margin.bottom)
       .append('g')
