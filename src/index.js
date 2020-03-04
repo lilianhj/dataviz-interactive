@@ -675,16 +675,23 @@ export function myGeoVis() {
             '#1696d2',
             '#ec008b',
             '#b589da',
-            '#8c564b',
             '#55b748',
             '#fd7f23',
           ]);
-          x1color.domain(
-            actualdata.map(function(d) {
-              // console.log(d.Region);
-              return d['World Region'];
-            }),
-          );
+    
+      x1color.domain([
+        'Africa',
+        'East Asia',
+        'Europe',
+        'Latin America/Caribbean',
+        'Near East/South Asia',
+      ]);
+          // x1color.domain(
+          //   actualdata.map(function(d) {
+          //     // console.log(d.Region);
+          //     return d['World Region'];
+          //   }),
+          // );
 
     // append the rectangles for the bar chart
     svg
