@@ -1,11 +1,8 @@
 import * as d3 from 'd3';
-import * as topojson from 'topojson';
 export function myVis() {
   // create SVG
 
-  // const svg = d3.select('svg');
-  const svg = d3.select('.svgcontainer').append('svg').attr('width', 960).attr('height', 500)
-
+  const svg = d3.select('svg');
   const margin = {top: 40, right: 200, bottom: 60, left: 60};
   const width = Number(svg.attr('width')) - margin.left - margin.right;
   const height = Number(svg.attr('height')) - margin.top - margin.bottom;
@@ -22,7 +19,7 @@ export function myVis() {
       d.Year = Number(d.Year);
     });
 
-    // console.log('data', data);
+    console.log('data', data);
 
     // get unique years to make dropdown options
 
@@ -40,7 +37,7 @@ export function myVis() {
       }
     }
 
-    // console.log('here are years', result, resultend);
+    console.log('here are years', result, resultend);
 
     // making tooltip div
 
@@ -84,7 +81,7 @@ export function myVis() {
         return d;
       })
       .attr('value', function(d) {
-        // console.log(d);
+        console.log(d);
         return d;
       });
 
@@ -100,7 +97,7 @@ export function myVis() {
             return d;
           })
           .attr('value', function(d) {
-            // console.log(d);
+            console.log(d);
             return d;
           });
 
@@ -114,13 +111,13 @@ export function myVis() {
       let startindex = d3.select('#startselector').property('value');
       const index = this.value;
       if (startindex === 'Select Start Year') {
-        // console.log("reassigning default startyear");
+        console.log("reassigning default startyear");
         startindex = 2001;
       }
-      // console.log(
-      //   "here's the chosen start year", startindex
-      // );
-      // console.log("here's the chosen end year", index);
+      console.log(
+        "here's the chosen start year", startindex
+      );
+      console.log("here's the chosen end year", index);
       update(data, startindex, index);
     });
 
@@ -128,15 +125,15 @@ export function myVis() {
          const startindex = this.value;
          let index = d3.select('#endselector').property('value');
          if (index === 'Select End Year') {
-          //  console.log("reassigning default endyear");
+           console.log("reassigning default endyear");
            index = 2019;
          }
-        //  console.log(
-        //    "here's the chosen start year",
-        //    this.value,
-        //    typeof this.value,
-        //  );
-        //  console.log("here's the chosen end year", index);
+         console.log(
+           "here's the chosen start year",
+           this.value,
+           typeof this.value,
+         );
+         console.log("here's the chosen end year", index);
          update(data, startindex, index);
        });
 
@@ -146,38 +143,38 @@ export function myVis() {
 
     g.selectAll('*').remove();
 
-      // console.log(
-      //   'HERE WE ARE IN THE UPDATE FUNCTION',
-      //   "here's data",
-      //   data,
-      //   "here's input year to start",
-      //   startyear, "typeof", 
-      //   typeof startyear,
-      //   "here's input year to end", endyear, "typeof", typeof endyear
-      // );
+      console.log(
+        'HERE WE ARE IN THE UPDATE FUNCTION',
+        "here's data",
+        data,
+        "here's input year to start",
+        startyear, "typeof", 
+        typeof startyear,
+        "here's input year to end", endyear, "typeof", typeof endyear
+      );
 
       // show a five-year window at max
 
-      // console.log("startyear plus 4", startyear + 4)
+      console.log("startyear plus 4", startyear + 4)
 
-      // // const endyear = Number(startyear) + 4;
+      // const endyear = Number(startyear) + 4;
 
-      // console.log('here is the endyear', endyear);
+      console.log('here is the endyear', endyear);
 
       // filter the data
 
       const filt = data.filter(function(d) {
-        // console.log(
-        //   'here are final startyears and endyears for filtering',
-        //   startyear,
-        //   typeof startyear,
-        //   endyear,
-        //   typeof endyear,
-        // );
+        console.log(
+          'here are final startyears and endyears for filtering',
+          startyear,
+          typeof startyear,
+          endyear,
+          typeof endyear,
+        );
         return d.Year >= Number(startyear) && d.Year <= Number(endyear);
       });
 
-      // console.log("HERE'S THE FILTERED DATA", filt);
+      console.log("HERE'S THE FILTERED DATA", filt);
 
       const filtgroupData = d3
         .nest()
@@ -201,7 +198,7 @@ export function myVis() {
         });
 
       // filtered grouped data, not yet stacked
-      // console.log('filtgroupData', filtgroupData);
+      console.log('filtgroupData', filtgroupData);
 
       // z is the scale that maps admission types onto opacity
       const z = d3.scaleOrdinal().range([0.7, 1.0, 0.25]);
@@ -235,7 +232,7 @@ export function myVis() {
         .keys(keys)(filtgroupData); 
         // the groupData thing just feeds in the dataset
 
-      // console.log('filtstackData', filtstackData);
+      console.log('filtstackData', filtstackData);
 
       const x0 = d3
         .scaleBand()
@@ -269,9 +266,9 @@ export function myVis() {
           }, -Infinity),
         ]);
 
-      // console.log('x0 domain', x0.domain());
-      // console.log('x1 domain', x1.domain());
-      // console.log('y domain', y.domain());
+      console.log('x0 domain', x0.domain());
+      console.log('x1 domain', x1.domain());
+      console.log('y domain', y.domain());
 
       // this operates at the level of admission type. sets opacity
       const serie = g
@@ -281,7 +278,7 @@ export function myVis() {
         .append('g')
         .attr('class', 'serie')
         .attr('opacity', function(d) {
-          // console.log('here is serie', d);
+          console.log('here is serie', d);
           return z(d.key);
         });
 
@@ -295,7 +292,7 @@ export function myVis() {
         .append('rect')
         .attr('class', 'serie-rect')
         .attr('transform', function(d) {
-          // console.log('here is serie-rect', d);
+          console.log('here is serie-rect', d);
           return `translate(${x0(d.data.Year)},0)`;
         })
         .attr('x', function(d) {
@@ -320,12 +317,12 @@ export function myVis() {
           let txt = `<b>${d.data.Region}</b><br/>`;
           // let tot = 0
           smallkeys.forEach(function(k) {
-            // console.log(k, d.data[k]);
+            console.log(k, d.data[k]);
             if (d.data[k] > 0) {
               txt += `<b>${k}:</b> ${d.data[k]}<br/>`;
             }
           });
-          // console.log('txt', txt);
+          console.log('txt', txt);
           div
             .html(txt)
             .style('left', `${d3.event.pageX}px`)
