@@ -1,11 +1,8 @@
 import * as d3 from 'd3';
-import * as topojson from 'topojson';
 export function myVis() {
   // create SVG
 
-  // const svg = d3.select('svg');
-  const svg = d3.select('.svgcontainer').append('svg').attr('width', 960).attr('height', 500)
-
+  const svg = d3.select('svg');
   const margin = {top: 40, right: 200, bottom: 60, left: 60};
   const width = Number(svg.attr('width')) - margin.left - margin.right;
   const height = Number(svg.attr('height')) - margin.top - margin.bottom;
@@ -22,7 +19,7 @@ export function myVis() {
       d.Year = Number(d.Year);
     });
 
-    // console.log('data', data);
+    console.log('data', data);
 
     // get unique years to make dropdown options
 
@@ -40,7 +37,7 @@ export function myVis() {
       }
     }
 
-    // console.log('here are years', result, resultend);
+    console.log('here are years', result, resultend);
 
     // making tooltip div
 
@@ -84,7 +81,7 @@ export function myVis() {
         return d;
       })
       .attr('value', function(d) {
-        // console.log(d);
+        console.log(d);
         return d;
       });
 
@@ -100,7 +97,7 @@ export function myVis() {
             return d;
           })
           .attr('value', function(d) {
-            // console.log(d);
+            console.log(d);
             return d;
           });
 
@@ -114,13 +111,13 @@ export function myVis() {
       let startindex = d3.select('#startselector').property('value');
       const index = this.value;
       if (startindex === 'Select Start Year') {
-        // console.log("reassigning default startyear");
+        console.log("reassigning default startyear");
         startindex = 2001;
       }
-      // console.log(
-      //   "here's the chosen start year", startindex
-      // );
-      // console.log("here's the chosen end year", index);
+      console.log(
+        "here's the chosen start year", startindex
+      );
+      console.log("here's the chosen end year", index);
       update(data, startindex, index);
     });
 
@@ -128,15 +125,15 @@ export function myVis() {
          const startindex = this.value;
          let index = d3.select('#endselector').property('value');
          if (index === 'Select End Year') {
-          //  console.log("reassigning default endyear");
+           console.log("reassigning default endyear");
            index = 2019;
          }
-        //  console.log(
-        //    "here's the chosen start year",
-        //    this.value,
-        //    typeof this.value,
-        //  );
-        //  console.log("here's the chosen end year", index);
+         console.log(
+           "here's the chosen start year",
+           this.value,
+           typeof this.value,
+         );
+         console.log("here's the chosen end year", index);
          update(data, startindex, index);
        });
 
@@ -146,38 +143,38 @@ export function myVis() {
 
     g.selectAll('*').remove();
 
-      // console.log(
-      //   'HERE WE ARE IN THE UPDATE FUNCTION',
-      //   "here's data",
-      //   data,
-      //   "here's input year to start",
-      //   startyear, "typeof", 
-      //   typeof startyear,
-      //   "here's input year to end", endyear, "typeof", typeof endyear
-      // );
+      console.log(
+        'HERE WE ARE IN THE UPDATE FUNCTION',
+        "here's data",
+        data,
+        "here's input year to start",
+        startyear, "typeof", 
+        typeof startyear,
+        "here's input year to end", endyear, "typeof", typeof endyear
+      );
 
       // show a five-year window at max
 
-      // console.log("startyear plus 4", startyear + 4)
+      console.log("startyear plus 4", startyear + 4)
 
-      // // const endyear = Number(startyear) + 4;
+      // const endyear = Number(startyear) + 4;
 
-      // console.log('here is the endyear', endyear);
+      console.log('here is the endyear', endyear);
 
       // filter the data
 
       const filt = data.filter(function(d) {
-        // console.log(
-        //   'here are final startyears and endyears for filtering',
-        //   startyear,
-        //   typeof startyear,
-        //   endyear,
-        //   typeof endyear,
-        // );
+        console.log(
+          'here are final startyears and endyears for filtering',
+          startyear,
+          typeof startyear,
+          endyear,
+          typeof endyear,
+        );
         return d.Year >= Number(startyear) && d.Year <= Number(endyear);
       });
 
-      // console.log("HERE'S THE FILTERED DATA", filt);
+      console.log("HERE'S THE FILTERED DATA", filt);
 
       const filtgroupData = d3
         .nest()
@@ -201,7 +198,7 @@ export function myVis() {
         });
 
       // filtered grouped data, not yet stacked
-      // console.log('filtgroupData', filtgroupData);
+      console.log('filtgroupData', filtgroupData);
 
       // z is the scale that maps admission types onto opacity
       const z = d3.scaleOrdinal().range([0.7, 1.0, 0.25]);
@@ -235,7 +232,7 @@ export function myVis() {
         .keys(keys)(filtgroupData); 
         // the groupData thing just feeds in the dataset
 
-      // console.log('filtstackData', filtstackData);
+      console.log('filtstackData', filtstackData);
 
       const x0 = d3
         .scaleBand()
@@ -269,9 +266,9 @@ export function myVis() {
           }, -Infinity),
         ]);
 
-      // console.log('x0 domain', x0.domain());
-      // console.log('x1 domain', x1.domain());
-      // console.log('y domain', y.domain());
+      console.log('x0 domain', x0.domain());
+      console.log('x1 domain', x1.domain());
+      console.log('y domain', y.domain());
 
       // this operates at the level of admission type. sets opacity
       const serie = g
@@ -281,7 +278,7 @@ export function myVis() {
         .append('g')
         .attr('class', 'serie')
         .attr('opacity', function(d) {
-          // console.log('here is serie', d);
+          console.log('here is serie', d);
           return z(d.key);
         });
 
@@ -295,7 +292,7 @@ export function myVis() {
         .append('rect')
         .attr('class', 'serie-rect')
         .attr('transform', function(d) {
-          // console.log('here is serie-rect', d);
+          console.log('here is serie-rect', d);
           return `translate(${x0(d.data.Year)},0)`;
         })
         .attr('x', function(d) {
@@ -320,12 +317,12 @@ export function myVis() {
           let txt = `<b>${d.data.Region}</b><br/>`;
           // let tot = 0
           smallkeys.forEach(function(k) {
-            // console.log(k, d.data[k]);
+            console.log(k, d.data[k]);
             if (d.data[k] > 0) {
               txt += `<b>${k}:</b> ${d.data[k]}<br/>`;
             }
           });
-          // console.log('txt', txt);
+          console.log('txt', txt);
           div
             .html(txt)
             .style('left', `${d3.event.pageX}px`)
@@ -431,374 +428,3 @@ export function myVis() {
     }
   });
 }
-
-export function myGeoVis() {
-  console.log("help me");
-  const geosvg = d3
-    .select('.mapcontainer')
-    .append('svg')
-    .attr('id', 'map')
-    .attr('width', 960)
-    .attr('height', 700);
-    // .style('background-color', 'steelblue')
-
-          const div2 = d3
-            .select('body')
-            .append('div')
-            .attr('class', 'tooltip2')
-            .style('opacity', 0);
-
-          const tooltip = geosvg
-            .append('g')
-            .attr('class', 'tooltip2')
-            .style('display', 'none');
-
-          tooltip
-            .append('rect')
-            .attr('width', 60)
-            .attr('height', 20)
-            .attr('fill', 'white')
-            .style('opacity', 0.5);
-
-          tooltip
-            .append('text')
-            .attr('x', 30)
-            .attr('dy', '1.2em')
-            .style('text-anchor', 'middle')
-            .attr('font-size', '12px')
-            .attr('font-weight', 'bold');
-
-    Promise.all([
-      d3.json('data/tiles-topo-us.json'),
-      d3.csv('data/for_choro_postal.csv'),
-      d3.csv('data/origins.csv')
-    ]).then(function (files) {
-      let tilegram = files[0];
-      let choro = files[1];
-      let origins = files[2];
-      let tiles = topojson.feature(tilegram, tilegram.objects.tiles);
-          origins.forEach(function(d) {
-            d.value = Number(d.value);
-          });
-      console.log('tiles', tiles, 'choro', choro, 'origins', origins);
-                  let csvdata = [];
-                  choro.forEach(function(d) {
-                    csvdata.push({
-                      statecode: d.Code,
-                      statename: d.State,
-                      value: Number(d.value),
-                    });
-                  });
-          console.log("csvdata", csvdata);
-
-        // build list of state codes
-        var stateCodes = [];
-        // build list of state names
-        var stateNames = [];
-        // build a list of colour values
-        var colorValues = [];
-
-        tilegram.objects.tiles.geometries.forEach(function (geometry) {
-          console.log(geometry.properties.state);
-          console.log(csvdata.find(({statecode}) => statecode === geometry.properties.state));
-            if (stateCodes.indexOf(geometry.properties.state) === -1) {
-                stateCodes.push(geometry.properties.state);
-                // pass in state names
-                stateNames.push(csvdata.find(({statecode}) => statecode === geometry.properties.state).statename);
-                // pass in colour values
-                colorValues.push(csvdata.find(({statecode}) => statecode === geometry.properties.state).value);
-            }
-        });
-
-        console.log('stateCodes', stateCodes);
-        console.log('stateNames', stateNames);
-        console.log('colorValues', colorValues);
-
-        let linear = d3
-          .scaleSequential(d3.interpolateBlues)
-          .domain(d3.extent(colorValues));
-
-        console.log("domain", linear.domain());
-        console.log("color", linear(500));
-
-          var transform = d3.geoTransform({
-            point: function(x, y) {
-              this.stream.point(x, -y);
-            },
-          });
-
-          var path = d3.geoPath().projection(transform);
-
-          var g2 = geosvg.append('g').attr('transform', 'translate(-350,600)');
-
-        // const newsvg = d3
-        //   .select('.mapcontainer')
-        //   .append('g')
-        //   .attr('id', 'g3')
-        //   .attr('opacity', 0);
-        
-        // newsvg.append('svg')
-        // .attr('id', 'mapchart')
-        // .attr('width', 450)
-        // .attr('height', 500)
-        // //.style('background-color', 'lightgrey')
-
-        let borders = g2
-          .selectAll('.tiles')
-          .data(tiles.features)
-          .enter()
-          .append('path')
-          .attr('d', path)
-          .attr('class', 'border')
-          .attr('fill', function(d, i) {
-            return linear(colorValues[i]);
-          })
-          .attr('stroke', '#130C0E')
-          .attr('stroke-width', 4)
-          .on('mouseover', function(d, i) {
-          div2
-            .transition()
-            .duration(200)
-            .style('opacity', 0.8);
-          let txt = `<b>${stateNames[i]}<br/>${colorValues[i]}</b>`;
-          // console.log('txt', txt);
-          div2
-            .html(txt)
-            .style('left', `${d3.event.pageX}px`)
-            .style('top', `${d3.event.pageY - 28}px`);
-          d3.select(this).attr('stroke-width', 6);
-        })
-        .on('mouseout', function(d) {
-          div2
-            .transition()
-            .duration(200)
-            .style('opacity', 0);
-           d3.select(this).attr('stroke-width', 4);
-        })
-        .on('click', function(d, i) {
-                    			// d3.selectAll('.tiles')
-                          //   .style('opacity', 0.15)
-                          //   .filter(function(d, i) {
-                          //     //console.log("hmm")
-                          //     return d.id == thisone.id;
-                          //     // return d.Species == type;
-                          //   })
-                          //   .style('opacity', 1);
-            let thisstate = stateNames[i];
-            let statefilt = origins.filter(function(d) {
-                    return (d.target === thisstate);
-                  });
-            console.log("statefilt", statefilt)
-            addchart(d, colorValues[i], thisstate, statefilt);
-          });
-    
-            g2.selectAll('.state-label')
-              .data(tiles.features)
-              .enter()
-              .append('text')
-              .style('color', 'green')
-              .attr('class', function(d) {
-                return 'state-label state-label-' + d.id;
-              })
-              .attr('transform', function(d) {
-                return 'translate(' + path.centroid(d) + ')';
-              })
-              .attr('dy', '.35em')
-              .attr('dx', '-10px')
-              .text(function(d) {
-                return d.properties.state;
-              });
-        // how do i legend...
-
-    });
-
-    function addchart(geodata, labelnum, labeltext, actualdata) {
-      console.log("for label", geodata.properties.state, labeltext, labelnum);
-      console.log('actual data in function', actualdata);
-              actualdata = actualdata.sort(function(a, b) {
-                return d3.ascending(a.value, b.value);
-              });
-      console.log("we sorting now", actualdata);
-      // d3.selectAll('#charttext').remove();
-      d3.selectAll('#statechart').remove();
-      // d3.selectAll('#mapchart').remove()
-
-      // const chartsvg = d3.select("#g3")
-      // const chartsvg = d3.select("#mapchart")
-
-    // d3.select('.mapcontainer').append('text')
-    // .attr('id', 'charttext')
-    // .attr('x', 0)
-    // .attr('y', 0)
-    //     .text(d => {
-    //       console.log("argh", geodata.properties.state)
-    //       return `State: ${labeltext}, Total: ${labelnum}`;
-    //     });
-
-    var margin = {top: 40, right: 200, bottom: 30, left: 120},
-      width = 960 - margin.left - margin.right,
-      height = 500 - margin.top - margin.bottom;
-
-    // set the ranges
-    var y = d3
-      .scaleBand()
-      .range([height, 0])
-      .padding(0.1);
-
-    var x = d3.scaleLinear().range([0, width]);
-
-    // append the svg object to the body of the page
-    // append a 'group' element to 'svg'
-    // moves the 'group' element to the top left margin
-    var svg = d3
-      .select('.mapcontainer')
-      .append('svg')
-      .attr('id', 'statechart')
-      .attr('width', width + margin.left + margin.right)
-      .attr('height', height + margin.top + margin.bottom)
-      .append('g')
-      .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
-
-    // Scale the range of the data in the domains
-    x.domain([
-      0,
-      d3.max(actualdata, function(d) {
-        return d.value;
-      }),
-    ]);
-    y.domain(
-      actualdata.map(function(d) {
-        return d.Country;
-      }),
-    );
-    const x1color = d3.scaleOrdinal([
-            '#1696d2',
-            '#ec008b',
-            '#b589da',
-            '#55b748',
-            '#fd7f23',
-          ]);
-    
-      x1color.domain([
-        'Africa',
-        'East Asia',
-        'Europe',
-        'Latin America/Caribbean',
-        'Near East/South Asia',
-      ]);
-          // x1color.domain(
-          //   actualdata.map(function(d) {
-          //     // console.log(d.Region);
-          //     return d['World Region'];
-          //   }),
-          // );
-
-    // append the rectangles for the bar chart
-    svg
-      .selectAll('.bar')
-      .data(actualdata)
-      .enter()
-      .append('g')
-      .attr('class', 'bars')
-      .append('rect')
-      .attr('class', 'bar')
-      .attr('width', function(d) {
-        return x(d.value);
-      })
-      .attr('y', function(d) {
-        return y(d.Country);
-      })
-      .attr('fill', function(d) {
-        return x1color(d['World Region']);
-      })
-      .attr('height', y.bandwidth());
-
-      var bars = svg.selectAll(".bars");
-      bars
-        .append('text')
-        .attr('class', 'label')
-        //y position of the label is halfway down the bar
-        .attr('y', function(d) {
-          console;
-          return y(d.Country) + y.bandwidth() / 2 + 4;
-        })
-        //x position is 3 pixels to the right of the bar
-        .attr('x', function(d) {
-          return x(d.value) + 3;
-        })
-        .style('font', '10px sans-serif')
-        .text(function(d) {
-          return d.value;
-        });
-
-    // add the x Axis
-    svg
-      .append('g')
-      .attr('transform', 'translate(0,' + height + ')')
-      .call(d3.axisBottom(x));
-
-    // add the y Axis
-    svg.append('g').call(d3.axisLeft(y));
-
-      svg.selectAll('countrylegend')
-      .data(x1color.domain())
-      .enter()
-      .append('g')
-      .attr('class', 'chartlegend');
-
-    var countrylegend = svg.selectAll(".chartlegend");
-
-          countrylegend
-            .append('rect')
-            .attr('x', width + 50)
-            .attr('y', (d, i) => {
-              console.log("get country", d, i)
-              return i * 20;
-            })
-            .attr('dy', '.35em')
-            .attr('width', 10)
-            .attr('height', 10)
-            .attr('fill', x1color);
-
-          countrylegend
-            .append('text')
-            .attr('x', width + 65)
-            .attr('y', (d, i) => {
-              return i * 20 + 5;
-            })
-            .attr('dy', '.35em')
-            .style('font', '10px sans-serif')
-            .text(function(d) {
-              return d;
-            });
-
-              countrylegend
-                .on('mouseover', function(reg) {
-                  svg.selectAll('.bar')
-                    .filter(function(d) {
-                      return d['World Region'] === reg;
-                    })
-                    .attr('stroke', 'black')
-                    // .attr('stroke', function(d) {return x1color(d.data.Region)})
-                    .attr('stroke-width', 4);
-                })
-                .on('mouseout', function(reg) {
-                  svg.selectAll('.bar')
-                    .filter(function(d) {
-                      return d['World Region'] === reg;
-                    })
-                    .attr('stroke', 'none');
-                });
-      
-         svg
-           .append('text')
-           .attr('x', width / 2)
-           .attr('y', 0 - margin.top / 2)
-           .attr('text-anchor', 'middle')
-           .style('font', '14px sans-serif')
-           .style('font-weight', 'bold')
-           .text(`State: ${labeltext}, Total: ${labelnum}`);
- 
-
-    }
-  }
