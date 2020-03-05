@@ -433,7 +433,7 @@ export function myVis() {
 }
 
 export function myGeoVis() {
-  console.log("help me");
+  // console.log("help me");
   const geosvg = d3
     .select('.mapcontainer')
     .append('svg')
@@ -473,15 +473,15 @@ export function myGeoVis() {
       d3.csv('data/for_choro_postal.csv'),
       d3.csv('data/origins.csv')
     ]).then(function (files) {
-      let tilegram = files[0];
-      let choro = files[1];
-      let origins = files[2];
-      let tiles = topojson.feature(tilegram, tilegram.objects.tiles);
+      const tilegram = files[0];
+      const choro = files[1];
+      const origins = files[2];
+      const tiles = topojson.feature(tilegram, tilegram.objects.tiles);
           origins.forEach(function(d) {
             d.value = Number(d.value);
           });
       console.log('tiles', tiles, 'choro', choro, 'origins', origins);
-                  let csvdata = [];
+                  const csvdata = [];
                   choro.forEach(function(d) {
                     csvdata.push({
                       statecode: d.Code,
@@ -492,11 +492,11 @@ export function myGeoVis() {
           console.log("csvdata", csvdata);
 
         // build list of state codes
-        var stateCodes = [];
+        const stateCodes = [];
         // build list of state names
-        var stateNames = [];
+        const stateNames = [];
         // build a list of colour values
-        var colorValues = [];
+        const colorValues = [];
 
         tilegram.objects.tiles.geometries.forEach(function (geometry) {
           console.log(geometry.properties.state);
@@ -514,22 +514,22 @@ export function myGeoVis() {
         console.log('stateNames', stateNames);
         console.log('colorValues', colorValues);
 
-        let linear = d3
+        const linear = d3
           .scaleSequential(d3.interpolateBlues)
           .domain(d3.extent(colorValues));
 
         console.log("domain", linear.domain());
         console.log("color", linear(500));
 
-          var transform = d3.geoTransform({
+          const transform = d3.geoTransform({
             point: function(x, y) {
               this.stream.point(x, -y);
             },
           });
 
-          var path = d3.geoPath().projection(transform);
+          const path = d3.geoPath().projection(transform);
 
-          var g2 = geosvg.append('g').attr('transform', 'translate(-350,600)');
+          const g2 = geosvg.append('g').attr('transform', 'translate(-350,600)');
 
         // const newsvg = d3
         //   .select('.mapcontainer')
@@ -543,7 +543,7 @@ export function myGeoVis() {
         // .attr('height', 500)
         // //.style('background-color', 'lightgrey')
 
-        let borders = g2
+        const borders = g2
           .selectAll('.tiles')
           .data(tiles.features)
           .enter()
@@ -584,8 +584,8 @@ export function myGeoVis() {
                           //     // return d.Species == type;
                           //   })
                           //   .style('opacity', 1);
-            let thisstate = stateNames[i];
-            let statefilt = origins.filter(function(d) {
+            const thisstate = stateNames[i];
+            const statefilt = origins.filter(function(d) {
                     return (d.target === thisstate);
                   });
             console.log("statefilt", statefilt)
@@ -635,22 +635,20 @@ export function myGeoVis() {
     //       return `State: ${labeltext}, Total: ${labelnum}`;
     //     });
 
-    var margin = {top: 40, right: 200, bottom: 30, left: 120},
-      width = 960 - margin.left - margin.right,
-      height = 500 - margin.top - margin.bottom;
+    const margin = {top: 40, right: 200, bottom: 30, left: 120};
+    const width = 960 - margin.left - margin.right;
+    const  height = 500 - margin.top - margin.bottom;
 
     // set the ranges
-    var y = d3
+    const y = d3
       .scaleBand()
       .range([height, 0])
       .padding(0.1);
 
-    var x = d3.scaleLinear().range([0, width]);
+    const x = d3.scaleLinear().range([0, width]);
 
-    // append the svg object to the body of the page
-    // append a 'group' element to 'svg'
-    // moves the 'group' element to the top left margin
-    var svg = d3
+
+    const svg = d3
       .select('.mapcontainer')
       .append('svg')
       .attr('id', 'statechart')
@@ -659,7 +657,6 @@ export function myGeoVis() {
       .append('g')
       .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
 
-    // Scale the range of the data in the domains
     x.domain([
       0,
       d3.max(actualdata, function(d) {
@@ -693,7 +690,7 @@ export function myGeoVis() {
           //   }),
           // );
 
-    // append the rectangles for the bar chart
+
     svg
       .selectAll('.bar')
       .data(actualdata)
@@ -713,16 +710,14 @@ export function myGeoVis() {
       })
       .attr('height', y.bandwidth());
 
-      var bars = svg.selectAll(".bars");
+      const bars = svg.selectAll(".bars");
       bars
         .append('text')
         .attr('class', 'label')
-        //y position of the label is halfway down the bar
         .attr('y', function(d) {
           console;
           return y(d.Country) + y.bandwidth() / 2 + 4;
         })
-        //x position is 3 pixels to the right of the bar
         .attr('x', function(d) {
           return x(d.value) + 3;
         })
@@ -731,13 +726,11 @@ export function myGeoVis() {
           return d.value;
         });
 
-    // add the x Axis
     svg
       .append('g')
       .attr('transform', 'translate(0,' + height + ')')
       .call(d3.axisBottom(x));
 
-    // add the y Axis
     svg.append('g').call(d3.axisLeft(y));
 
       svg.selectAll('countrylegend')
@@ -746,7 +739,7 @@ export function myGeoVis() {
       .append('g')
       .attr('class', 'chartlegend');
 
-    var countrylegend = svg.selectAll(".chartlegend");
+    const countrylegend = svg.selectAll(".chartlegend");
 
           countrylegend
             .append('rect')
