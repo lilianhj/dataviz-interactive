@@ -24,6 +24,19 @@ div.tooltip {
   pointer-events: none;
 }
 
+div.tooltip2 {
+  position: absolute;
+  text-align: center;
+  width: 120px;
+  height: 30px;
+  padding: 10px;
+  font: 12px sans-serif;
+  background: lightgrey;
+  border: 0px;
+  border-radius: 6px;
+  pointer-events: none;
+}
+
 /* #page-container {
   position: relative;
   min-height: 100vh;
@@ -97,3 +110,16 @@ nav a {
   border-top: 1px solid #e4e4e4;
   height: 40px;
 } */
+
+#map {
+  float: left;
+}
+
+/* #chart {
+  float: right;
+} */
+
+.state-label {
+  color: green;
+  font-family: Tahoma;
+}

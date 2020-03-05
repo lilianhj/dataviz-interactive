@@ -1,0 +1,622 @@
+World Region,Country,target,value,Census Region,Census Division
+East Asia,Burma,Alabama,1,South,East South Central
+Africa,Dem. Rep. Congo,Alabama,25,South,East South Central
+Latin America/Caribbean,El Salvador,Alabama,1,South,East South Central
+Africa,Somalia,Alabama,3,South,East South Central
+East Asia,Vietnam,Alabama,3,South,East South Central
+East Asia,Burma,Arizona,58,West,Mountain
+Africa,Dem. Rep. Congo,Arizona,455,West,Mountain
+Africa,Somalia,Arizona,10,West,Mountain
+Near East/South Asia,Afghanistan,Arizona,95,West,Mountain
+Near East/South Asia,Algeria,Arizona,1,West,Mountain
+Near East/South Asia,Bhutan,Arizona,18,West,Mountain
+Africa,Burundi,Arizona,12,West,Mountain
+Africa,Central African Republic,Arizona,6,West,Mountain
+Latin America/Caribbean,Colombia,Arizona,2,West,Mountain
+Africa,Eritrea,Arizona,72,West,Mountain
+Africa,Ethiopia,Arizona,25,West,Mountain
+Africa,Guinea,Arizona,2,West,Mountain
+Near East/South Asia,Iraq,Arizona,5,West,Mountain
+Africa,Ivory Coast,Arizona,1,West,Mountain
+Near East/South Asia,Jordan,Arizona,1,West,Mountain
+Africa,Liberia,Arizona,1,West,Mountain
+Europe,Moldova,Arizona,1,West,Mountain
+Near East/South Asia,Pakistan,Arizona,42,West,Mountain
+Africa,Senegal,Arizona,1,West,Mountain
+East Asia,Burma,California,37,West,Pacific
+Africa,Dem. Rep. Congo,California,95,West,Pacific
+Latin America/Caribbean,El Salvador,California,162,West,Pacific
+East Asia,Vietnam,California,4,West,Pacific
+Europe,Russia,California,61,West,Pacific
+Europe,Ukraine,California,311,West,Pacific
+Near East/South Asia,Afghanistan,California,111,West,Pacific
+Near East/South Asia,Bhutan,California,3,West,Pacific
+Africa,Burundi,California,1,West,Pacific
+Africa,Central African Republic,California,6,West,Pacific
+Africa,Eritrea,California,16,West,Pacific
+Africa,Ethiopia,California,1,West,Pacific
+Near East/South Asia,Iraq,California,12,West,Pacific
+Africa,Ivory Coast,California,1,West,Pacific
+Europe,Moldova,California,77,West,Pacific
+Near East/South Asia,Pakistan,California,24,West,Pacific
+Latin America/Caribbean,Honduras,California,12,West,Pacific
+Europe,Armenia,California,57,West,Pacific
+Europe,Azerbaijan,California,2,West,Pacific
+Europe,Belarus,California,44,West,Pacific
+Latin America/Caribbean,Guatemala,California,7,West,Pacific
+Near East/South Asia,Iran,California,19,West,Pacific
+Europe,Kazakhstan,California,4,West,Pacific
+East Asia,"Korea, North",California,2,West,Pacific
+Africa,Rwanda,California,9,West,Pacific
+Near East/South Asia,Sri Lanka (Ceylon),California,23,West,Pacific
+Near East/South Asia,Syria,California,12,West,Pacific
+Africa,Uganda,California,7,West,Pacific
+Europe,Uzbekistan,California,6,West,Pacific
+East Asia,Burma,Colorado,99,West,Mountain
+Africa,Dem. Rep. Congo,Colorado,100,West,Mountain
+Latin America/Caribbean,El Salvador,Colorado,5,West,Mountain
+Africa,Somalia,Colorado,6,West,Mountain
+Europe,Russia,Colorado,9,West,Mountain
+Europe,Ukraine,Colorado,8,West,Mountain
+Near East/South Asia,Afghanistan,Colorado,20,West,Mountain
+Near East/South Asia,Bhutan,Colorado,31,West,Mountain
+Africa,Central African Republic,Colorado,4,West,Mountain
+Africa,Eritrea,Colorado,44,West,Mountain
+Africa,Ethiopia,Colorado,5,West,Mountain
+Near East/South Asia,Iraq,Colorado,3,West,Mountain
+Near East/South Asia,Pakistan,Colorado,3,West,Mountain
+Africa,Senegal,Colorado,2,West,Mountain
+Near East/South Asia,Iran,Colorado,1,West,Mountain
+Africa,Rwanda,Colorado,1,West,Mountain
+Africa,Uganda,Colorado,1,West,Mountain
+Near East/South Asia,Bangladesh,Colorado,2,West,Mountain
+Africa,Cameroon,Colorado,2,West,Mountain
+East Asia,Burma,Connecticut,5,Northeast,New England
+Africa,Dem. Rep. Congo,Connecticut,76,Northeast,New England
+Europe,Russia,Connecticut,7,Northeast,New England
+Near East/South Asia,Afghanistan,Connecticut,17,Northeast,New England
+Near East/South Asia,Bhutan,Connecticut,3,Northeast,New England
+Africa,Eritrea,Connecticut,5,Northeast,New England
+Africa,Ethiopia,Connecticut,6,Northeast,New England
+Latin America/Caribbean,Guatemala,Connecticut,3,Northeast,New England
+Near East/South Asia,Syria,Connecticut,4,Northeast,New England
+East Asia,Burma,Florida,18,South,South Atlantic
+Africa,Dem. Rep. Congo,Florida,215,South,South Atlantic
+Latin America/Caribbean,El Salvador,Florida,27,South,South Atlantic
+Europe,Russia,Florida,28,South,South Atlantic
+Europe,Ukraine,Florida,35,South,South Atlantic
+Near East/South Asia,Afghanistan,Florida,11,South,South Atlantic
+Near East/South Asia,Bhutan,Florida,3,South,South Atlantic
+Africa,Burundi,Florida,8,South,South Atlantic
+Africa,Central African Republic,Florida,2,South,South Atlantic
+Latin America/Caribbean,Colombia,Florida,15,South,South Atlantic
+Africa,Eritrea,Florida,64,South,South Atlantic
+Africa,Ethiopia,Florida,12,South,South Atlantic
+Near East/South Asia,Pakistan,Florida,8,South,South Atlantic
+Latin America/Caribbean,Honduras,Florida,5,South,South Atlantic
+Latin America/Caribbean,Guatemala,Florida,8,South,South Atlantic
+Africa,Rwanda,Florida,4,South,South Atlantic
+Near East/South Asia,Sri Lanka (Ceylon),Florida,3,South,South Atlantic
+Near East/South Asia,Syria,Florida,7,South,South Atlantic
+Africa,Congo,Florida,3,South,South Atlantic
+Latin America/Caribbean,Jamaica,Florida,1,South,South Atlantic
+Near East/South Asia,Saudi Arabia,Florida,1,South,South Atlantic
+Africa,Sudan,Florida,1,South,South Atlantic
+East Asia,Burma,Georgia,153,South,South Atlantic
+Africa,Dem. Rep. Congo,Georgia,194,South,South Atlantic
+Latin America/Caribbean,El Salvador,Georgia,31,South,South Atlantic
+Africa,Somalia,Georgia,4,South,South Atlantic
+East Asia,Vietnam,Georgia,4,South,South Atlantic
+Europe,Ukraine,Georgia,12,South,South Atlantic
+Near East/South Asia,Afghanistan,Georgia,35,South,South Atlantic
+Near East/South Asia,Bhutan,Georgia,104,South,South Atlantic
+Africa,Burundi,Georgia,5,South,South Atlantic
+Africa,Central African Republic,Georgia,11,South,South Atlantic
+Latin America/Caribbean,Colombia,Georgia,2,South,South Atlantic
+Africa,Eritrea,Georgia,36,South,South Atlantic
+Africa,Ethiopia,Georgia,5,South,South Atlantic
+Europe,Moldova,Georgia,2,South,South Atlantic
+Near East/South Asia,Pakistan,Georgia,13,South,South Atlantic
+Latin America/Caribbean,Honduras,Georgia,2,South,South Atlantic
+Africa,Rwanda,Georgia,4,South,South Atlantic
+Near East/South Asia,Syria,Georgia,6,South,South Atlantic
+Near East/South Asia,Nepal,Georgia,1,South,South Atlantic
+Africa,Niger,Georgia,1,South,South Atlantic
+Africa,Republic of South Sudan,Georgia,1,South,South Atlantic
+East Asia,Burma,Idaho,11,West,Mountain
+Africa,Dem. Rep. Congo,Idaho,177,West,Mountain
+Europe,Russia,Idaho,12,West,Mountain
+Europe,Ukraine,Idaho,18,West,Mountain
+Near East/South Asia,Afghanistan,Idaho,6,West,Mountain
+Near East/South Asia,Bhutan,Idaho,20,West,Mountain
+Africa,Burundi,Idaho,5,West,Mountain
+Africa,Eritrea,Idaho,35,West,Mountain
+Africa,Ethiopia,Idaho,4,West,Mountain
+Africa,Guinea,Idaho,1,West,Mountain
+Near East/South Asia,Pakistan,Idaho,4,West,Mountain
+Africa,Sudan,Idaho,2,West,Mountain
+East Asia,Burma,Illinois,214,Midwest,East North Central
+Africa,Dem. Rep. Congo,Illinois,158,Midwest,East North Central
+Africa,Somalia,Illinois,5,Midwest,East North Central
+East Asia,Vietnam,Illinois,6,Midwest,East North Central
+Europe,Russia,Illinois,5,Midwest,East North Central
+Europe,Ukraine,Illinois,42,Midwest,East North Central
+Near East/South Asia,Afghanistan,Illinois,22,Midwest,East North Central
+Near East/South Asia,Bhutan,Illinois,20,Midwest,East North Central
+Africa,Burundi,Illinois,9,Midwest,East North Central
+Africa,Central African Republic,Illinois,6,Midwest,East North Central
+Latin America/Caribbean,Colombia,Illinois,1,Midwest,East North Central
+Africa,Eritrea,Illinois,42,Midwest,East North Central
+Africa,Ethiopia,Illinois,1,Midwest,East North Central
+Near East/South Asia,Iraq,Illinois,19,Midwest,East North Central
+Europe,Moldova,Illinois,9,Midwest,East North Central
+Africa,Rwanda,Illinois,4,Midwest,East North Central
+Near East/South Asia,Syria,Illinois,3,Midwest,East North Central
+Africa,Uganda,Illinois,2,Midwest,East North Central
+Africa,Cameroon,Illinois,1,Midwest,East North Central
+Africa,Sudan,Illinois,3,Midwest,East North Central
+East Asia,China,Illinois,1,Midwest,East North Central
+Africa,Zimbabwe,Illinois,1,Midwest,East North Central
+East Asia,Burma,Indiana,249,Midwest,East North Central
+Africa,Dem. Rep. Congo,Indiana,95,Midwest,East North Central
+Latin America/Caribbean,El Salvador,Indiana,6,Midwest,East North Central
+Africa,Somalia,Indiana,4,Midwest,East North Central
+Europe,Ukraine,Indiana,18,Midwest,East North Central
+Africa,Burundi,Indiana,1,Midwest,East North Central
+Africa,Eritrea,Indiana,16,Midwest,East North Central
+Near East/South Asia,Iraq,Indiana,1,Midwest,East North Central
+Near East/South Asia,Pakistan,Indiana,2,Midwest,East North Central
+Africa,Sudan,Indiana,9,Midwest,East North Central
+Africa,South Africa,Indiana,1,Midwest,East North Central
+East Asia,Burma,Iowa,106,Midwest,West North Central
+Africa,Dem. Rep. Congo,Iowa,197,Midwest,West North Central
+Latin America/Caribbean,El Salvador,Iowa,2,Midwest,West North Central
+Near East/South Asia,Bhutan,Iowa,59,Midwest,West North Central
+Africa,Eritrea,Iowa,68,Midwest,West North Central
+Africa,Ethiopia,Iowa,4,Midwest,West North Central
+Africa,Rwanda,Iowa,1,Midwest,West North Central
+Africa,Sudan,Iowa,9,Midwest,West North Central
+Near East/South Asia,Nepal,Iowa,1,Midwest,West North Central
+East Asia,Burma,Kansas,76,Midwest,West North Central
+Africa,Dem. Rep. Congo,Kansas,159,Midwest,West North Central
+Africa,Somalia,Kansas,11,Midwest,West North Central
+Near East/South Asia,Afghanistan,Kansas,10,Midwest,West North Central
+Near East/South Asia,Bhutan,Kansas,10,Midwest,West North Central
+Africa,Eritrea,Kansas,22,Midwest,West North Central
+East Asia,Burma,Kentucky,102,South,East South Central
+Africa,Dem. Rep. Congo,Kentucky,438,South,East South Central
+Africa,Somalia,Kentucky,9,South,East South Central
+Europe,Ukraine,Kentucky,40,South,East South Central
+Near East/South Asia,Bhutan,Kentucky,94,South,East South Central
+Africa,Burundi,Kentucky,10,South,East South Central
+Africa,Eritrea,Kentucky,15,South,East South Central
+Africa,Ethiopia,Kentucky,1,South,East South Central
+Near East/South Asia,Iraq,Kentucky,3,South,East South Central
+Africa,Rwanda,Kentucky,9,South,East South Central
+Near East/South Asia,Nepal,Kentucky,3,South,East South Central
+East Asia,New Zealand,Kentucky,5,South,East South Central
+East Asia,Burma,Louisiana,6,South,West South Central
+Africa,Dem. Rep. Congo,Louisiana,4,South,West South Central
+East Asia,Vietnam,Louisiana,4,South,West South Central
+Africa,Central African Republic,Louisiana,6,South,West South Central
+Africa,Eritrea,Louisiana,5,South,West South Central
+Near East/South Asia,Iraq,Louisiana,1,South,West South Central
+Latin America/Caribbean,Honduras,Louisiana,2,South,West South Central
+East Asia,Burma,Maryland,23,South,South Atlantic
+Africa,Dem. Rep. Congo,Maryland,74,South,South Atlantic
+Latin America/Caribbean,El Salvador,Maryland,69,South,South Atlantic
+East Asia,Vietnam,Maryland,1,South,South Atlantic
+Europe,Ukraine,Maryland,7,South,South Atlantic
+Near East/South Asia,Afghanistan,Maryland,28,South,South Atlantic
+Near East/South Asia,Bhutan,Maryland,18,South,South Atlantic
+Africa,Eritrea,Maryland,50,South,South Atlantic
+Africa,Ethiopia,Maryland,9,South,South Atlantic
+Europe,Moldova,Maryland,1,South,South Atlantic
+Near East/South Asia,Pakistan,Maryland,38,South,South Atlantic
+Latin America/Caribbean,Honduras,Maryland,1,South,South Atlantic
+Europe,Kazakhstan,Maryland,2,South,South Atlantic
+Near East/South Asia,Sri Lanka (Ceylon),Maryland,1,South,South Atlantic
+Africa,Uganda,Maryland,1,South,South Atlantic
+Africa,Sudan,Maryland,8,South,South Atlantic
+East Asia,Burma,Massachusetts,7,Northeast,New England
+Africa,Dem. Rep. Congo,Massachusetts,95,Northeast,New England
+Latin America/Caribbean,El Salvador,Massachusetts,41,Northeast,New England
+Africa,Somalia,Massachusetts,6,Northeast,New England
+Europe,Russia,Massachusetts,11,Northeast,New England
+Europe,Ukraine,Massachusetts,46,Northeast,New England
+Near East/South Asia,Afghanistan,Massachusetts,13,Northeast,New England
+Near East/South Asia,Bhutan,Massachusetts,51,Northeast,New England
+Africa,Burundi,Massachusetts,4,Northeast,New England
+Africa,Central African Republic,Massachusetts,8,Northeast,New England
+Africa,Eritrea,Massachusetts,13,Northeast,New England
+Africa,Ethiopia,Massachusetts,6,Northeast,New England
+Africa,Guinea,Massachusetts,2,Northeast,New England
+Near East/South Asia,Iraq,Massachusetts,4,Northeast,New England
+Europe,Moldova,Massachusetts,15,Northeast,New England
+Africa,Senegal,Massachusetts,1,Northeast,New England
+Latin America/Caribbean,Honduras,Massachusetts,3,Northeast,New England
+Europe,Belarus,Massachusetts,16,Northeast,New England
+Latin America/Caribbean,Guatemala,Massachusetts,2,Northeast,New England
+Near East/South Asia,Sri Lanka (Ceylon),Massachusetts,1,Northeast,New England
+Near East/South Asia,Syria,Massachusetts,1,Northeast,New England
+Africa,Uganda,Massachusetts,1,Northeast,New England
+Europe,Uzbekistan,Massachusetts,1,Northeast,New England
+Near East/South Asia,Nepal,Massachusetts,1,Northeast,New England
+Africa,Republic of South Sudan,Massachusetts,4,Northeast,New England
+Near East/South Asia,Egypt,Massachusetts,1,Northeast,New England
+East Asia,Burma,Michigan,88,Midwest,East North Central
+Africa,Dem. Rep. Congo,Michigan,232,Midwest,East North Central
+Africa,Somalia,Michigan,3,Midwest,East North Central
+Europe,Ukraine,Michigan,45,Midwest,East North Central
+Near East/South Asia,Afghanistan,Michigan,40,Midwest,East North Central
+Near East/South Asia,Bhutan,Michigan,87,Midwest,East North Central
+Africa,Burundi,Michigan,8,Midwest,East North Central
+Africa,Central African Republic,Michigan,2,Midwest,East North Central
+Africa,Eritrea,Michigan,19,Midwest,East North Central
+Africa,Ethiopia,Michigan,5,Midwest,East North Central
+Africa,Guinea,Michigan,2,Midwest,East North Central
+Near East/South Asia,Iraq,Michigan,8,Midwest,East North Central
+Near East/South Asia,Pakistan,Michigan,13,Midwest,East North Central
+Africa,Senegal,Michigan,1,Midwest,East North Central
+Africa,Rwanda,Michigan,2,Midwest,East North Central
+Near East/South Asia,Sri Lanka (Ceylon),Michigan,1,Midwest,East North Central
+Near East/South Asia,Syria,Michigan,3,Midwest,East North Central
+Africa,Cameroon,Michigan,2,Midwest,East North Central
+Africa,Sudan,Michigan,3,Midwest,East North Central
+Near East/South Asia,Nepal,Michigan,1,Midwest,East North Central
+Africa,Nigeria,Michigan,1,Midwest,East North Central
+East Asia,Burma,Minnesota,292,Midwest,West North Central
+Africa,Dem. Rep. Congo,Minnesota,67,Midwest,West North Central
+Latin America/Caribbean,El Salvador,Minnesota,10,Midwest,West North Central
+Africa,Somalia,Minnesota,80,Midwest,West North Central
+Europe,Russia,Minnesota,2,Midwest,West North Central
+Europe,Ukraine,Minnesota,34,Midwest,West North Central
+Near East/South Asia,Bhutan,Minnesota,28,Midwest,West North Central
+Africa,Eritrea,Minnesota,23,Midwest,West North Central
+Africa,Ethiopia,Minnesota,67,Midwest,West North Central
+Near East/South Asia,Iraq,Minnesota,1,Midwest,West North Central
+Europe,Moldova,Minnesota,2,Midwest,West North Central
+Africa,Senegal,Minnesota,1,Midwest,West North Central
+Europe,Belarus,Minnesota,15,Midwest,West North Central
+Latin America/Caribbean,Guatemala,Minnesota,1,Midwest,West North Central
+Europe,Kazakhstan,Minnesota,9,Midwest,West North Central
+Near East/South Asia,Sri Lanka (Ceylon),Minnesota,1,Midwest,West North Central
+Near East/South Asia,Kuwait,Minnesota,1,Midwest,West North Central
+East Asia,Burma,Missouri,46,Midwest,West North Central
+Africa,Dem. Rep. Congo,Missouri,203,Midwest,West North Central
+Africa,Somalia,Missouri,8,Midwest,West North Central
+East Asia,Vietnam,Missouri,5,Midwest,West North Central
+Europe,Ukraine,Missouri,31,Midwest,West North Central
+Near East/South Asia,Afghanistan,Missouri,12,Midwest,West North Central
+Near East/South Asia,Bhutan,Missouri,9,Midwest,West North Central
+Africa,Burundi,Missouri,4,Midwest,West North Central
+Africa,Eritrea,Missouri,32,Midwest,West North Central
+Africa,Ethiopia,Missouri,5,Midwest,West North Central
+Near East/South Asia,Iraq,Missouri,1,Midwest,West North Central
+Near East/South Asia,Pakistan,Missouri,7,Midwest,West North Central
+Africa,Congo,Missouri,1,Midwest,West North Central
+Africa,Sudan,Missouri,1,Midwest,West North Central
+East Asia,Burma,Nebraska,136,Midwest,West North Central
+Africa,Dem. Rep. Congo,Nebraska,30,Midwest,West North Central
+Latin America/Caribbean,El Salvador,Nebraska,4,Midwest,West North Central
+Africa,Somalia,Nebraska,5,Midwest,West North Central
+Europe,Ukraine,Nebraska,15,Midwest,West North Central
+Near East/South Asia,Afghanistan,Nebraska,6,Midwest,West North Central
+Near East/South Asia,Bhutan,Nebraska,109,Midwest,West North Central
+Africa,Ethiopia,Nebraska,9,Midwest,West North Central
+Near East/South Asia,Iraq,Nebraska,6,Midwest,West North Central
+East Asia,Burma,New Hampshire,16,Northeast,New England
+Africa,Dem. Rep. Congo,New Hampshire,69,Northeast,New England
+Africa,Somalia,New Hampshire,8,Northeast,New England
+Europe,Ukraine,New Hampshire,1,Northeast,New England
+Near East/South Asia,Bhutan,New Hampshire,30,Northeast,New England
+Near East/South Asia,Nepal,New Hampshire,1,Northeast,New England
+East Asia,Burma,New Jersey,5,Northeast,Middle Atlantic
+Africa,Dem. Rep. Congo,New Jersey,38,Northeast,Middle Atlantic
+Latin America/Caribbean,El Salvador,New Jersey,16,Northeast,Middle Atlantic
+Europe,Russia,New Jersey,8,Northeast,Middle Atlantic
+Europe,Ukraine,New Jersey,3,Northeast,Middle Atlantic
+Africa,Burundi,New Jersey,1,Northeast,Middle Atlantic
+Latin America/Caribbean,Colombia,New Jersey,8,Northeast,Middle Atlantic
+Africa,Eritrea,New Jersey,2,Northeast,Middle Atlantic
+Near East/South Asia,Iraq,New Jersey,1,Northeast,Middle Atlantic
+Europe,Moldova,New Jersey,4,Northeast,Middle Atlantic
+Near East/South Asia,Pakistan,New Jersey,22,Northeast,Middle Atlantic
+Latin America/Caribbean,Guatemala,New Jersey,8,Northeast,Middle Atlantic
+Near East/South Asia,Sri Lanka (Ceylon),New Jersey,11,Northeast,Middle Atlantic
+Europe,Kyrgyzstan,New Jersey,1,Northeast,Middle Atlantic
+East Asia,Burma,New York,187,Northeast,Middle Atlantic
+Africa,Dem. Rep. Congo,New York,388,Northeast,Middle Atlantic
+Latin America/Caribbean,El Salvador,New York,12,Northeast,Middle Atlantic
+Africa,Somalia,New York,2,Northeast,Middle Atlantic
+Europe,Russia,New York,64,Northeast,Middle Atlantic
+Europe,Ukraine,New York,150,Northeast,Middle Atlantic
+Near East/South Asia,Afghanistan,New York,46,Northeast,Middle Atlantic
+Near East/South Asia,Bhutan,New York,115,Northeast,Middle Atlantic
+Africa,Burundi,New York,22,Northeast,Middle Atlantic
+Africa,Central African Republic,New York,3,Northeast,Middle Atlantic
+Africa,Eritrea,New York,54,Northeast,Middle Atlantic
+Africa,Ethiopia,New York,7,Northeast,Middle Atlantic
+Near East/South Asia,Iraq,New York,1,Northeast,Middle Atlantic
+Europe,Moldova,New York,5,Northeast,Middle Atlantic
+Near East/South Asia,Pakistan,New York,26,Northeast,Middle Atlantic
+Latin America/Caribbean,Honduras,New York,7,Northeast,Middle Atlantic
+Europe,Belarus,New York,21,Northeast,Middle Atlantic
+Near East/South Asia,Sri Lanka (Ceylon),New York,5,Northeast,Middle Atlantic
+Near East/South Asia,Syria,New York,6,Northeast,Middle Atlantic
+Africa,Uganda,New York,1,Northeast,Middle Atlantic
+Europe,Uzbekistan,New York,4,Northeast,Middle Atlantic
+Africa,Sudan,New York,2,Northeast,Middle Atlantic
+East Asia,China,New York,3,Northeast,Middle Atlantic
+Africa,Chad,New York,1,Northeast,Middle Atlantic
+Near East/South Asia,India,New York,1,Northeast,Middle Atlantic
+East Asia,Philippines,New York,1,Northeast,Middle Atlantic
+East Asia,Burma,North Carolina,156,South,South Atlantic
+Africa,Dem. Rep. Congo,North Carolina,326,South,South Atlantic
+Latin America/Caribbean,El Salvador,North Carolina,48,South,South Atlantic
+Africa,Somalia,North Carolina,1,South,South Atlantic
+East Asia,Vietnam,North Carolina,5,South,South Atlantic
+Europe,Russia,North Carolina,11,South,South Atlantic
+Europe,Ukraine,North Carolina,46,South,South Atlantic
+Near East/South Asia,Afghanistan,North Carolina,23,South,South Atlantic
+Near East/South Asia,Bhutan,North Carolina,68,South,South Atlantic
+Africa,Central African Republic,North Carolina,13,South,South Atlantic
+Latin America/Caribbean,Colombia,North Carolina,5,South,South Atlantic
+Africa,Eritrea,North Carolina,50,South,South Atlantic
+Africa,Ethiopia,North Carolina,3,South,South Atlantic
+Near East/South Asia,Iraq,North Carolina,2,South,South Atlantic
+Europe,Moldova,North Carolina,4,South,South Atlantic
+Near East/South Asia,Pakistan,North Carolina,20,South,South Atlantic
+Europe,Belarus,North Carolina,7,South,South Atlantic
+Latin America/Caribbean,Guatemala,North Carolina,2,South,South Atlantic
+Africa,Rwanda,North Carolina,3,South,South Atlantic
+Near East/South Asia,Sri Lanka (Ceylon),North Carolina,1,South,South Atlantic
+Near East/South Asia,Syria,North Carolina,2,South,South Atlantic
+Africa,Uganda,North Carolina,2,South,South Atlantic
+Africa,Sudan,North Carolina,8,South,South Atlantic
+East Asia,Burma,Ohio,36,Midwest,East North Central
+Africa,Dem. Rep. Congo,Ohio,301,Midwest,East North Central
+Latin America/Caribbean,El Salvador,Ohio,9,Midwest,East North Central
+Africa,Somalia,Ohio,11,Midwest,East North Central
+Europe,Ukraine,Ohio,101,Midwest,East North Central
+Near East/South Asia,Afghanistan,Ohio,28,Midwest,East North Central
+Near East/South Asia,Bhutan,Ohio,619,Midwest,East North Central
+Africa,Central African Republic,Ohio,1,Midwest,East North Central
+Africa,Eritrea,Ohio,53,Midwest,East North Central
+Africa,Ethiopia,Ohio,2,Midwest,East North Central
+Near East/South Asia,Iraq,Ohio,5,Midwest,East North Central
+Africa,Ivory Coast,Ohio,3,Midwest,East North Central
+Africa,Liberia,Ohio,2,Midwest,East North Central
+Near East/South Asia,Pakistan,Ohio,24,Midwest,East North Central
+Africa,Rwanda,Ohio,3,Midwest,East North Central
+Near East/South Asia,Syria,Ohio,2,Midwest,East North Central
+Africa,Uganda,Ohio,3,Midwest,East North Central
+Europe,Uzbekistan,Ohio,7,Midwest,East North Central
+Africa,Republic of South Sudan,Ohio,6,Midwest,East North Central
+Europe,Kyrgyzstan,Ohio,2,Midwest,East North Central
+East Asia,Burma,Oklahoma,58,South,West South Central
+Africa,Dem. Rep. Congo,Oklahoma,3,South,West South Central
+Europe,Russia,Oklahoma,9,South,West South Central
+Europe,Ukraine,Oklahoma,2,South,West South Central
+Africa,Eritrea,Oklahoma,6,South,West South Central
+Latin America/Caribbean,Honduras,Oklahoma,2,South,West South Central
+East Asia,Burma,Oregon,64,West,Pacific
+Africa,Dem. Rep. Congo,Oregon,67,West,Pacific
+Latin America/Caribbean,El Salvador,Oregon,1,West,Pacific
+Europe,Russia,Oregon,24,West,Pacific
+Europe,Ukraine,Oregon,140,West,Pacific
+Near East/South Asia,Afghanistan,Oregon,3,West,Pacific
+Near East/South Asia,Bhutan,Oregon,23,West,Pacific
+Africa,Burundi,Oregon,4,West,Pacific
+Africa,Central African Republic,Oregon,7,West,Pacific
+Africa,Eritrea,Oregon,1,West,Pacific
+Africa,Ethiopia,Oregon,4,West,Pacific
+Near East/South Asia,Iraq,Oregon,3,West,Pacific
+Europe,Moldova,Oregon,17,West,Pacific
+Near East/South Asia,Pakistan,Oregon,4,West,Pacific
+Near East/South Asia,Iran,Oregon,1,West,Pacific
+Europe,Kazakhstan,Oregon,1,West,Pacific
+Near East/South Asia,Sri Lanka (Ceylon),Oregon,1,West,Pacific
+Near East/South Asia,Syria,Oregon,4,West,Pacific
+Africa,Uganda,Oregon,1,West,Pacific
+Africa,Republic of South Sudan,Oregon,1,West,Pacific
+East Asia,Burma,Pennsylvania,28,Northeast,Middle Atlantic
+Africa,Dem. Rep. Congo,Pennsylvania,222,Northeast,Middle Atlantic
+Latin America/Caribbean,El Salvador,Pennsylvania,2,Northeast,Middle Atlantic
+Africa,Somalia,Pennsylvania,1,Northeast,Middle Atlantic
+Europe,Russia,Pennsylvania,6,Northeast,Middle Atlantic
+Europe,Ukraine,Pennsylvania,75,Northeast,Middle Atlantic
+Near East/South Asia,Afghanistan,Pennsylvania,8,Northeast,Middle Atlantic
+Near East/South Asia,Bhutan,Pennsylvania,255,Northeast,Middle Atlantic
+Africa,Central African Republic,Pennsylvania,2,Northeast,Middle Atlantic
+Africa,Eritrea,Pennsylvania,41,Northeast,Middle Atlantic
+Africa,Ethiopia,Pennsylvania,15,Northeast,Middle Atlantic
+Africa,Ivory Coast,Pennsylvania,3,Northeast,Middle Atlantic
+Africa,Liberia,Pennsylvania,2,Northeast,Middle Atlantic
+Near East/South Asia,Pakistan,Pennsylvania,34,Northeast,Middle Atlantic
+Europe,Belarus,Pennsylvania,9,Northeast,Middle Atlantic
+Africa,Rwanda,Pennsylvania,13,Northeast,Middle Atlantic
+Africa,Uganda,Pennsylvania,1,Northeast,Middle Atlantic
+Africa,Cameroon,Pennsylvania,1,Northeast,Middle Atlantic
+Europe,Kyrgyzstan,Pennsylvania,2,Northeast,Middle Atlantic
+Near East/South Asia,Libya,Pennsylvania,1,Northeast,Middle Atlantic
+Europe,Turkmenistan,Pennsylvania,5,Northeast,Middle Atlantic
+East Asia,Burma,South Carolina,8,South,South Atlantic
+Africa,Dem. Rep. Congo,South Carolina,48,South,South Atlantic
+East Asia,Vietnam,South Carolina,4,South,South Atlantic
+Europe,Ukraine,South Carolina,18,South,South Atlantic
+Near East/South Asia,Afghanistan,South Carolina,4,South,South Atlantic
+Africa,Eritrea,South Carolina,5,South,South Atlantic
+Europe,Belarus,South Carolina,13,South,South Atlantic
+Africa,Cameroon,South Carolina,4,South,South Atlantic
+East Asia,Burma,South Dakota,23,Midwest,West North Central
+Africa,Dem. Rep. Congo,South Dakota,24,Midwest,West North Central
+Latin America/Caribbean,El Salvador,South Dakota,4,Midwest,West North Central
+Africa,Somalia,South Dakota,8,Midwest,West North Central
+Europe,Russia,South Dakota,2,Midwest,West North Central
+Europe,Ukraine,South Dakota,24,Midwest,West North Central
+Near East/South Asia,Bhutan,South Dakota,65,Midwest,West North Central
+Africa,Eritrea,South Dakota,25,Midwest,West North Central
+Africa,Ethiopia,South Dakota,12,Midwest,West North Central
+Africa,Sudan,South Dakota,1,Midwest,West North Central
+East Asia,Burma,Tennessee,37,South,East South Central
+Africa,Dem. Rep. Congo,Tennessee,141,South,East South Central
+Latin America/Caribbean,El Salvador,Tennessee,7,South,East South Central
+Africa,Somalia,Tennessee,4,South,East South Central
+Europe,Russia,Tennessee,4,South,East South Central
+Europe,Ukraine,Tennessee,17,South,East South Central
+Near East/South Asia,Afghanistan,Tennessee,2,South,East South Central
+Near East/South Asia,Bhutan,Tennessee,44,South,East South Central
+Africa,Burundi,Tennessee,11,South,East South Central
+Latin America/Caribbean,Colombia,Tennessee,7,South,East South Central
+Africa,Eritrea,Tennessee,9,South,East South Central
+Africa,Ethiopia,Tennessee,1,South,East South Central
+Near East/South Asia,Iraq,Tennessee,4,South,East South Central
+Near East/South Asia,Pakistan,Tennessee,2,South,East South Central
+Latin America/Caribbean,Honduras,Tennessee,5,South,East South Central
+Africa,Rwanda,Tennessee,7,South,East South Central
+Africa,Sudan,Tennessee,1,South,East South Central
+Africa,Zimbabwe,Tennessee,3,South,East South Central
+East Asia,Burma,Texas,361,South,West South Central
+Africa,Dem. Rep. Congo,Texas,565,South,West South Central
+Latin America/Caribbean,El Salvador,Texas,69,South,West South Central
+Africa,Somalia,Texas,9,South,West South Central
+East Asia,Vietnam,Texas,12,South,West South Central
+Near East/South Asia,Afghanistan,Texas,45,South,West South Central
+Near East/South Asia,Bhutan,Texas,81,South,West South Central
+Africa,Burundi,Texas,24,South,West South Central
+Latin America/Caribbean,Colombia,Texas,1,South,West South Central
+Africa,Eritrea,Texas,74,South,West South Central
+Africa,Ethiopia,Texas,6,South,West South Central
+Near East/South Asia,Iraq,Texas,21,South,West South Central
+Africa,Ivory Coast,Texas,4,South,West South Central
+Near East/South Asia,Pakistan,Texas,34,South,West South Central
+Africa,Senegal,Texas,1,South,West South Central
+Latin America/Caribbean,Honduras,Texas,10,South,West South Central
+Near East/South Asia,Iran,Texas,8,South,West South Central
+Africa,Rwanda,Texas,16,South,West South Central
+Near East/South Asia,Syria,Texas,1,South,West South Central
+Africa,Uganda,Texas,2,South,West South Central
+Africa,Cameroon,Texas,1,South,West South Central
+Africa,Sudan,Texas,10,South,West South Central
+Near East/South Asia,Nepal,Texas,3,South,West South Central
+Africa,Zimbabwe,Texas,8,South,West South Central
+East Asia,Burma,Utah,28,West,Mountain
+Africa,Dem. Rep. Congo,Utah,140,West,Mountain
+Latin America/Caribbean,El Salvador,Utah,2,West,Mountain
+Africa,Somalia,Utah,17,West,Mountain
+Near East/South Asia,Afghanistan,Utah,5,West,Mountain
+Near East/South Asia,Bhutan,Utah,14,West,Mountain
+Africa,Central African Republic,Utah,5,West,Mountain
+Africa,Eritrea,Utah,23,West,Mountain
+Africa,Ethiopia,Utah,15,West,Mountain
+Africa,Guinea,Utah,3,West,Mountain
+Near East/South Asia,Iraq,Utah,1,West,Mountain
+Near East/South Asia,Pakistan,Utah,3,West,Mountain
+East Asia,"Korea, North",Utah,1,West,Mountain
+Africa,Rwanda,Utah,5,West,Mountain
+East Asia,Burma,Vermont,3,Northeast,New England
+Africa,Dem. Rep. Congo,Vermont,64,Northeast,New England
+Near East/South Asia,Bhutan,Vermont,54,Northeast,New England
+East Asia,Burma,Washington,52,West,Pacific
+Africa,Dem. Rep. Congo,Washington,17,West,Pacific
+Latin America/Caribbean,El Salvador,Washington,5,West,Pacific
+Africa,Somalia,Washington,9,West,Pacific
+East Asia,Vietnam,Washington,7,West,Pacific
+Europe,Russia,Washington,106,West,Pacific
+Europe,Ukraine,Washington,682,West,Pacific
+Near East/South Asia,Bhutan,Washington,27,West,Pacific
+Africa,Central African Republic,Washington,9,West,Pacific
+Africa,Eritrea,Washington,38,West,Pacific
+Africa,Ethiopia,Washington,10,West,Pacific
+Near East/South Asia,Iraq,Washington,4,West,Pacific
+Europe,Moldova,Washington,56,West,Pacific
+Near East/South Asia,Pakistan,Washington,3,West,Pacific
+Africa,Senegal,Washington,3,West,Pacific
+Europe,Belarus,Washington,23,West,Pacific
+Near East/South Asia,Iran,Washington,3,West,Pacific
+Europe,Kazakhstan,Washington,10,West,Pacific
+Africa,Rwanda,Washington,5,West,Pacific
+Europe,Uzbekistan,Washington,4,West,Pacific
+Africa,Cameroon,Washington,1,West,Pacific
+Africa,Sudan,Washington,3,West,Pacific
+East Asia,China,Washington,1,West,Pacific
+Europe,Kyrgyzstan,Washington,1,West,Pacific
+Africa,Djibouti,Washington,1,West,Pacific
+Africa,Kenya,Washington,2,West,Pacific
+East Asia,Burma,Wisconsin,232,Midwest,East North Central
+Africa,Dem. Rep. Congo,Wisconsin,48,Midwest,East North Central
+Africa,Somalia,Wisconsin,17,Midwest,East North Central
+Near East/South Asia,Afghanistan,Wisconsin,7,Midwest,East North Central
+Africa,Eritrea,Wisconsin,1,Midwest,East North Central
+Near East/South Asia,Pakistan,Wisconsin,13,Midwest,East North Central
+Latin America/Caribbean,Honduras,Wisconsin,2,Midwest,East North Central
+Africa,Dem. Rep. Congo,Arkansas,33,South,West South Central
+Europe,Ukraine,Arkansas,8,South,West South Central
+Africa,Ethiopia,Arkansas,2,South,West South Central
+Latin America/Caribbean,Honduras,Arkansas,1,South,West South Central
+Africa,Dem. Rep. Congo,Delaware,7,South,South Atlantic
+Near East/South Asia,Afghanistan,Delaware,2,South,South Atlantic
+Africa,Central African Republic,Delaware,3,South,South Atlantic
+Near East/South Asia,Pakistan,Delaware,3,South,South Atlantic
+Africa,Dem. Rep. Congo,Maine,40,Northeast,New England
+Africa,Somalia,Maine,6,Northeast,New England
+Africa,Eritrea,Maine,1,Northeast,New England
+Africa,Ethiopia,Maine,5,Northeast,New England
+Near East/South Asia,Iraq,Maine,9,Northeast,New England
+Africa,Dem. Rep. Congo,Mississippi,2,South,East South Central
+Africa,Dem. Rep. Congo,Montana,58,West,Mountain
+Africa,Eritrea,Montana,27,West,Mountain
+Africa,Dem. Rep. Congo,Nevada,81,West,Mountain
+Latin America/Caribbean,El Salvador,Nevada,4,West,Mountain
+Near East/South Asia,Afghanistan,Nevada,18,West,Mountain
+Near East/South Asia,Bhutan,Nevada,8,West,Mountain
+Latin America/Caribbean,Colombia,Nevada,1,West,Mountain
+Africa,Eritrea,Nevada,31,West,Mountain
+Africa,Ethiopia,Nevada,5,West,Mountain
+Near East/South Asia,Iraq,Nevada,3,West,Mountain
+Near East/South Asia,Pakistan,Nevada,2,West,Mountain
+Africa,Senegal,Nevada,4,West,Mountain
+Near East/South Asia,Iran,Nevada,3,West,Mountain
+Near East/South Asia,Syria,Nevada,3,West,Mountain
+Africa,Cameroon,Nevada,3,West,Mountain
+Africa,Niger,Nevada,1,West,Mountain
+Africa,Dem. Rep. Congo,New Mexico,30,West,Mountain
+Near East/South Asia,Afghanistan,New Mexico,11,West,Mountain
+Africa,Burundi,New Mexico,10,West,Mountain
+Africa,Rwanda,New Mexico,2,West,Mountain
+Africa,Dem. Rep. Congo,North Dakota,42,Midwest,West North Central
+Europe,Ukraine,North Dakota,7,Midwest,West North Central
+Near East/South Asia,Afghanistan,North Dakota,10,Midwest,West North Central
+Near East/South Asia,Bhutan,North Dakota,96,Midwest,West North Central
+Africa,Angola,North Dakota,1,Midwest,West North Central
+Africa,Dem. Rep. Congo,Rhode Island,39,Northeast,New England
+Latin America/Caribbean,El Salvador,Rhode Island,1,Northeast,New England
+Africa,Somalia,Rhode Island,1,Northeast,New England
+Near East/South Asia,Afghanistan,Rhode Island,4,Northeast,New England
+Africa,Burundi,Rhode Island,2,Northeast,New England
+Latin America/Caribbean,Colombia,Rhode Island,3,Northeast,New England
+Africa,Eritrea,Rhode Island,9,Northeast,New England
+Near East/South Asia,Iraq,Rhode Island,3,Northeast,New England
+Africa,Liberia,Rhode Island,1,Northeast,New England
+Africa,Dem. Rep. Congo,Virginia,129,South,South Atlantic
+Latin America/Caribbean,El Salvador,Virginia,60,South,South Atlantic
+Africa,Somalia,Virginia,2,South,South Atlantic
+East Asia,Vietnam,Virginia,4,South,South Atlantic
+Europe,Russia,Virginia,2,South,South Atlantic
+Europe,Ukraine,Virginia,4,South,South Atlantic
+Near East/South Asia,Afghanistan,Virginia,45,South,South Atlantic
+Near East/South Asia,Bhutan,Virginia,38,South,South Atlantic
+Africa,Burundi,Virginia,2,South,South Atlantic
+Latin America/Caribbean,Colombia,Virginia,2,South,South Atlantic
+Africa,Eritrea,Virginia,15,South,South Atlantic
+Africa,Ethiopia,Virginia,1,South,South Atlantic
+Near East/South Asia,Iraq,Virginia,4,South,South Atlantic
+Africa,Ivory Coast,Virginia,1,South,South Atlantic
+Near East/South Asia,Pakistan,Virginia,17,South,South Atlantic
+Latin America/Caribbean,Honduras,Virginia,2,South,South Atlantic
+Near East/South Asia,Syria,Virginia,2,South,South Atlantic
+Europe,Russia,Alaska,6,West,Pacific
+Europe,Ukraine,Alaska,16,West,Pacific
+Africa,Eritrea,District of Columbia,1,South,South Atlantic
+Africa,Uganda,West Virginia,1,South,South Atlantic
