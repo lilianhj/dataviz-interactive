@@ -771,6 +771,24 @@ export function myGeoVis() {
             .text(function(d) {
               return d;
             });
+
+              countrylegend
+                .on('mouseover', function(reg) {
+                  svg.selectAll('.bar')
+                    .filter(function(d) {
+                      return d['World Region'] === reg;
+                    })
+                    .attr('stroke', 'black')
+                    // .attr('stroke', function(d) {return x1color(d.data.Region)})
+                    .attr('stroke-width', 4);
+                })
+                .on('mouseout', function(reg) {
+                  svg.selectAll('.bar')
+                    .filter(function(d) {
+                      return d['World Region'] === reg;
+                    })
+                    .attr('stroke', 'none');
+                });
       
          svg
            .append('text')
