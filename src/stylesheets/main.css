@@ -115,9 +115,9 @@ nav a {
   float: left;
 }
 
-#chart {
+/* #chart {
   float: right;
-}
+} */
 
 .state-label {
   color: green;
