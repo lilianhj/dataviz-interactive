@@ -596,7 +596,10 @@ export function myGeoVis() {
               .data(tiles.features)
               .enter()
               .append('text')
-              .style('color', 'green')
+              .style('fill', function(d, i) {
+                console.log("label colour", colorValues[i]);
+                return colorValues[i] > 1000 ? '#FFFFFF' : '#000';
+              })
               .attr('class', function(d) {
                 return 'state-label state-label-' + d.id;
               })
