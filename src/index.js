@@ -1,5 +1,7 @@
 import * as d3 from 'd3';
 import * as topojson from 'topojson';
+import { legendColor } from 'd3-svg-legend';
+
 export function myVis() {
   // create SVG
 
@@ -438,7 +440,7 @@ export function myGeoVis() {
     .select('.mapcontainer')
     .append('svg')
     .attr('id', 'map')
-    .attr('width', 960)
+    .attr('width', 1200)
     .attr('height', 700);
     // .style('background-color', 'steelblue')
 
@@ -520,6 +522,22 @@ export function myGeoVis() {
 
         console.log("domain", linear.domain());
         console.log("color", linear(500));
+      
+        geosvg
+          .append('g')
+          .attr('class', 'legendSequential')
+          .attr('transform', 'translate(950,20)')
+          .style("font","12px sans-serif");
+
+        const legendSequential = legendColor()
+          .shapeWidth(30)
+          .cells(10)
+          .orient('vertical')
+          .scale(linear)
+          .title('Number of 2018 Placements')
+          .labelFormat(d3.format('.0f'));
+
+      geosvg.select('.legendSequential').call(legendSequential);
 
           const transform = d3.geoTransform({
             point: function(x, y) {
@@ -612,6 +630,8 @@ export function myGeoVis() {
                 return d.properties.state;
               });
         // how do i legend...
+
+        
 
     });
 
