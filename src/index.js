@@ -215,37 +215,37 @@ let myslider = slider_snap(2001, 2019)
 
     // make dropdown
 
-    const startselector = d3
-      .select('#middle')
-      .append('select')
-      .attr('id', 'startselector')
-      .selectAll('option')
-      .data(result)
-      .enter()
-      .append('option')
-      .text(function(d) {
-        return d;
-      })
-      .attr('value', function(d) {
-        // console.log(d);
-        return d;
-      });
+    // const startselector = d3
+    //   .select('#middle')
+    //   .append('select')
+    //   .attr('id', 'startselector')
+    //   .selectAll('option')
+    //   .data(result)
+    //   .enter()
+    //   .append('option')
+    //   .text(function(d) {
+    //     return d;
+    //   })
+    //   .attr('value', function(d) {
+    //     // console.log(d);
+    //     return d;
+    //   });
 
-        const endselector = d3
-          .select('#middle')
-          .append('select')
-          .attr('id', 'endselector')
-          .selectAll('option')
-          .data(resultend)
-          .enter()
-          .append('option')
-          .text(function(d) {
-            return d;
-          })
-          .attr('value', function(d) {
-            // console.log(d);
-            return d;
-          });
+    //     const endselector = d3
+    //       .select('#middle')
+    //       .append('select')
+    //       .attr('id', 'endselector')
+    //       .selectAll('option')
+    //       .data(resultend)
+    //       .enter()
+    //       .append('option')
+    //       .text(function(d) {
+    //         return d;
+    //       })
+    //       .attr('value', function(d) {
+    //         // console.log(d);
+    //         return d;
+    //       });
 
     // default view is from 2016-2019
 
@@ -271,35 +271,35 @@ let myslider = slider_snap(2001, 2019)
 
     // when an option is selected from the dropdown, use it to perform filtering by calling the update function
 
-    d3.select('#endselector').on('change', function(d) {
-      let startindex = d3.select('#startselector').property('value');
-      const index = this.value;
-      if (startindex === 'Select Start Year') {
-        // console.log("reassigning default startyear");
-        startindex = 2001;
-      }
-      // console.log(
-      //   "here's the chosen start year", startindex
-      // );
-      // console.log("here's the chosen end year", index);
-      update(data, startindex, index);
-    });
+    // d3.select('#endselector').on('change', function(d) {
+    //   let startindex = d3.select('#startselector').property('value');
+    //   const index = this.value;
+    //   if (startindex === 'Select Start Year') {
+    //     // console.log("reassigning default startyear");
+    //     startindex = 2001;
+    //   }
+    //   // console.log(
+    //   //   "here's the chosen start year", startindex
+    //   // );
+    //   // console.log("here's the chosen end year", index);
+    //   update(data, startindex, index);
+    // });
 
-       d3.select('#startselector').on('change', function(d) {
-         const startindex = this.value;
-         let index = d3.select('#endselector').property('value');
-         if (index === 'Select End Year') {
-          //  console.log("reassigning default endyear");
-           index = 2019;
-         }
-        //  console.log(
-        //    "here's the chosen start year",
-        //    this.value,
-        //    typeof this.value,
-        //  );
-        //  console.log("here's the chosen end year", index);
-         update(data, startindex, index);
-       });
+    //    d3.select('#startselector').on('change', function(d) {
+    //      const startindex = this.value;
+    //      let index = d3.select('#endselector').property('value');
+    //      if (index === 'Select End Year') {
+    //       //  console.log("reassigning default endyear");
+    //        index = 2019;
+    //      }
+    //     //  console.log(
+    //     //    "here's the chosen start year",
+    //     //    this.value,
+    //     //    typeof this.value,
+    //     //  );
+    //     //  console.log("here's the chosen end year", index);
+    //      update(data, startindex, index);
+    //    });
 
     // the update function that is called upon dropdown filtering
 
