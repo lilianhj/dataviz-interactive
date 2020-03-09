@@ -631,8 +631,8 @@ export function myGeoVis() {
 
     Promise.all([
       d3.json('data/tiles-topo-us.json'),
-      d3.csv('data/for_choro_postal.csv'),
-      d3.csv('data/origins.csv')
+      d3.csv('data/for_choro_postal_v3.csv'),
+      d3.csv('data/origins_v3.csv')
     ]).then(function (files) {
       const tilegram = files[0];
       const choro = files[1];
@@ -693,7 +693,7 @@ export function myGeoVis() {
           .cells(10)
           .orient('vertical')
           .scale(linear)
-          .title('Number of 2018 Placements')
+          .title('Number of 2010-2019 Placements')
           .labelFormat(d3.format('.0f'));
 
       geosvg.select('.legendSequential').call(legendSequential);
@@ -775,7 +775,7 @@ export function myGeoVis() {
               .append('text')
               .style('fill', function(d, i) {
                 // console.log("label colour", colorValues[i]);
-                return colorValues[i] > 1000 ? '#FFFFFF' : '#000';
+                return colorValues[i] > 40000 ? '#FFFFFF' : '#000';
               })
               .attr('class', function(d) {
                 return 'state-label state-label-' + d.id;
@@ -819,7 +819,7 @@ export function myGeoVis() {
 
     const margin = {top: 40, right: 200, bottom: 30, left: 120};
     const width = 960 - margin.left - margin.right;
-    const  height = 500 - margin.top - margin.bottom;
+    const  height = 700 - margin.top - margin.bottom;
 
     // set the ranges
     const y = d3
