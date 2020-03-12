@@ -98,6 +98,23 @@ nav a {
 
 .svgcontainer {
   padding: 10px 10px 10px 10px;
+  display: flex;
+  justify-content: center;
+}
+
+#middle {
+  display: flex;
+  justify-content: center;
+}
+
+.mapcontainer {
+  display: flex;
+  justify-content: center;
+}
+
+.mapchart {
+  display: flex;
+  justify-content: center;
 }
 
 /* #footer {
@@ -111,9 +128,9 @@ nav a {
   height: 40px;
 } */
 
-#map {
+/* #map {
   float: left;
-}
+} */
 
 /* #chart {
   float: right;

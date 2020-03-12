@@ -600,7 +600,7 @@ export function myGeoVis() {
     .append('svg')
     .attr('id', 'map')
     .attr('width', 900)
-    .attr('height', 500);
+    .attr('height', 460);
     // .style('background-color', 'steelblue')
 
           const div2 = d3
@@ -836,9 +836,9 @@ export function myGeoVis() {
     //       return `State: ${labeltext}, Total: ${labelnum}`;
     //     });
 
-    const margin = {top: 40, right: 200, bottom: 30, left: 120};
-    const width = 960 - margin.left - margin.right;
-    const  height = 500 - margin.top - margin.bottom;
+    const margin = {top: 25, right: 200, bottom: 30, left: 120};
+    const width = 900 - margin.left - margin.right;
+    const  height = 400 - margin.top - margin.bottom;
 
     // set the ranges
     const y = d3
@@ -850,7 +850,7 @@ export function myGeoVis() {
 
 
     const svg = d3
-      .select('.mapcontainer')
+      .select('.mapchart')
       .append('svg')
       .attr('id', 'statechart')
       .attr('width', width + margin.left + margin.right)
