@@ -735,6 +735,7 @@ export function myGeoVis() {
           .attr('stroke', '#130C0E')
           .attr('stroke-width', 4)
           .on('mouseover', function(d, i) {
+            console.log("hexover");
           div2
             .transition()
             .duration(200)
@@ -791,23 +792,44 @@ export function myGeoVis() {
               .text(function(d) {
                 return d.properties.state;
               })
-                      .on('click', function(d, i) {
-                        // console.log("labelclick", d, i);
-                    			// d3.selectAll('.tiles')
-                          //   .style('opacity', 0.15)
-                          //   .filter(function(d, i) {
-                          //     //console.log("hmm")
-                          //     return d.id == thisone.id;
-                          //     // return d.Species == type;
-                          //   })
-                          //   .style('opacity', 1);
-            const thisstate = stateNames[i];
-            const statefilt = origins.filter(function(d) {
-                    return (d.target === thisstate);
-                  });
-            // console.log("statefilt", statefilt)
-                        addchart(d, colorValues[i], thisstate, statefilt);
-          });
+              .on('mouseover', function(d, i) {
+                console.log("labelover");
+                div2
+                  .transition()
+                  .duration(200)
+                  .style('opacity', 0.8);
+                let txt = `<b>${stateNames[i]}<br/>${colorValues[i]}</b>`;
+                // console.log('txt', txt);
+                div2
+                  .html(txt)
+                  .style('left', `${d3.event.pageX}px`)
+                  .style('top', `${d3.event.pageY - 28}px`);
+                d3.select(this).attr('stroke-width', 6);
+              })
+              .on('mouseout', function(d) {
+                div2
+                  .transition()
+                  .duration(200)
+                  .style('opacity', 0);
+                d3.select(this).attr('stroke-width', 4);
+              })
+              .on('click', function(d, i) {
+                // console.log("labelclick", d, i);
+                // d3.selectAll('.tiles')
+                //   .style('opacity', 0.15)
+                //   .filter(function(d, i) {
+                //     //console.log("hmm")
+                //     return d.id == thisone.id;
+                //     // return d.Species == type;
+                //   })
+                //   .style('opacity', 1);
+                const thisstate = stateNames[i];
+                const statefilt = origins.filter(function(d) {
+                  return d.target === thisstate;
+                });
+                // console.log("statefilt", statefilt)
+                addchart(d, colorValues[i], thisstate, statefilt);
+              });
         // how do i legend...
 
         

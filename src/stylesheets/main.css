@@ -86,6 +86,10 @@ nav a {
     align-items: baseline;
 }
 
+.nav-right {
+  padding-right: 30px;
+}
+
 .nav-right li {
     float: right;
     align-items: baseline;
