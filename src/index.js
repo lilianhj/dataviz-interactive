@@ -12,7 +12,7 @@ export function myVis() {
 
   // set width and height of svg
   var w = 400
-  var h = 100
+  var h = 90
   var margin = {top: 30,
                 bottom: 30,
                 left: 40,
@@ -147,7 +147,7 @@ let myslider = slider_snap(2001, 2019)
 // console.log("slider range", myslider.getRange());
 
   // const svg = d3.select('svg');
-  const svg = d3.select('.svgcontainer').append('svg').attr('width', 960).attr('height', 500)
+  const svg = d3.select('.svgcontainer').append('svg').attr('width', 1200).attr('height', 500)
 
   const margin = {top: 40, right: 200, bottom: 60, left: 60};
   const width = Number(svg.attr('width')) - margin.left - margin.right;
@@ -249,7 +249,7 @@ let myslider = slider_snap(2001, 2019)
 
     // default view is from 2016-2019
 
-    update(data, 2016, 2019);
+    update(data, 2001, 2019);
 
     // trying with slider
 
@@ -735,6 +735,7 @@ export function myGeoVis() {
           .attr('stroke', '#130C0E')
           .attr('stroke-width', 4)
           .on('mouseover', function(d, i) {
+            console.log("hexover");
           div2
             .transition()
             .duration(200)
@@ -770,14 +771,20 @@ export function myGeoVis() {
             // console.log("statefilt", statefilt)
             addchart(d, colorValues[i], thisstate, statefilt);
           });
+
+          // console.log("colorrange", linear.range()[linear.range().length - 1])
     
             g2.selectAll('.state-label')
               .data(tiles.features)
               .enter()
               .append('text')
+              .style('font-size', '14')
               .style('fill', function(d, i) {
                 // console.log("label colour", colorValues[i]);
-                return colorValues[i] >= 729 ? '#FFFFFF' : '#000';
+                // console.log(colorValues[i], linear(colorValues[i]));
+                return (linear(colorValues[i]) ===
+                  linear.range()[linear.range().length - 1]) ? '#FFFFFF' : '#000';
+                // return colorValues[i] >= 729 ? '#FFFFFF' : '#000';
               })
               .attr('class', function(d) {
                 return 'state-label state-label-' + d.id;
@@ -790,23 +797,44 @@ export function myGeoVis() {
               .text(function(d) {
                 return d.properties.state;
               })
-                      .on('click', function(d, i) {
-                        // console.log("labelclick", d, i);
-                    			// d3.selectAll('.tiles')
-                          //   .style('opacity', 0.15)
-                          //   .filter(function(d, i) {
-                          //     //console.log("hmm")
-                          //     return d.id == thisone.id;
-                          //     // return d.Species == type;
-                          //   })
-                          //   .style('opacity', 1);
-            const thisstate = stateNames[i];
-            const statefilt = origins.filter(function(d) {
-                    return (d.target === thisstate);
-                  });
-            // console.log("statefilt", statefilt)
-                        addchart(d, colorValues[i], thisstate, statefilt);
-          });
+              .on('mouseover', function(d, i) {
+                console.log("labelover");
+                div2
+                  .transition()
+                  .duration(200)
+                  .style('opacity', 0.8);
+                let txt = `<b>${stateNames[i]}<br/>${colorValues[i]}</b>`;
+                // console.log('txt', txt);
+                div2
+                  .html(txt)
+                  .style('left', `${d3.event.pageX}px`)
+                  .style('top', `${d3.event.pageY - 28}px`);
+                d3.select(this).attr('stroke-width', 6);
+              })
+              .on('mouseout', function(d) {
+                div2
+                  .transition()
+                  .duration(200)
+                  .style('opacity', 0);
+                d3.select(this).attr('stroke-width', 4);
+              })
+              .on('click', function(d, i) {
+                // console.log("labelclick", d, i);
+                // d3.selectAll('.tiles')
+                //   .style('opacity', 0.15)
+                //   .filter(function(d, i) {
+                //     //console.log("hmm")
+                //     return d.id == thisone.id;
+                //     // return d.Species == type;
+                //   })
+                //   .style('opacity', 1);
+                const thisstate = stateNames[i];
+                const statefilt = origins.filter(function(d) {
+                  return d.target === thisstate;
+                });
+                // console.log("statefilt", statefilt)
+                addchart(d, colorValues[i], thisstate, statefilt);
+              });
         // how do i legend...
 
         

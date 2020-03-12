@@ -12,7 +12,8 @@
       <nav class="nav-top">
         <div class="nav-left">
           <ul>
-            <li><a href="index.html">Refugee Flow into the United States</a></li>
+            <li><a href="#time">Refugee Flow Across Time</a></li>
+            <li><a href="#space">Refugee Flow Across Space</a></li>
             <!-- <li><a href="second.html">Distribution Across Space</a></li> -->
           </ul>
         </div>
@@ -26,18 +27,20 @@
       </nav>
   <div id="app"></div>
   <script src="bundle.js"></script>
+  <div id="containall">
   <div class="bigtext"><h2>Refugee Flow into the United States: Variation Across Time and Space</h2>
     <h3>Where Do We Come From? What Are We? Where Are We Going?</h3>
   <p>The visualizations on this website display how the flow of refugees into the United States varies across time and space.</p>
-  <h3>Variation across time</h3>
+  <div id="time">
+    <h3>Variation across time</h3>
 <p>Every year, the President sets the overall "ceiling" - a maximum number of refugees that can be admitted to the United States - and allocates that number among different regions. The bar chart below shows how many refugees are actually admitted from each region in a year, and how this differs from the refugee ceiling - whether it exceeds or falls short of it.</p>
-<p>You can select a range of years to view by dragging the handles of the slider below. The default view is from 2016 to 2019.</b></p></div>
+<p>You can select any range of years to view, from 2001 to 2019, by dragging the handles of the slider below.</b></p></div></div>
 <div id="eventhandler"></div>
-<div class="bigtext" id="middle"></div>
+<div id="middle"></div>
 <div class="svgcontainer">
   <!-- <svg width="960" height="500"></svg> -->
   </div>
-  <div class="bigtext"><h3>Distribution across space</h3>
+  <div class="bigtext" id="space"><h3>Distribution across space</h3>
 <p>Once these refugees have been admitted to the United States, where do they go? We shift our attention from the origins of refugees, to take a more granular look at their destinations. The map below shows the placement of refugees in different states within the United States in 2018.</p>
 <p><b>You can click on a state to explore the exact breakdown of which refugees were placed in that state.</b></p>
   </div>
@@ -60,6 +63,7 @@
       </div>
     </nav>
   </footer> -->
+  </div>
 </body>
 
 </html>
