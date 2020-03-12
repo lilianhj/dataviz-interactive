@@ -1,34 +1,28 @@
 import * as d3 from 'd3';
 import * as topojson from 'topojson';
-import { legendColor } from 'd3-svg-legend';
+import {legendColor} from 'd3-svg-legend';
 
 export function myVis() {
-  // create SVG
 
-  // https://observablehq.com/@sarah37/snapping-range-slider-with-d3-brush
-  let slider_snap = function(min, max) {
+  const sliderSnap = function (min, max) {
 
-  var range = [min, max + 1]
+  const range = [min, max + 1]
 
-  // set width and height of svg
-  var w = 400
-  var h = 90
-  var margin = {top: 30,
+  const w = 400;
+  const h = 90;
+  const margin = {top: 30,
                 bottom: 30,
                 left: 40,
-                right: 40}
+                right: 40};
 
-  // dimensions of slider bar
-  var width = w - margin.left - margin.right;
-  var height = h - margin.top - margin.bottom;
+  const width = w - margin.left - margin.right;
+  const height = h - margin.top - margin.bottom;
 
-  // create x scale
-  var x = d3.scaleLinear()
-    .domain(range)  // data space
-    .range([0, width]);  // display space
+  const x = d3.scaleLinear()
+    .domain(range)  
+    .range([0, width]); 
   
-  // create svg and translated g
-  var svg = d3
+  const svg = d3
     .select('#middle')
     .append('svg')
     .attr('id', 'slidersvg')
@@ -36,7 +30,6 @@ export function myVis() {
     .attr('height', h);
   const g = svg.append('g').attr('transform', `translate(${margin.left}, ${margin.top})`)
   
-  // draw background lines
   g.append('g').selectAll('line')
     .data(d3.range(range[0], range[1]+1))
     .enter()
@@ -45,64 +38,55 @@ export function myVis() {
     .attr('y1', 0).attr('y2', height)
     .style('stroke', '#ccc')
   
-  // labels
-  var labelL = g.append('text')
+  const labelL = g.append('text')
     .attr('id', 'labelleft')
     .attr('x', 0)
     .attr('y', height + 5)
     .text(range[0])
 
-  var labelR = g.append('text')
+  const labelR = g.append('text')
     .attr('id', 'labelright')
     .attr('x', 0)
     .attr('y', height + 5)
     .text(range[1])
 
-  // define brush
-  var brush = d3.brushX()
+  const brush = d3.brushX()
     .extent([[0,0], [width, height]])
     .on('brush', function() {
-      var s = d3.event.selection;
-      // update and move labels
+      const s = d3.event.selection;
       labelL.attr('x', s[0])
         .text(Math.round(x.invert(s[0])))
       labelR.attr('x', s[1])
-        .text(Math.round(x.invert(s[1])) - 1)
-      // move brush handles      
-      handle.attr("display", null).attr("transform", function(d, i) { return "translate(" + [ s[i], - height / 4] + ")"; });
+        .text(Math.round(x.invert(s[1])) - 1)     
+      handle.attr("display", null).attr("transform", function(d, i) { return `translate(${[ s[i], - height / 4]})`; });
     })
     .on('end', function() {
       if (!d3.event.sourceEvent) return;
-      var d0 = d3.event.selection.map(x.invert);
-      var d1 = d0.map(Math.round)
+      const d0 = d3.event.selection.map(x.invert);
+      const d1 = d0.map(Math.round)
       d3.select(this).transition().call(d3.event.target.move, d1.map(x))
-            // update view
-      // if the view should only be updated after brushing is over, 
-      // move these two lines into the on('end') part below
-      var s = d3.event.selection;
-      var eventHandler = d3.select('#eventhandler');
+      const s = d3.event.selection;
+      const eventHandler = d3.select('#eventhandler');
       console.log("eventhandler", eventHandler);
       svg.node().value = s.map(d => Math.round(x.invert(d)));
-      let event = new Event('change');
+      const event = new Event('change');
       eventHandler.node().dispatchEvent(event);
     })
 
-  // append brush to g
-  var gBrush = g.append("g")
+  const gBrush = g.append("g")
       .attr("class", "brush")
       .call(brush)
 
-  // add brush handles (from https://bl.ocks.org/Fil/2d43867ba1f36a05459c7113c7f6f98a)
-  var brushResizePath = function(d) {
-      var e = +(d.type == "e"),
-          x = e ? 1 : -1,
-          y = height / 2;
-      return "M" + (.5 * x) + "," + y + "A6,6 0 0 " + e + " " + (6.5 * x) + "," + (y + 6) + "V" + (2 * y - 6) +
-        "A6,6 0 0 " + e + " " + (.5 * x) + "," + (2 * y) + "Z" + "M" + (2.5 * x) + "," + (y + 8) + "V" + (2 * y - 8) +
-        "M" + (4.5 * x) + "," + (y + 8) + "V" + (2 * y - 8);
+  const brushResizePath = function(d) {
+      const e = Number(d.type == "e");
+      const x = e ? 1 : -1;
+      const y = height / 2;
+      return `M${  .5 * x  },${  y  }A6,6 0 0 ${  e  } ${  6.5 * x  },${  y + 6  }V${  2 * y - 6 
+        }A6,6 0 0 ${  e  } ${  .5 * x  },${  2 * y  }Z` + `M${  2.5 * x  },${  y + 8  }V${  2 * y - 8 
+        }M${  4.5 * x  },${  y + 8  }V${  2 * y - 8}`;
   }
 
-  var handle = gBrush.selectAll(".handle--custom")
+  const handle = gBrush.selectAll(".handle--custom")
     .data([{type: "w"}, {type: "e"}])
     .enter().append("path")
     .attr("class", "handle--custom")
@@ -111,38 +95,34 @@ export function myVis() {
     .attr("cursor", "ew-resize")
     .attr("d", brushResizePath);
     
-  // override default behaviour - clicking outside of the selected area 
-  // will select a small piece there rather than deselecting everything
-  // https://bl.ocks.org/mbostock/6498000
   gBrush.selectAll(".overlay")
     .each(function(d) { d.type = "selection"; })
     .on("mousedown touchstart", brushcentered)
   
   function brushcentered() {
-    var dx = x(1) - x(0), // Use a fixed width when recentering.
-    cx = d3.mouse(this)[0],
-    x0 = cx - dx / 2,
-    x1 = cx + dx / 2;
+    const dx = x(1) - x(0);
+    const cx = d3.mouse(this)[0];
+    const x0 = cx - dx / 2;
+    const x1 = cx + dx / 2;
     d3.select(this.parentNode).call(brush.move, x1 > width ? [width - dx, width] : x0 < 0 ? [0, dx] : [x0, x1]);
   }
   
   // select entire range
   gBrush.call(brush.move, range.map(x))
 
-    var getRange = function() {
-      var range = d3
-        .brushSelection(gBrush.node())
-        .map(d => Math.round(x.invert(d)));
-      return range;
-    };
+    // var getRange = function() {
+    //   var range = d3
+    //     .brushSelection(gBrush.node())
+    //     .map(d => Math.round(x.invert(d)));
+    //   return range;
+    // };
   
-  // https://stackoverflow.com/a/22024786
   return svg.node()
 
 // return {getRange: getRange}
 }
 
-let myslider = slider_snap(2001, 2019)
+const myslider = sliderSnap(2001, 2019)
 
 // console.log("slider range", myslider.getRange());
 
@@ -633,7 +613,7 @@ export function myGeoVis() {
       d3.json('data/tiles-topo-us.json'),
       d3.csv('data/for_choro_postal.csv'),
       d3.csv('data/origins.csv')
-    ]).then(function (files) {
+    ]).then(function(files) {
       const tilegram = files[0];
       const choro = files[1];
       const origins = files[2];
@@ -740,7 +720,7 @@ export function myGeoVis() {
             .transition()
             .duration(200)
             .style('opacity', 0.8);
-          let txt = `<b>${stateNames[i]}<br/>${colorValues[i]}</b>`;
+          const txt = `<b>${stateNames[i]}<br/>${colorValues[i]}</b>`;
           // console.log('txt', txt);
           div2
             .html(txt)
@@ -787,10 +767,10 @@ export function myGeoVis() {
                 // return colorValues[i] >= 729 ? '#FFFFFF' : '#000';
               })
               .attr('class', function(d) {
-                return 'state-label state-label-' + d.id;
+                return `state-label state-label-${d.id}`;
               })
               .attr('transform', function(d) {
-                return 'translate(' + path.centroid(d) + ')';
+                return `translate(${path.centroid(d)})`;
               })
               .attr('dy', '.35em')
               .attr('dx', '-10px')
@@ -884,7 +864,7 @@ export function myGeoVis() {
       .attr('width', width + margin.left + margin.right)
       .attr('height', height + margin.top + margin.bottom)
       .append('g')
-      .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
+      .attr('transform', `translate(${margin.left},${margin.top})`);
 
     x.domain([
       0,
@@ -944,7 +924,6 @@ export function myGeoVis() {
         .append('text')
         .attr('class', 'label')
         .attr('y', function(d) {
-          console;
           return y(d.Country) + y.bandwidth() / 2 + 4;
         })
         .attr('x', function(d) {
@@ -957,7 +936,7 @@ export function myGeoVis() {
 
     svg
       .append('g')
-      .attr('transform', 'translate(0,' + height + ')')
+      .attr('transform', `translate(0,${height})`)
       .call(d3.axisBottom(x));
 
     svg.append('g').call(d3.axisLeft(y));
@@ -1024,3 +1003,21 @@ export function myGeoVis() {
 
     }
   }
+
+  // REFERENCES:
+  // for the slider:
+  // https://observablehq.com/@sarah37/snapping-range-slider-with-d3-brush
+  // https://bl.ocks.org/Fil/2d43867ba1f36a05459c7113c7f6f98a
+  // https://bl.ocks.org/mbostock/6498000
+  // https://stackoverflow.com/a/22024786
+  // for the grouped stacked bar chart:
+  // https://bl.ocks.org/SpaceActuary/6233700e7f443b719855a227f4749ee5
+  // for the hexmap:
+  // https://github.com/PitchInteractiveInc/tilegrams/blob/master/MANUAL.md
+  // https://gist.github.com/eesur/8678df74ee7efab6d645de07a79ebcc5
+  // https://bl.ocks.org/eesur/8678df74ee7efab6d645de07a79ebcc5
+  // for the additional bar chart:
+  // https://bl.ocks.org/hrecht/f84012ee860cb4da66331f18d588eee3
+  // https://bl.ocks.org/caravinden/eb0e5a2b38c8815919290fa838c6b63b
+  // for legends:
+  // https://d3-legend.susielu.com/
