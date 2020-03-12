@@ -12,7 +12,7 @@ export function myVis() {
 
   // set width and height of svg
   var w = 400
-  var h = 100
+  var h = 90
   var margin = {top: 30,
                 bottom: 30,
                 left: 40,
@@ -775,6 +775,7 @@ export function myGeoVis() {
               .data(tiles.features)
               .enter()
               .append('text')
+              .style('font-size', '14')
               .style('fill', function(d, i) {
                 // console.log("label colour", colorValues[i]);
                 return colorValues[i] >= 729 ? '#FFFFFF' : '#000';
