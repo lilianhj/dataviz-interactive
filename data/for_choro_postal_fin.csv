@@ -1,0 +1,295 @@
+State,value,World Region,Code
+Alabama,33,All,AL
+Alabama,0,Near East/South Asia,AL
+Alabama,1,Latin America/Caribbean,AL
+Alabama,0,Europe,AL
+Alabama,4,East Asia,AL
+Alabama,28,Africa,AL
+Alaska,0,Latin America/Caribbean,AK
+Alaska,22,Europe,AK
+Alaska,0,East Asia,AK
+Alaska,0,Africa,AK
+Alaska,0,Near East/South Asia,AK
+Alaska,22,All,AK
+Arizona,58,East Asia,AZ
+Arizona,808,All,AZ
+Arizona,585,Africa,AZ
+Arizona,162,Near East/South Asia,AZ
+Arizona,2,Latin America/Caribbean,AZ
+Arizona,1,Europe,AZ
+Arkansas,44,All,AR
+Arkansas,35,Africa,AR
+Arkansas,0,East Asia,AR
+Arkansas,8,Europe,AR
+Arkansas,1,Latin America/Caribbean,AR
+Arkansas,0,Near East/South Asia,AR
+California,562,Europe,CA
+California,1126,All,CA
+California,181,Latin America/Caribbean,CA
+California,204,Near East/South Asia,CA
+California,136,Africa,CA
+California,43,East Asia,CA
+Colorado,346,All,CO
+Colorado,165,Africa,CO
+Colorado,99,East Asia,CO
+Colorado,17,Europe,CO
+Colorado,5,Latin America/Caribbean,CO
+Colorado,60,Near East/South Asia,CO
+Connecticut,5,East Asia,CT
+Connecticut,87,Africa,CT
+Connecticut,126,All,CT
+Connecticut,7,Europe,CT
+Connecticut,3,Latin America/Caribbean,CT
+Connecticut,24,Near East/South Asia,CT
+Delaware,10,Africa,DE
+Delaware,0,East Asia,DE
+Delaware,0,Europe,DE
+Delaware,0,Latin America/Caribbean,DE
+Delaware,5,Near East/South Asia,DE
+Delaware,15,All,DE
+District of Columbia,0,Europe,DC
+District of Columbia,0,East Asia,DC
+District of Columbia,1,All,DC
+District of Columbia,0,Near East/South Asia,DC
+District of Columbia,0,Latin America/Caribbean,DC
+District of Columbia,1,Africa,DC
+Florida,479,All,FL
+Florida,33,Near East/South Asia,FL
+Florida,309,Africa,FL
+Florida,63,Europe,FL
+Florida,18,East Asia,FL
+Florida,56,Latin America/Caribbean,FL
+Georgia,261,Africa,GA
+Georgia,157,East Asia,GA
+Georgia,35,Latin America/Caribbean,GA
+Georgia,159,Near East/South Asia,GA
+Georgia,626,All,GA
+Georgia,14,Europe,GA
+Idaho,224,Africa,ID
+Idaho,11,East Asia,ID
+Idaho,30,Europe,ID
+Idaho,0,Latin America/Caribbean,ID
+Idaho,30,Near East/South Asia,ID
+Idaho,295,All,ID
+Illinois,64,Near East/South Asia,IL
+Illinois,1,Latin America/Caribbean,IL
+Illinois,56,Europe,IL
+Illinois,221,East Asia,IL
+Illinois,232,Africa,IL
+Illinois,574,All,IL
+Indiana,3,Near East/South Asia,IN
+Indiana,249,East Asia,IN
+Indiana,126,Africa,IN
+Indiana,402,All,IN
+Indiana,18,Europe,IN
+Indiana,6,Latin America/Caribbean,IN
+Iowa,106,East Asia,IA
+Iowa,60,Near East/South Asia,IA
+Iowa,2,Latin America/Caribbean,IA
+Iowa,0,Europe,IA
+Iowa,447,All,IA
+Iowa,279,Africa,IA
+Kansas,288,All,KS
+Kansas,0,Europe,KS
+Kansas,76,East Asia,KS
+Kansas,192,Africa,KS
+Kansas,0,Latin America/Caribbean,KS
+Kansas,20,Near East/South Asia,KS
+Kentucky,482,Africa,KY
+Kentucky,100,Near East/South Asia,KY
+Kentucky,0,Latin America/Caribbean,KY
+Kentucky,729,All,KY
+Kentucky,40,Europe,KY
+Kentucky,107,East Asia,KY
+Louisiana,1,Near East/South Asia,LA
+Louisiana,2,Latin America/Caribbean,LA
+Louisiana,0,Europe,LA
+Louisiana,10,East Asia,LA
+Louisiana,15,Africa,LA
+Louisiana,28,All,LA
+Maine,0,East Asia,ME
+Maine,9,Near East/South Asia,ME
+Maine,0,Latin America/Caribbean,ME
+Maine,0,Europe,ME
+Maine,52,Africa,ME
+Maine,61,All,ME
+Maryland,85,Near East/South Asia,MD
+Maryland,24,East Asia,MD
+Maryland,142,Africa,MD
+Maryland,70,Latin America/Caribbean,MD
+Maryland,10,Europe,MD
+Maryland,331,All,MD
+Massachusetts,354,All,MA
+Massachusetts,140,Africa,MA
+Massachusetts,7,East Asia,MA
+Massachusetts,89,Europe,MA
+Massachusetts,46,Latin America/Caribbean,MA
+Massachusetts,72,Near East/South Asia,MA
+Michigan,280,Africa,MI
+Michigan,566,All,MI
+Michigan,45,Europe,MI
+Michigan,88,East Asia,MI
+Michigan,153,Near East/South Asia,MI
+Michigan,0,Latin America/Caribbean,MI
+Minnesota,634,All,MN
+Minnesota,238,Africa,MN
+Minnesota,292,East Asia,MN
+Minnesota,62,Europe,MN
+Minnesota,11,Latin America/Caribbean,MN
+Minnesota,31,Near East/South Asia,MN
+Mississippi,2,Africa,MS
+Mississippi,0,Near East/South Asia,MS
+Mississippi,0,East Asia,MS
+Mississippi,0,Europe,MS
+Mississippi,2,All,MS
+Mississippi,0,Latin America/Caribbean,MS
+Missouri,365,All,MO
+Missouri,254,Africa,MO
+Missouri,51,East Asia,MO
+Missouri,31,Europe,MO
+Missouri,0,Latin America/Caribbean,MO
+Missouri,29,Near East/South Asia,MO
+Montana,0,Near East/South Asia,MT
+Montana,0,Europe,MT
+Montana,85,All,MT
+Montana,85,Africa,MT
+Montana,0,East Asia,MT
+Montana,0,Latin America/Caribbean,MT
+Nebraska,320,All,NE
+Nebraska,44,Africa,NE
+Nebraska,136,East Asia,NE
+Nebraska,15,Europe,NE
+Nebraska,4,Latin America/Caribbean,NE
+Nebraska,121,Near East/South Asia,NE
+Nevada,37,Near East/South Asia,NV
+Nevada,167,All,NV
+Nevada,125,Africa,NV
+Nevada,0,East Asia,NV
+Nevada,0,Europe,NV
+Nevada,5,Latin America/Caribbean,NV
+New Hampshire,77,Africa,NH
+New Hampshire,125,All,NH
+New Hampshire,16,East Asia,NH
+New Hampshire,1,Europe,NH
+New Hampshire,0,Latin America/Caribbean,NH
+New Hampshire,31,Near East/South Asia,NH
+New Jersey,32,Latin America/Caribbean,NJ
+New Jersey,16,Europe,NJ
+New Jersey,34,Near East/South Asia,NJ
+New Jersey,41,Africa,NJ
+New Jersey,128,All,NJ
+New Jersey,5,East Asia,NJ
+New Mexico,53,All,NM
+New Mexico,42,Africa,NM
+New Mexico,0,East Asia,NM
+New Mexico,0,Latin America/Caribbean,NM
+New Mexico,11,Near East/South Asia,NM
+New Mexico,0,Europe,NM
+New York,480,Africa,NY
+New York,191,East Asia,NY
+New York,19,Latin America/Caribbean,NY
+New York,200,Near East/South Asia,NY
+New York,244,Europe,NY
+New York,1134,All,NY
+North Carolina,68,Europe,NC
+North Carolina,55,Latin America/Caribbean,NC
+North Carolina,116,Near East/South Asia,NC
+North Carolina,161,East Asia,NC
+North Carolina,406,Africa,NC
+North Carolina,806,All,NC
+North Dakota,0,Latin America/Caribbean,ND
+North Dakota,7,Europe,ND
+North Dakota,0,East Asia,ND
+North Dakota,43,Africa,ND
+North Dakota,156,All,ND
+North Dakota,106,Near East/South Asia,ND
+Ohio,110,Europe,OH
+Ohio,36,East Asia,OH
+Ohio,385,Africa,OH
+Ohio,678,Near East/South Asia,OH
+Ohio,1218,All,OH
+Ohio,9,Latin America/Caribbean,OH
+Oklahoma,11,Europe,OK
+Oklahoma,2,Latin America/Caribbean,OK
+Oklahoma,0,Near East/South Asia,OK
+Oklahoma,80,All,OK
+Oklahoma,9,Africa,OK
+Oklahoma,58,East Asia,OK
+Oregon,85,Africa,OR
+Oregon,64,East Asia,OR
+Oregon,182,Europe,OR
+Oregon,1,Latin America/Caribbean,OR
+Oregon,39,Near East/South Asia,OR
+Oregon,371,All,OR
+Pennsylvania,301,Africa,PA
+Pennsylvania,28,East Asia,PA
+Pennsylvania,97,Europe,PA
+Pennsylvania,298,Near East/South Asia,PA
+Pennsylvania,2,Latin America/Caribbean,PA
+Pennsylvania,726,All,PA
+Rhode Island,7,Near East/South Asia,RI
+Rhode Island,4,Latin America/Caribbean,RI
+Rhode Island,0,Europe,RI
+Rhode Island,63,All,RI
+Rhode Island,0,East Asia,RI
+Rhode Island,52,Africa,RI
+South Carolina,0,Latin America/Caribbean,SC
+South Carolina,31,Europe,SC
+South Carolina,12,East Asia,SC
+South Carolina,57,Africa,SC
+South Carolina,104,All,SC
+South Carolina,4,Near East/South Asia,SC
+South Dakota,23,East Asia,SD
+South Dakota,188,All,SD
+South Dakota,4,Latin America/Caribbean,SD
+South Dakota,65,Near East/South Asia,SD
+South Dakota,26,Europe,SD
+South Dakota,70,Africa,SD
+Tennessee,177,Africa,TN
+Tennessee,21,Europe,TN
+Tennessee,19,Latin America/Caribbean,TN
+Tennessee,52,Near East/South Asia,TN
+Tennessee,37,East Asia,TN
+Tennessee,306,All,TN
+Texas,80,Latin America/Caribbean,TX
+Texas,1366,All,TX
+Texas,720,Africa,TX
+Texas,373,East Asia,TX
+Texas,0,Europe,TX
+Texas,193,Near East/South Asia,TX
+Utah,262,All,UT
+Utah,23,Near East/South Asia,UT
+Utah,2,Latin America/Caribbean,UT
+Utah,208,Africa,UT
+Utah,29,East Asia,UT
+Utah,0,Europe,UT
+Vermont,0,Europe,VT
+Vermont,3,East Asia,VT
+Vermont,64,Africa,VT
+Vermont,54,Near East/South Asia,VT
+Vermont,121,All,VT
+Vermont,0,Latin America/Caribbean,VT
+Virginia,106,Near East/South Asia,VA
+Virginia,4,East Asia,VA
+Virginia,64,Latin America/Caribbean,VA
+Virginia,6,Europe,VA
+Virginia,330,All,VA
+Virginia,150,Africa,VA
+Washington,1082,All,WA
+Washington,37,Near East/South Asia,WA
+Washington,98,Africa,WA
+Washington,60,East Asia,WA
+Washington,882,Europe,WA
+Washington,5,Latin America/Caribbean,WA
+West Virginia,0,Near East/South Asia,WV
+West Virginia,0,Latin America/Caribbean,WV
+West Virginia,0,Europe,WV
+West Virginia,1,All,WV
+West Virginia,1,Africa,WV
+West Virginia,0,East Asia,WV
+Wisconsin,320,All,WI
+Wisconsin,2,Latin America/Caribbean,WI
+Wisconsin,66,Africa,WI
+Wisconsin,232,East Asia,WI
+Wisconsin,0,Europe,WI
+Wisconsin,20,Near East/South Asia,WI
