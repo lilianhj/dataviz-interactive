@@ -147,7 +147,7 @@ let myslider = slider_snap(2001, 2019)
 // console.log("slider range", myslider.getRange());
 
   // const svg = d3.select('svg');
-  const svg = d3.select('.svgcontainer').append('svg').attr('width', 960).attr('height', 500)
+  const svg = d3.select('.svgcontainer').append('svg').attr('width', 1200).attr('height', 500)
 
   const margin = {top: 40, right: 200, bottom: 60, left: 60};
   const width = Number(svg.attr('width')) - margin.left - margin.right;
@@ -249,7 +249,7 @@ let myslider = slider_snap(2001, 2019)
 
     // default view is from 2016-2019
 
-    update(data, 2016, 2019);
+    update(data, 2001, 2019);
 
     // trying with slider
 
@@ -771,6 +771,8 @@ export function myGeoVis() {
             // console.log("statefilt", statefilt)
             addchart(d, colorValues[i], thisstate, statefilt);
           });
+
+          // console.log("colorrange", linear.range()[linear.range().length - 1])
     
             g2.selectAll('.state-label')
               .data(tiles.features)
@@ -779,7 +781,10 @@ export function myGeoVis() {
               .style('font-size', '14')
               .style('fill', function(d, i) {
                 // console.log("label colour", colorValues[i]);
-                return colorValues[i] >= 729 ? '#FFFFFF' : '#000';
+                // console.log(colorValues[i], linear(colorValues[i]));
+                return (linear(colorValues[i]) ===
+                  linear.range()[linear.range().length - 1]) ? '#FFFFFF' : '#000';
+                // return colorValues[i] >= 729 ? '#FFFFFF' : '#000';
               })
               .attr('class', function(d) {
                 return 'state-label state-label-' + d.id;
