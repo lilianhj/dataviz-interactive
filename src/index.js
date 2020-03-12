@@ -599,8 +599,8 @@ export function myGeoVis() {
     .select('.mapcontainer')
     .append('svg')
     .attr('id', 'map')
-    .attr('width', 1200)
-    .attr('height', 700);
+    .attr('width', 900)
+    .attr('height', 500);
     // .style('background-color', 'steelblue')
 
           const div2 = d3
@@ -631,8 +631,8 @@ export function myGeoVis() {
 
     Promise.all([
       d3.json('data/tiles-topo-us.json'),
-      d3.csv('data/for_choro_postal_v3.csv'),
-      d3.csv('data/origins_v3.csv')
+      d3.csv('data/for_choro_postal.csv'),
+      d3.csv('data/origins.csv')
     ]).then(function (files) {
       const tilegram = files[0];
       const choro = files[1];
@@ -675,9 +675,11 @@ export function myGeoVis() {
         // console.log('stateNames', stateNames);
         // console.log('colorValues', colorValues);
 
-        const linear = d3
-          .scaleSequential(d3.interpolateBlues)
-          .domain(d3.extent(colorValues));
+        const linear = d3.scaleQuantile().domain(colorValues).range(d3.schemeBlues[7]);
+
+        // const linear = d3
+        //   .scaleSequential(d3.interpolateBlues)
+        //   .domain(d3.extent(colorValues));
 
         // console.log("domain", linear.domain());
         // console.log("color", linear(500));
@@ -685,28 +687,28 @@ export function myGeoVis() {
         geosvg
           .append('g')
           .attr('class', 'legendSequential')
-          .attr('transform', 'translate(950,20)')
+          .attr('transform', 'translate(730,20)')
           .style("font","12px sans-serif");
 
         const legendSequential = legendColor()
           .shapeWidth(30)
-          .cells(10)
+          .cells(7)
           .orient('vertical')
           .scale(linear)
-          .title('Number of 2010-2019 Placements')
+          .title('Number of 2018 Placements')
           .labelFormat(d3.format('.0f'));
 
       geosvg.select('.legendSequential').call(legendSequential);
 
           const transform = d3.geoTransform({
             point: function(x, y) {
-              this.stream.point(x, -y);
+              this.stream.point(x * 0.75, -y * 0.75);
             },
           });
 
           const path = d3.geoPath().projection(transform);
 
-          const g2 = geosvg.append('g').attr('transform', 'translate(-350,600)');
+          const g2 = geosvg.append('g').attr('transform', 'translate(-250,450)');
 
         // const newsvg = d3
         //   .select('.mapcontainer')
@@ -775,7 +777,7 @@ export function myGeoVis() {
               .append('text')
               .style('fill', function(d, i) {
                 // console.log("label colour", colorValues[i]);
-                return colorValues[i] > 40000 ? '#FFFFFF' : '#000';
+                return colorValues[i] >= 729 ? '#FFFFFF' : '#000';
               })
               .attr('class', function(d) {
                 return 'state-label state-label-' + d.id;
@@ -787,7 +789,24 @@ export function myGeoVis() {
               .attr('dx', '-10px')
               .text(function(d) {
                 return d.properties.state;
-              });
+              })
+                      .on('click', function(d, i) {
+                        // console.log("labelclick", d, i);
+                    			// d3.selectAll('.tiles')
+                          //   .style('opacity', 0.15)
+                          //   .filter(function(d, i) {
+                          //     //console.log("hmm")
+                          //     return d.id == thisone.id;
+                          //     // return d.Species == type;
+                          //   })
+                          //   .style('opacity', 1);
+            const thisstate = stateNames[i];
+            const statefilt = origins.filter(function(d) {
+                    return (d.target === thisstate);
+                  });
+            // console.log("statefilt", statefilt)
+                        addchart(d, colorValues[i], thisstate, statefilt);
+          });
         // how do i legend...
 
         
@@ -819,7 +838,7 @@ export function myGeoVis() {
 
     const margin = {top: 40, right: 200, bottom: 30, left: 120};
     const width = 960 - margin.left - margin.right;
-    const  height = 700 - margin.top - margin.bottom;
+    const  height = 500 - margin.top - margin.bottom;
 
     // set the ranges
     const y = d3
