@@ -98,6 +98,23 @@ nav a {
 
 .svgcontainer {
   padding: 10px 10px 10px 10px;
+  display: flex;
+  justify-content: center;
+}
+
+#middle {
+  display: flex;
+  justify-content: center;
+}
+
+.mapcontainer {
+  display: flex;
+  justify-content: center;
+}
+
+.mapchart {
+  display: flex;
+  justify-content: center;
 }
 
 /* #footer {
@@ -111,9 +128,9 @@ nav a {
   height: 40px;
 } */
 
-#map {
+/* #map {
   float: left;
-}
+} */
 
 /* #chart {
   float: right;
@@ -122,4 +139,31 @@ nav a {
 .state-label {
   color: green;
   font-family: Tahoma;
+}
+
+#slidersvg {
+	font-family: sans-serif;
+}
+
+rect.overlay {
+	stroke: black;
+}
+
+rect.selection {
+	stroke: none;
+  fill: steelblue;
+  fill-opacity: 0.6;
+}
+
+#labelleft, #labelright {
+	dominant-baseline: hanging;
+  font-size: 12px;
+}
+
+#labelleft {
+	text-anchor: end;
+}
+
+#labelright {
+	text-anchor: start;
 }
