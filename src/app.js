@@ -1,4 +1,5 @@
-import { myVis, myGeoVis } from "./index"
+import {myVis} from './index';
+import {myGeoVis} from './geovis';
 
 // if the data you are going to import is small, then you can import it using es6 import
 // import MY_DATA from './app/data/example.json'

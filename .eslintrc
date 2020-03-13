@@ -14,7 +14,9 @@
     "object-curly-spacing": 0,
     "babel/object-curly-spacing": 2,
     "max-statements": 0,
-    "no-console": 0
+    "no-console": 0,
+    "func-names": 0,
+    "no-invalid-this": 0
   },
   "parser": "babel-eslint",
   "plugins": [
