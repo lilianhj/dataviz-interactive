@@ -180,7 +180,8 @@ rect.selection {
 }
 
 #regionselector {
-  padding-left: 30px;
+  display: flex;
+  justify-content: center;
 }
 
 text.shadow {

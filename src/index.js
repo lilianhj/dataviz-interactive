@@ -503,8 +503,8 @@ export function myGeoVis() {
       .data(theregions)
       .enter()
       .append('option')
-      .text(function(d) {
-        return d;
+      .text(function(d) { if (d === "All") {return "All Regions"} else
+        { return d };
       })
       .attr('value', function(d) {
         return d;
