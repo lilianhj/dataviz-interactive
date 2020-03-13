@@ -129,20 +129,6 @@ const myslider = sliderSnap(2001, 2019)
       d.Year = Number(d.Year);
     });
 
-    const lookup = {};
-    const result = ['Select Start Year'];
-    const resultend = ['Select End Year'];
-
-    for (let datum, i = 0; (datum = data[i++]); ) {
-      const year = datum.Year;
-
-      if (!(year in lookup)) {
-        lookup[year] = 1;
-        result.push(year);
-        resultend.push(year);
-      }
-    }
-
       const div = d3
         .select('body')
         .append('div')
@@ -448,26 +434,16 @@ export function myGeoVis() {
 
     Promise.all([
       d3.json('data/tiles-topo-us.json'),
-      d3.csv('data/for_choro_postal.csv'),
       d3.csv('data/origins.csv'),
       d3.csv('data/for_choro_postal_fin.csv')
     ]).then(function(files) {
       const tilegram = files[0];
-      const choro = files[1];
-      const origins = files[2];
-      const finchoro = files[3];
+      const origins = files[1];
+      const finchoro = files[2];
       const tiles = topojson.feature(tilegram, tilegram.objects.tiles);
           origins.forEach(function(d) {
             d.value = Number(d.value);
           });
-                  const thecsvdata = [];
-                  choro.forEach(function(d) {
-                    thecsvdata.push({
-                      statecode: d.Code,
-                      statename: d.State,
-                      value: Number(d.value),
-                    });
-                  });
 
                   const thebigcsvdata = [];
                   finchoro.forEach(function(d) {
@@ -478,8 +454,6 @@ export function myGeoVis() {
                       origregion: d['World Region']
                     });
                   });
-
-                  console.log("the big csv", thebigcsvdata);
 
                   const theregions = [];
                       const lookup = {};
@@ -492,8 +466,6 @@ export function myGeoVis() {
                           theregions.push(region);
                         }
                       }
-                
-                      console.log(theregions);
         
       let regionselector = d3
       .select('#regionselector')
@@ -511,16 +483,10 @@ export function myGeoVis() {
       });
 
                      d3.select('#selectormenu').on('change', function(d) {
-                       console.log(
-                         d3.select('#selectormenu').property('value'),
-                       );
-                       let chosenregion = d3.select('#selectormenu').property('value');
-                      //  let chosenregion = "Europe";
-                       console.log('selected region', chosenregion);
+                       const chosenregion = d3.select('#selectormenu').property('value');
                              const regfilt = thebigcsvdata.filter(function(d) {
                                return (d.origregion === chosenregion);
                              });
-                             console.log("filter region", regfilt);
                        hexmap(regfilt, chosenregion);
                      });
         
@@ -533,7 +499,6 @@ export function myGeoVis() {
 
         function hexmap(csvdata, regionname) {
           d3.selectAll('#statechart').remove();
-          console.log("data going into map", csvdata);
 
           const stateCodes = [];
           const stateNames = [];
@@ -554,30 +519,16 @@ export function myGeoVis() {
             }
           });
 
-          console.log(regionname, stateCodes, stateNames, colorValues);
-
               const max = Math.max(...colorValues);
               const numSteps = 5;
               const steps = [...new Array(numSteps)].map(
                 (_, idx) => (idx + 1) / numSteps,
               );
               steps.unshift(0);
-              console.log("steps", steps);
               const linear = d3
                 .scaleQuantile()
                 .domain(steps.map(d => d * max))
                 .range(steps.map(d => d3.interpolateBlues(d)));
-              
-            console.log(linear.domain(), linear.range());
-
-        //  const linear = d3
-        //    .scaleSequential(d3.interpolateBlues)
-        //    .domain(d3.extent(colorValues));
-
-          // const linear = d3
-          //   .scaleQuantile()
-          //   .domain(colorValues)
-          //   .range(d3.schemeBlues[7]);
 
           geosvg
             .append('g')
@@ -643,35 +594,16 @@ export function myGeoVis() {
               const statefilt =
                 regionname === 'All'
                   ? origins.filter(function(d) {
-                      // console.log("region filtering for bar", regionname, d)
                       return d.target === thisstate;
                     })
                   : origins.filter(function(d) {
-                      // console.log("region filtering for bar", regionname, d)
                       return (
                         d.target === thisstate &&
                         d['World Region'] === regionname
                       );
                     });
-              console.log('regionname rn', regionname);
-              console.log('statefilt', statefilt);
               addchart(d, colorValues[i], thisstate, statefilt);
             });
-
-            // g2.selectAll('.state-label')
-            // .data(tiles.features)
-            // .enter()
-            // .append('text')
-            // .style('font-size', '14')
-            // .attr('class', 'shadow')
-            // .attr('transform', function(d) {
-            //   return `translate(${path.centroid(d)})`;
-            // })
-            // .attr('dy', '.35em')
-            // .attr('dx', '-10px')
-            // .text(function(d) {
-            //   return d.properties.state;
-            // })
 
           g2.selectAll('.state-label')
             .data(tiles.features)
@@ -679,7 +611,6 @@ export function myGeoVis() {
             .append('text')
             .style('font-size', '14')
             .style('fill', function(d, i) {
-              // return colorValues[i] > 1000 ? '#FFFFFF' : '#000';
               return (linear(colorValues[i]) ===
                 linear.range()[linear.range().length - 1] ||
                 linear(colorValues[i]) ===
@@ -703,7 +634,7 @@ export function myGeoVis() {
                 .transition()
                 .duration(200)
                 .style('opacity', 0.8);
-              let txt = `<b>${stateNames[i]}<br/>${colorValues[i]}</b>`;
+              const txt = `<b>${stateNames[i]}<br/>${colorValues[i]}</b>`;
               div2
                 .html(txt)
                 .style('left', `${d3.event.pageX}px`)
@@ -722,22 +653,14 @@ export function myGeoVis() {
               const statefilt =
                 regionname === 'All'
                   ? origins.filter(function(d) {
-                      // console.log("region filtering for bar", regionname, d)
                       return d.target === thisstate;
                     })
                   : origins.filter(function(d) {
-                      // console.log("region filtering for bar", regionname, d)
                       return (
                         d.target === thisstate &&
                         d['World Region'] === regionname
                       );
                     });
-              // const statefilt = origins.filter(function(d) {
-              //   // console.log("region filtering for bar", regionname, d)
-              //   return d.target === thisstate && d['World Region'] === regionname;
-              // });
-              console.log('regionname rn', regionname);
-              console.log('statefilt', statefilt);
               addchart(d, colorValues[i], thisstate, statefilt);
             });
         }
