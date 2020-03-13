@@ -65,6 +65,12 @@ Georgia,35,Latin America/Caribbean,GA
 Georgia,159,Near East/South Asia,GA
 Georgia,626,All,GA
 Georgia,14,Europe,GA
+Hawaii,0,Africa,HI
+Hawaii,0,East Asia,HI
+Hawaii,0,Europe,HI
+Hawaii,0,Latin America/Caribbean,HI
+Hawaii,0,Near East/South Asia,HI
+Hawaii,0,All,HI
 Idaho,224,Africa,ID
 Idaho,11,East Asia,ID
 Idaho,30,Europe,ID
@@ -293,3 +299,9 @@ Wisconsin,66,Africa,WI
 Wisconsin,232,East Asia,WI
 Wisconsin,0,Europe,WI
 Wisconsin,20,Near East/South Asia,WI
+Wyoming,0,All,WY
+Wyoming,0,Latin America/Caribbean,WY
+Wyoming,0,Africa,WY
+Wyoming,0,East Asia,WY
+Wyoming,0,Europe,WY
+Wyoming,0,Near East/South Asia,WY

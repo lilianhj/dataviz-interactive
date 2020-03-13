@@ -449,53 +449,136 @@ export function myGeoVis() {
     Promise.all([
       d3.json('data/tiles-topo-us.json'),
       d3.csv('data/for_choro_postal.csv'),
-      d3.csv('data/origins.csv')
+      d3.csv('data/origins.csv'),
+      d3.csv('data/for_choro_postal_fin.csv')
     ]).then(function(files) {
       const tilegram = files[0];
       const choro = files[1];
       const origins = files[2];
+      const finchoro = files[3];
       const tiles = topojson.feature(tilegram, tilegram.objects.tiles);
           origins.forEach(function(d) {
             d.value = Number(d.value);
           });
-                  const csvdata = [];
+                  const thecsvdata = [];
                   choro.forEach(function(d) {
-                    csvdata.push({
+                    thecsvdata.push({
                       statecode: d.Code,
                       statename: d.State,
                       value: Number(d.value),
                     });
                   });
 
-        const stateCodes = [];
-        const stateNames = [];
-        const colorValues = [];
+                  const thebigcsvdata = [];
+                  finchoro.forEach(function(d) {
+                    thebigcsvdata.push({
+                      statecode: d.Code,
+                      statename: d.State,
+                      value: Number(d.value),
+                      origregion: d['World Region']
+                    });
+                  });
 
-        tilegram.objects.tiles.geometries.forEach(function (geometry) {
+                  console.log("the big csv", thebigcsvdata);
+
+                  const theregions = [];
+                      const lookup = {};
+
+                      for (let datum, i = 0; (datum = finchoro[i++]); ) {
+                        const region = datum['World Region'];
+
+                        if (!(region in lookup)) {
+                          lookup[region] = 1;
+                          theregions.push(region);
+                        }
+                      }
+                
+                      console.log(theregions);
+        
+      let regionselector = d3
+      .select('#regionselector')
+      .append('select')
+      .attr('id', 'selectormenu')
+      .selectAll('option')
+      .data(theregions)
+      .enter()
+      .append('option')
+      .text(function(d) {
+        return d;
+      })
+      .attr('value', function(d) {
+        return d;
+      });
+
+                     d3.select('#selectormenu').on('change', function(d) {
+                       console.log(
+                         d3.select('#selectormenu').property('value'),
+                       );
+                       let chosenregion = d3.select('#selectormenu').property('value');
+                      //  let chosenregion = "Europe";
+                       console.log('selected region', chosenregion);
+                             const regfilt = thebigcsvdata.filter(function(d) {
+                               return (d.origregion === chosenregion);
+                             });
+                             console.log("filter region", regfilt);
+                       hexmap(regfilt, chosenregion);
+                     });
+        
+        hexmap(
+          thebigcsvdata.filter(function(d) {
+            return d.origregion === "All";
+          }),
+          'All');
+
+
+        function hexmap(csvdata, regionname) {
+          console.log("data going into map", csvdata);
+
+          const stateCodes = [];
+          const stateNames = [];
+          const colorValues = [];
+
+          tilegram.objects.tiles.geometries.forEach(function(geometry) {
             if (stateCodes.indexOf(geometry.properties.state) === -1) {
-                stateCodes.push(geometry.properties.state);
-                stateNames.push(csvdata.find(({statecode}) => statecode === geometry.properties.state).statename);
-                colorValues.push(csvdata.find(({statecode}) => statecode === geometry.properties.state).value);
+              stateCodes.push(geometry.properties.state);
+              stateNames.push(
+                csvdata.find(
+                  ({statecode}) => statecode === geometry.properties.state).statename
+              );
+              colorValues.push(
+                csvdata.find(
+                  ({statecode}) => statecode === geometry.properties.state
+                ).value,
+              );
             }
-        });
+          });
 
-        const linear = d3.scaleQuantile().domain(colorValues).range(d3.schemeBlues[7]);
-      
-        geosvg
-          .append('g')
-          .attr('class', 'legendSequential')
-          .attr('transform', 'translate(730,20)')
-          .style("font","12px sans-serif");
+          console.log(regionname, stateCodes, stateNames, colorValues);
 
-        const legendSequential = legendColor()
-          .shapeWidth(30)
-          .cells(7)
-          .orient('vertical')
-          .scale(linear)
-          .title('Number of 2018 Placements')
-          .labelFormat(d3.format('.0f'));
+         const linear = d3
+           .scaleSequential(d3.interpolateBlues)
+           .domain(d3.extent(colorValues));
 
-      geosvg.select('.legendSequential').call(legendSequential);
+          // const linear = d3
+          //   .scaleQuantile()
+          //   .domain(colorValues)
+          //   .range(d3.schemeBlues[7]);
+
+          geosvg
+            .append('g')
+            .attr('class', 'legendSequential')
+            .attr('transform', 'translate(730,20)')
+            .style('font', '12px sans-serif');
+
+          const legendSequential = legendColor()
+            .shapeWidth(30)
+            .cells(7)
+            .orient('vertical')
+            .scale(linear)
+            .title('Number of 2018 Placements')
+            .labelFormat(d3.format('.0f'));
+
+          geosvg.select('.legendSequential').call(legendSequential);
 
           const transform = d3.geoTransform({
             point: function(x, y) {
@@ -505,93 +588,142 @@ export function myGeoVis() {
 
           const path = d3.geoPath().projection(transform);
 
-          const g2 = geosvg.append('g').attr('transform', 'translate(-250,450)');
+          const g2 = geosvg
+            .append('g')
+            .attr('transform', 'translate(-250,450)');
 
-        const borders = g2
-          .selectAll('.tiles')
-          .data(tiles.features)
-          .enter()
-          .append('path')
-          .attr('d', path)
-          .attr('class', 'border')
-          .attr('fill', function(d, i) {
-            return linear(colorValues[i]);
-          })
-          .attr('stroke', '#130C0E')
-          .attr('stroke-width', 4)
-          .on('mouseover', function(d, i) {
-          div2
-            .transition()
-            .duration(200)
-            .style('opacity', 0.8);
-          const txt = `<b>${stateNames[i]}<br/>${colorValues[i]}</b>`;
-          div2
-            .html(txt)
-            .style('left', `${d3.event.pageX}px`)
-            .style('top', `${d3.event.pageY - 28}px`);
-          d3.select(this).attr('stroke-width', 6);
-        })
-        .on('mouseout', function(d) {
-          div2
-            .transition()
-            .duration(200)
-            .style('opacity', 0);
-           d3.select(this).attr('stroke-width', 4);
-        })
-        .on('click', function(d, i) {
-            const thisstate = stateNames[i];
-            const statefilt = origins.filter(function(d) {
-                    return (d.target === thisstate);
-                  });
-            addchart(d, colorValues[i], thisstate, statefilt);
-          });
-    
-            g2.selectAll('.state-label')
-              .data(tiles.features)
-              .enter()
-              .append('text')
-              .style('font-size', '14')
-              .style('fill', function(d, i) {
-                return (linear(colorValues[i]) ===
-                  linear.range()[linear.range().length - 1]) ? '#FFFFFF' : '#000';
-              })
-              .attr('class', function(d) {
-                return `state-label state-label-${d.id}`;
-              })
-              .attr('transform', function(d) {
-                return `translate(${path.centroid(d)})`;
-              })
-              .attr('dy', '.35em')
-              .attr('dx', '-10px')
-              .text(function(d) {
-                return d.properties.state;
-              })
-              .on('mouseover', function(d, i) {
-                div2
-                  .transition()
-                  .duration(200)
-                  .style('opacity', 0.8);
-                let txt = `<b>${stateNames[i]}<br/>${colorValues[i]}</b>`;
-                div2
-                  .html(txt)
-                  .style('left', `${d3.event.pageX}px`)
-                  .style('top', `${d3.event.pageY - 28}px`);
-                d3.select(this).attr('stroke-width', 6);
-              })
-              .on('mouseout', function(d) {
-                div2
-                  .transition()
-                  .duration(200)
-                  .style('opacity', 0);
-                d3.select(this).attr('stroke-width', 4);
-              })
-              .on('click', function(d, i) {
-                const thisstate = stateNames[i];
-                const statefilt = origins.filter(function(d) {
-                  return d.target === thisstate;
-                });
-                addchart(d, colorValues[i], thisstate, statefilt);
-              });
+          const borders = g2
+            .selectAll('.tiles')
+            .data(tiles.features)
+            .enter()
+            .append('path')
+            .attr('d', path)
+            .attr('class', 'border')
+            .attr('fill', function(d, i) {
+              return linear(colorValues[i]);
+            })
+            .attr('stroke', '#130C0E')
+            .attr('stroke-width', 4)
+            .on('mouseover', function(d, i) {
+              div2
+                .transition()
+                .duration(200)
+                .style('opacity', 0.8);
+              const txt = `<b>${stateNames[i]}<br/>${colorValues[i]}</b>`;
+              div2
+                .html(txt)
+                .style('left', `${d3.event.pageX}px`)
+                .style('top', `${d3.event.pageY - 28}px`);
+              d3.select(this).attr('stroke-width', 6);
+            })
+            .on('mouseout', function(d) {
+              div2
+                .transition()
+                .duration(200)
+                .style('opacity', 0);
+              d3.select(this).attr('stroke-width', 4);
+            })
+            .on('click', function(d, i) {
+              const thisstate = stateNames[i];
+              const statefilt =
+                regionname === 'All'
+                  ? origins.filter(function(d) {
+                      // console.log("region filtering for bar", regionname, d)
+                      return d.target === thisstate;
+                    })
+                  : origins.filter(function(d) {
+                      // console.log("region filtering for bar", regionname, d)
+                      return (
+                        d.target === thisstate &&
+                        d['World Region'] === regionname
+                      );
+                    });
+              console.log('regionname rn', regionname);
+              console.log('statefilt', statefilt);
+              addchart(d, colorValues[i], thisstate, statefilt);
+            });
+
+            // g2.selectAll('.state-label')
+            // .data(tiles.features)
+            // .enter()
+            // .append('text')
+            // .style('font-size', '14')
+            // .attr('class', 'shadow')
+            // .attr('transform', function(d) {
+            //   return `translate(${path.centroid(d)})`;
+            // })
+            // .attr('dy', '.35em')
+            // .attr('dx', '-10px')
+            // .text(function(d) {
+            //   return d.properties.state;
+            // })
+
+          g2.selectAll('.state-label')
+            .data(tiles.features)
+            .enter()
+            .append('text')
+            .style('font-size', '14')
+            .style('fill', function(d, i) {
+              return colorValues[i] > 1000 ? '#FFFFFF' : '#000';
+              // return linear(colorValues[i]) ===
+              //   linear.range()[linear.range().length - 1]
+              //   ? '#FFFFFF'
+              //   : '#000';
+            })
+            .attr('class', function(d) {
+              return `state-label state-label-${d.id}`;
+            })
+            .attr('transform', function(d) {
+              return `translate(${path.centroid(d)})`;
+            })
+            .attr('dy', '.35em')
+            .attr('dx', '-10px')
+            .text(function(d) {
+              return d.properties.state;
+            })
+            .on('mouseover', function(d, i) {
+              div2
+                .transition()
+                .duration(200)
+                .style('opacity', 0.8);
+              let txt = `<b>${stateNames[i]}<br/>${colorValues[i]}</b>`;
+              div2
+                .html(txt)
+                .style('left', `${d3.event.pageX}px`)
+                .style('top', `${d3.event.pageY - 28}px`);
+              d3.select(this).attr('stroke-width', 6);
+            })
+            .on('mouseout', function(d) {
+              div2
+                .transition()
+                .duration(200)
+                .style('opacity', 0);
+              d3.select(this).attr('stroke-width', 4);
+            })
+            .on('click', function(d, i) {
+              const thisstate = stateNames[i];
+              const statefilt =
+                regionname === 'All'
+                  ? origins.filter(function(d) {
+                      // console.log("region filtering for bar", regionname, d)
+                      return d.target === thisstate;
+                    })
+                  : origins.filter(function(d) {
+                      // console.log("region filtering for bar", regionname, d)
+                      return (
+                        d.target === thisstate &&
+                        d['World Region'] === regionname
+                      );
+                    });
+              // const statefilt = origins.filter(function(d) {
+              //   // console.log("region filtering for bar", regionname, d)
+              //   return d.target === thisstate && d['World Region'] === regionname;
+              // });
+              console.log('regionname rn', regionname);
+              console.log('statefilt', statefilt);
+              addchart(d, colorValues[i], thisstate, statefilt);
+            });
+        }
 
         
 
