@@ -532,6 +532,7 @@ export function myGeoVis() {
 
 
         function hexmap(csvdata, regionname) {
+          d3.selectAll('#statechart').remove();
           console.log("data going into map", csvdata);
 
           const stateCodes = [];
@@ -555,9 +556,23 @@ export function myGeoVis() {
 
           console.log(regionname, stateCodes, stateNames, colorValues);
 
-         const linear = d3
-           .scaleSequential(d3.interpolateBlues)
-           .domain(d3.extent(colorValues));
+              const max = Math.max(...colorValues);
+              const numSteps = 5;
+              const steps = [...new Array(numSteps)].map(
+                (_, idx) => (idx + 1) / numSteps,
+              );
+              steps.unshift(0);
+              console.log("steps", steps);
+              const linear = d3
+                .scaleQuantile()
+                .domain(steps.map(d => d * max))
+                .range(steps.map(d => d3.interpolateBlues(d)));
+              
+            console.log(linear.domain(), linear.range());
+
+        //  const linear = d3
+        //    .scaleSequential(d3.interpolateBlues)
+        //    .domain(d3.extent(colorValues));
 
           // const linear = d3
           //   .scaleQuantile()
@@ -570,13 +585,13 @@ export function myGeoVis() {
             .attr('transform', 'translate(730,20)')
             .style('font', '12px sans-serif');
 
-          const legendSequential = legendColor()
-            .shapeWidth(30)
-            .cells(7)
-            .orient('vertical')
-            .scale(linear)
-            .title('Number of 2018 Placements')
-            .labelFormat(d3.format('.0f'));
+    const legendSequential = legendColor()
+      .shapeWidth(30)
+      .cells(7)
+      .orient('vertical')
+      .scale(linear)
+      .title('Number of 2018 Placements')
+      .labelFormat(d3.format('.0f'));
 
           geosvg.select('.legendSequential').call(legendSequential);
 
@@ -664,11 +679,13 @@ export function myGeoVis() {
             .append('text')
             .style('font-size', '14')
             .style('fill', function(d, i) {
-              return colorValues[i] > 1000 ? '#FFFFFF' : '#000';
-              // return linear(colorValues[i]) ===
-              //   linear.range()[linear.range().length - 1]
-              //   ? '#FFFFFF'
-              //   : '#000';
+              // return colorValues[i] > 1000 ? '#FFFFFF' : '#000';
+              return (linear(colorValues[i]) ===
+                linear.range()[linear.range().length - 1] ||
+                linear(colorValues[i]) ===
+                  linear.range()[linear.range().length - 2])
+                ? '#FFFFFF'
+                : '#000';
             })
             .attr('class', function(d) {
               return `state-label state-label-${d.id}`;
